@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+import DocumentDropzone from './components/DocumentDropzone';
 
-import React from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <h1>DeepPhe-CR Demo App</h1>
-      </header>
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>DeepPhe-CR Demo App</h1>
+            </header>
 
-      <div>
-        <input type="file" name="file" />
-        <div>
-          <button>Process and Submit Document</button>
+            <DocumentDropzone />
+
         </div>
-      </div>
-
-    </div>
-  );
+    );
 }
+
 
 export default App;
