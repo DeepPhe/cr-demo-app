@@ -1,82 +1,75 @@
-import React, {useState, useEffect, useCallback} from 'react'
-import {useDropzone} from 'react-dropzone'
-import DocumentPreview from './DocumentPreview';
-
-
-const thumbsContainer = {
-  display: 'flex',
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  marginTop: 16
-};
-
-const thumb = {
-  display: 'inline-flex',
-  borderRadius: 2,
-  border: '1px solid #eaeaea',
-  marginBottom: 8,
-  marginRight: 8,
-  width: 100,
-  height: 100,
-  padding: 4,
-  boxSizing: 'border-box'
-};
-
-const thumbInner = {
-  display: 'flex',
-  minWidth: 0,
-  overflow: 'hidden'
-};
-
-const img = {
-  display: 'block',
-  width: 'auto',
-  height: '100%'
-};
+// useState is a Hook that lets you add React state to function components
+import React, {useState} from "react";
+import {useDropzone} from 'react-dropzone';
 
 
 function DocumentDropzone(props) {
+    // Declare a new state variable `files` with an empty array as initial state
+    // It returns a pair of values: the current state and a function that updates it
     const [files, setFiles] = useState([]);
+
+    // const with curly brackets is object destructuring assignment from ES6 specifications
+    // a shorthand way to initialize variables from object properties
     const {getRootProps, getInputProps} = useDropzone({
+        // Single file mode
+        multiple: false,
+        // Only accept text file
         accept: {
             'text/plain': ['.txt']
         },
         onDrop: acceptedFiles => {
-        setFiles(acceptedFiles.map(file => Object.assign(file, {
-            preview: URL.createObjectURL(file)
-        })));
+            // `acceptedFiles` is an array and stores the details of each accepted
+            console.log(acceptedFiles)
+
+            acceptedFiles.forEach(file => {
+                // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+                // no arguments
+                const reader = new FileReader()
+
+                reader.onabort = () => console.log('file reading was aborted')
+                reader.onerror = () => console.log('file reading has failed')
+                reader.onload = () => {
+                    // Do whatever you want with the file contents
+                    const binaryStr = reader.result
+                    console.log(binaryStr)
+
+                    // Add new property `preview` to each file object
+                    file.preview = binaryStr
+                }
+
+                // Note, this readAsText() returns None (undefined).
+                reader.readAsText(file);
+            })
+
+            // Update the state variable `files` using the `acceptedFiles` information 
+            setFiles(acceptedFiles)
         }
     });
-  
-    const thumbs = files.map(file => (
-        <div style={thumb} key={file.name}>
-            <div style={thumbInner}>
-                <img
-                    src={file.preview}
-                    style={img}
-                    // Revoke data uri after image is loaded
-                    onLoad={() => { URL.revokeObjectURL(file.preview) }}
-                />
-            </div>
+
+    // Add `key`` property to avoid: Warning: Each child in a list should have a unique "key" prop
+    // Use <pre> to preserve the original preformatted text, 
+    // in which structure is represented by typographic conventions rather than by elements.
+    const DocumentPreview = files.map(file => (
+        <div key={file.name} className="preview">
+        <p className="text-primary">{file.name}, {file.size}</p>
+        <pre>{file.preview}</pre>
         </div>
     ));
 
-    useEffect(() => {
-        // Make sure to revoke the data uris to avoid memory leaks, will run on unmount
-        return () => files.forEach(file => URL.revokeObjectURL(file.preview));
-    }, []);
 
+    // The spread syntax is denoted by three dots
     return (
-        <section className="container">
-            <div {...getRootProps({className: 'dropzone'})}>
-                <input {...getInputProps()} />
-                <p>Drag 'n' drop some files here, or click to select files</p>
-            </div>
-            <aside style={thumbsContainer}>
-                {thumbs}
-            </aside>
-        </section>
-    );
+        <div {...getRootProps()}>
+        <input {...getInputProps()} />
+        
+        <p className="drop-zone alert alert-primary">Drag 'n' drop patient document here, or click to select file</p>
+
+        <div>
+        {DocumentPreview}
+        </div>
+
+        </div>
+    )
 }
 
 

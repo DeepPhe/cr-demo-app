@@ -6,6 +6,8 @@ A simple web application designed to demonstrate the capabilities of the DeepPhe
 
 Install [Node Version Manager](https://github.com/nvm-sh/nvm) first then insall Nodejs v18 includes npm).
 
+Then under the root directory of this project, run `npm install` to install all the dependencies.
+
 ## Available Scripts
 
 In the project directory, you can run:
