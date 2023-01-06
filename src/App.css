@@ -14,17 +14,36 @@
   color: white;
 }
 
-#doc-content {
-  margin:  20px auto;
-  width:100%;
+.doc-preview {
+  background-color: #fff;
 }
 
-.preview {
-  background-color: #fff;
+.doc-preview-header {
+  margin-bottom: 20px;
+  background-color: #f2f2f2;
+  font-weight:  bold;
+  border-bottom: 1px solid #666;
   padding: 20px;
 }
 
+.doc-preview-content {
+  padding: 20px;
+}
+
+.file-info {
+  margin-right: 40px;
+}
+
 .drop-zone {
-  padding: 60px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border:  1px solid #f2f2f2;
+  background-color: #fff;
   text-align: center;
+}
+
+.summarized-doc {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
 }
