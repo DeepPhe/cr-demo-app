@@ -89,18 +89,30 @@ function DocumentDropzone(props) {
         <button type="submit" className="btn btn-primary" onClick={summarizeDocument}>Submit</button>
         </header>
 
-        <div className="doc-preview-content">
+        <div className="doc-content">
         <pre>{file.preview}</pre>
         </div>
         </div>
     ));
 
     // Use <code> rather than <pre> to format
-    const summarizedDocument = (
-        <div className="summarized-doc">
-        <code>{result}</code>
-        </div>
-    );
+    function summarizedDocument(text) {
+        if (result !== '') {
+            return (
+                <div className="summarized-doc">
+                <header className="doc-preview-header">
+                <span className="text-primary file-info">Review Document Summary</span>
+                </header>
+                
+                <div className="doc-content">
+                <code>{text}</code>
+                </div>
+                </div>
+            )
+        }
+    }
+        
+    let summarizedDoc = summarizedDocument(result);
 
     // The spread syntax is denoted by three dots
     return (
@@ -115,7 +127,7 @@ function DocumentDropzone(props) {
         </div>
 
         <div>
-        {summarizedDocument}
+        {summarizedDoc}
         </div>
 
         </div>
