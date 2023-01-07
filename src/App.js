@@ -10,13 +10,15 @@ import DocumentDropzone from './components/DocumentDropzone';
  */
 function App() {
     return (
-        <div className="App">
+        <div className="app">
 
-        <header className="App-header">
+        <header className="app-header">
         <h1>DeepPhe-CR Demo App</h1>
         </header>
 
+        <div className="app-content">
         <DocumentDropzone />
+        </div>
 
         </div>
     );

@@ -1,33 +1,40 @@
-.App {
-padding: 40px 60px;
-background-color: #999;
+.app {
+background-color: #e9ecef;;
 }
 
-.App-header {
+.app-header {
 background-color: #282c34;
-margin: 20px 0 40px 0;
 padding: 20px;
 display: flex;
 flex-direction: column;
 align-items: center;
-font-size: calc(10px + 2vmin);
 color: white;
 }
 
-.doc-preview {
-background-color: #fff;
-}
-
-.doc-preview-header {
-margin-bottom: 20px;
-background-color: #f2f2f2;
-font-weight:  bold;
-border-bottom: 1px solid #666;
+.app-content {
+min-height: 600px;
 padding: 20px;
 }
 
-.doc-content {
+.doc-preview, .doc-summary {
+background-color: #fff;
+border: 1px solid #282c34;
+margin-bottom: 30px;
+}
+
+.doc-header {
+background-color: #f2f2f2;
+font-weight:  bold;
+border-bottom: 1px solid #666;
 padding: 10px 20px;
+line-height: 40px;
+}
+
+pre.doc-content {
+padding: 20px;
+max-height: 360px;
+overflow: scroll;
+margin-bottom: 0; /* There's a default margin  */
 }
 
 .file-info {
@@ -35,19 +42,12 @@ margin-right: 40px;
 }
 
 .drop-zone {
-padding: 20px;
+padding: 10px;
 margin-bottom: 20px;
-border:  1px solid #f2f2f2;
-background-color: #fff;
 text-align: center;
 }
 
-.summarized-doc {
-margin-top: 20px;
-background-color: #fff;
-}
-
 .spinner {
-width:  200px;
+width:  120px;
 float:  right;
 }

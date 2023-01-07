@@ -14,12 +14,12 @@ import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
  * @param {object} props The properties object
  */
 function DocumentDropzone(props) {
-    // Declare a new state variable `files` with an empty array as initial state
+    // State variables with initial state
     // It returns a pair of values: the current state and a function that updates it
-    const [files, setFiles] = useState([]);
+    const [files, setFiles] = useState([]); // Empty array as initial state
 
-    const [result, setResult] = useState('');
-    const [error, setError] = useState('');
+    const [result, setResult] = useState({}); // Empty object as initial state
+    const [error, setError] = useState({}); // Empty object as initial state
 
     // Function component of the spinner
     const Spinner = props => {
@@ -29,8 +29,8 @@ function DocumentDropzone(props) {
             <span className="spinner">
             {promiseInProgress && 
             <ThreeDots 
-            height="80" 
-            width="80" 
+            height="40" 
+            width="100" 
             radius="9"
             color="#4fa94d" 
             ariaLabel="three-dots-loading"
@@ -52,11 +52,11 @@ function DocumentDropzone(props) {
             'text/plain': ['.txt']
         },
         onDrop: acceptedFiles => {
-            // Reset the extraction result on each new file selection
+            // Reset the extraction summary result on each new file selection
             setResult('');
             setError('');
 
-            // `acceptedFiles` is an array and stores the details of each accepted
+            // `acceptedFiles` is an array and stores the details of each accepted file
             console.log(acceptedFiles);
 
             acceptedFiles.forEach(file => {
@@ -92,8 +92,8 @@ function DocumentDropzone(props) {
             .then(response => response.json())
             .then(
                 (data) => {
-                    // `data` is an object here, we need string
-                    setResult(JSON.stringify(data));
+                    // `data` is an object here
+                    setResult(data);
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
@@ -114,41 +114,40 @@ function DocumentDropzone(props) {
     const DocumentPreview = files.map(file => (
         <div key={file.name} className="doc-preview">
 
-        <header className="doc-preview-header">
-        <span className="text-primary file-info">{file.name}, {file.size}</span>
+        <header className="doc-header">
+        <span className="text-primary file-info">{file.name}</span>
         <button type="submit" className="btn btn-primary" onClick={summarizeDocument}>Summarize</button> 
         <Spinner />
         </header>
 
-        <div className="doc-content">
-        <pre>{file.preview}</pre>
-        </div>
+        <pre className="doc-content">{file.preview}</pre>
 
         </div>
     ));
 
     // Show the json payload of summarized doc or error message or nothing
-    function summarizedDocument(text) {
-        if (error) {
-            return (<div className="summarized-doc">{error.message}</div>);
-        } else if (result) {
+    // `result` is json object
+    function summarizedDocument() {
+        // Show error message as long as the `error` is not empty object\
+        // Show summaried doc as long as the `result` is not empty object
+        if (Object.keys(error).length > 0) {
+            return (<div className="alert alert-danger">{error.message}</div>);
+        } else if (Object.keys(result).length > 0) {
             return (
-                <div className="summarized-doc">
+                <div className="doc-summary">
 
-                <header className="doc-preview-header">
+                <header className="doc-header">
                 <span className="text-primary file-info">Review Document Summary</span>
                 </header>
                 
-                <div className="doc-content">
-                {/* Use <code> rather than <pre> to format */}
-                <code>{text}</code>
-                </div>
+                {/* Use <code> to wrap <pre> to highlight the preformatted result */}
+                <code><pre className="doc-content">{JSON.stringify(result, null, 2)}</pre></code>
 
                 </div>
             );
         } else {
             // Render nothing
-            return (null);
+            return null;
         }
     }
 
@@ -159,7 +158,7 @@ function DocumentDropzone(props) {
         {/* The spread syntax is denoted by three dots */}
         <div {...getRootProps()} className="drop-zone">
         <input {...getInputProps()} />
-        <p>Click to select patient note</p>
+        <p className="btn btn-primary">Click to select patient note</p>
         </div>
 
         <div>
@@ -168,7 +167,7 @@ function DocumentDropzone(props) {
 
         <div>
         {/* A function can be defined and use by the expression, remember to add () */}
-        {summarizedDocument(result)}
+        {summarizedDocument()}
         </div>
 
         </div>
