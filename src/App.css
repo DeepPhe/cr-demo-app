@@ -37,13 +37,14 @@ overflow: scroll;
 margin-bottom: 0; /* There's a default margin  */
 }
 
-.file-info {
+.doc-info {
 margin-right: 40px;
 }
 
 .drop-zone {
+width: 300px;
 padding: 10px;
-margin-bottom: 20px;
+margin: 00 auto 10px;
 text-align: center;
 }
 

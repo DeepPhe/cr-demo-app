@@ -1,9 +1,9 @@
 // components in curly brackets are named export
 // no need to use curly brackets for default export
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import {useDropzone} from 'react-dropzone';
 import {ThreeDots} from 'react-loader-spinner';
-import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
+import {trackPromise, usePromiseTracker} from 'react-promise-tracker';
 
 
 /**
@@ -11,13 +11,12 @@ import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
  * object argument with data and returns a React element. We call such components "function components" 
  * because they are literally JavaScript functions.
  *
- * @param {object} props The properties object
+ * @param {object} props The properties object as input to a React component
  */
 function DocumentDropzone(props) {
     // State variables with initial state
     // It returns a pair of values: the current state and a function that updates it
-    const [files, setFiles] = useState([]); // Empty array as initial state
-
+    const [doc, setDoc] = useState({}); // Empty object as initial state
     const [result, setResult] = useState({}); // Empty object as initial state
     const [error, setError] = useState({}); // Empty object as initial state
 
@@ -59,28 +58,29 @@ function DocumentDropzone(props) {
             // `acceptedFiles` is an array and stores the details of each accepted file
             console.log(acceptedFiles);
 
-            acceptedFiles.forEach(file => {
-                // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
-                // no arguments
-                const reader = new FileReader();
+            // We only handle one file
+            let file = acceptedFiles[0];
 
-                reader.onabort = () => console.log('file reading was aborted');
-                reader.onerror = () => console.log('file reading has failed');
-                reader.onload = () => {
-                    // Do whatever you want with the file contents
-                    const binaryStr = reader.result;
-                    console.log(binaryStr);
+            // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
+            // no arguments
+            const reader = new FileReader();
 
-                    // Add new property `preview` to each file object
-                    file.preview = binaryStr;
-                }
+            reader.onabort = () => console.log('file reading was aborted');
+            reader.onerror = () => console.log('file reading has failed');
+            reader.onload = () => {
+                // Do whatever you want with the file contents
+                const binaryStr = reader.result;
+                console.log(binaryStr);
 
-                // Note, this readAsText() returns None (undefined).
-                reader.readAsText(file);
-            });
+                // Add new property `preview` to each file object
+                file.preview = binaryStr;
+            }
 
-            // Update the state variable `files` using the `acceptedFiles` information 
-            setFiles(acceptedFiles);
+            // Note, this readAsText() returns None (undefined).
+            reader.readAsText(file);
+
+            // Update the state variable `doc` using the `file` information 
+            setDoc(file);
         }
     });
 
@@ -89,7 +89,15 @@ function DocumentDropzone(props) {
     function summarizeDocument() {
         trackPromise(
             fetch("https://entity.api.hubmapconsortium.org/entities/0de3181b777383b7b918d4402021fb34")
-            .then(response => response.json())
+            // fetch("http://localhost:8080/deepphe/summarizeDoc/doc/1", {
+            //     method: 'GET',
+            //     meaders: {
+            //         'Content-Type': 'text/plain',
+            //         'Authorization': 'Bearer ABCDEF123456'
+            //     },
+            //     body: doc.preview
+            // })
+            .then(response => response.json()) // convert to json
             .then(
                 (data) => {
                     // `data` is an object here
@@ -111,19 +119,23 @@ function DocumentDropzone(props) {
     // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
     // Use <pre> to preserve the original preformatted text, 
     // in which structure is represented by typographic conventions rather than by elements.
-    const DocumentPreview = files.map(file => (
-        <div key={file.name} className="doc-preview">
+    function documentPreview() {
+        if (Object.keys(doc).length > 0) {
+            return (
+                <div key={doc.name} className="doc-preview">
 
-        <header className="doc-header">
-        <span className="text-primary file-info">{file.name}</span>
-        <button type="submit" className="btn btn-primary" onClick={summarizeDocument}>Summarize</button> 
-        <Spinner />
-        </header>
+                <header className="doc-header">
+                <span className="text-primary doc-info">{doc.name}</span>
+                <button type="submit" className="btn btn-primary" onClick={summarizeDocument}>Summarize</button> 
+                <Spinner />
+                </header>
 
-        <pre className="doc-content">{file.preview}</pre>
+                <pre className="doc-content">{doc.preview}</pre>
 
-        </div>
-    ));
+                </div>
+            )
+        }
+    }
 
     // Show the json payload of summarized doc or error message or nothing
     // `result` is json object
@@ -137,7 +149,7 @@ function DocumentDropzone(props) {
                 <div className="doc-summary">
 
                 <header className="doc-header">
-                <span className="text-primary file-info">Review Document Summary</span>
+                <span className="text-primary doc-info">Review Document Summary</span>
                 </header>
                 
                 {/* Use <code> to wrap <pre> to highlight the preformatted result */}
@@ -162,7 +174,7 @@ function DocumentDropzone(props) {
         </div>
 
         <div>
-        {DocumentPreview}
+        {documentPreview()}
         </div>
 
         <div>
