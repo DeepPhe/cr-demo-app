@@ -5,6 +5,9 @@ import {useDropzone} from 'react-dropzone';
 import {ThreeDots} from 'react-loader-spinner';
 import {trackPromise, usePromiseTracker} from 'react-promise-tracker';
 
+// config data
+import config from "../config/config.json";
+
 
 /**
  * This function is a valid React component because it accepts a single “props” (which stands for properties) 
@@ -88,15 +91,15 @@ function DocumentDropzone(props) {
     // Fetch data from backend API and store the text to react state variable
     function summarizeDocument() {
         trackPromise(
-            fetch("https://entity.api.hubmapconsortium.org/entities/0de3181b777383b7b918d4402021fb34")
-            // fetch("http://localhost:8080/deepphe/summarizeDoc/doc/1", {
-            //     method: 'GET',
-            //     meaders: {
-            //         'Content-Type': 'text/plain',
-            //         'Authorization': 'Bearer ABCDEF123456'
-            //     },
-            //     body: doc.preview
-            // })
+            // fetch("https://entity.api.hubmapconsortium.org/entities/0de3181b777383b7b918d4402021fb34")
+            fetch(config.api_base_url + "summarizeOneDoc/doc/1", {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'text/plain',
+                    'Authorization': 'Bearer ' + config.auth_token
+                },
+                body: doc.preview
+            })
             .then(response => response.json()) // convert to json
             .then(
                 (data) => {

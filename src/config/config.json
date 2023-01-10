@@ -1,0 +1,4 @@
+{
+  "api_base_url": "http://localhost:8080/deepphe/",
+  "auth_token": "AbCdEf123456"
+}
