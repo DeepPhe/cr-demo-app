@@ -1,6 +1,7 @@
 // components in curly brackets are named export
 // no need to use curly brackets for default export
 import {useState} from "react";
+import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
 import {ThreeDots} from 'react-loader-spinner';
 import {trackPromise, usePromiseTracker} from 'react-promise-tracker';
@@ -90,29 +91,30 @@ function DocumentDropzone(props) {
     // Submit button handler
     // Fetch data from backend API and store the text to react state variable
     function summarizeDocument() {
+        const requestConfig = {
+            'headers': {
+                'Content-Type': 'text/plain',
+                'Authorization': 'Bearer ' + config.auth_token
+            }
+        };
+
         trackPromise(
-            // fetch("https://entity.api.hubmapconsortium.org/entities/0de3181b777383b7b918d4402021fb34")
-            fetch(config.api_base_url + "summarizeOneDoc/doc/1", {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'text/plain',
-                    'Authorization': 'Bearer ' + config.auth_token
-                },
-                body: doc.preview
-            })
-            .then(response => response.json()) // convert to json
+            axios.put(config.api_base_url + "summarizeOneDoc/doc/1", doc.preview, requestConfig)
             .then(
-                (data) => {
+                (res) => {
+                    console.log(res)
+
                     // `data` is an object here
-                    setResult(data);
+                    setResult(res.data);
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
                 // exceptions from actual bugs in components.
-                (error) => {
-                    setError(error);
+                (err) => {
+                    setError(err);
                 }
             )
+            .catch(err => console.log(err))
         );
 
         console.log(result);
