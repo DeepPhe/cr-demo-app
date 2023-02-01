@@ -1,6 +1,6 @@
 // components in curly brackets are named export
 // no need to use curly brackets for default export
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
 import {ThreeDots} from 'react-loader-spinner';
@@ -168,6 +168,8 @@ function DocumentDropzone(props) {
     // State variables with initial state
     // It returns a pair of values: the current state and a function that updates it
     const [doc, setDoc] = useState({}); // Empty object as initial state
+    const [docText, setDocText] = useState(''); // Empty string as initial state
+    const [highlightedReportText, setHighlightedReportText] = useState(''); // Empty string as initial state
     const [result, setResult] = useState({}); // Empty object as initial state
     const [error, setError] = useState({}); // Empty object as initial state
 
@@ -226,8 +228,13 @@ function DocumentDropzone(props) {
                 console.log("======binaryStr======");
                 console.log(binaryStr);
 
+                setDocText(binaryStr);
+
                 // Add new property `preview` to each file object
                 file.preview = binaryStr;
+
+                console.log("======file.preview======");
+                console.log(file.preview);
             }
 
             // Note, this readAsText() returns None (undefined).
@@ -272,13 +279,17 @@ function DocumentDropzone(props) {
         );
     }
 
+    // Only re-run the effect if highlightedReportText changes
+    useEffect(() => {
+        documentPreview();
+    }, [highlightedReportText]);
     
     // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
     // Use <pre> to preserve the original preformatted text, 
     // in which structure is represented by typographic conventions rather than by elements.
     function documentPreview() {
         console.log("Executing documentPreview()...");
-
+        
         if (Object.keys(doc).length > 0) {
             return (
                 <div key={doc.name} className="doc-preview">
@@ -307,16 +318,21 @@ function DocumentDropzone(props) {
             return (<div className="alert alert-danger">{error.message}</div>);
         } else if (Object.keys(result).length > 0) {
             let info = getExtractedInfo(result);
-
-            const highlightText = (e) => {
+            
+            const highlightText = (mentions) => {
                 console.log("Executing highlightText...");
-
-                let mentions = e.currentTarget.getAttribute("data-value");
 
                 console.log("======mentions======");
                 console.log(mentions);
 
-                doc.preview = highlightTextMentions(mentions, doc.preview);
+                let highlightedDocText = highlightTextMentions(mentions, docText);
+
+                doc.preview = highlightedDocText;
+
+                console.log("======highlightedDocText======");
+                console.log(highlightedDocText);
+
+                setHighlightedReportText(highlightedDocText);
             };
 
             return (
@@ -329,11 +345,11 @@ function DocumentDropzone(props) {
                 <div className="extracted-info">
                 <p>Extracted Info</p>
                 <ul>
-                <li>Topography: <span data-value="dddd" onClick={highlightText}>{info.topography.value}</span></li>
-                <li>Histology: <span data-value={info.histology.mentions} onClick={highlightText}>{info.histology.value}</span></li>
-                <li>Behavior: <span data-value={info.behavior.mentions} onClick={highlightText}>{info.behavior.value}</span></li>
-                <li>Laterality: <span data-value={info.laterality.mentions} onClick={highlightText}>{info.laterality.value}</span></li>
-                <li>Grade: <span data-value={info.grade.mentions} onClick={highlightText}>{info.grade.value}</span></li>
+                <li>Topography: <span onClick={() => highlightText(info.topography.mentions)}>{info.topography.value}</span></li>
+                <li>Histology: <span onClick={() => highlightText(info.histology.mentions)}>{info.histology.value}</span></li>
+                <li>Behavior: <span onClick={() => highlightText(info.behavior.mentions)}>{info.behavior.value}</span></li>
+                <li>Laterality: <span onClick={() => highlightText(info.laterality.mentions)}>{info.laterality.value}</span></li>
+                <li>Grade: <span onClick={() => highlightText(info.grade.mentions)}>{info.grade.value}</span></li>
                 </ul>
                 </div>
 
