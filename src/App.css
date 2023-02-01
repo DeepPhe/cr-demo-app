@@ -30,6 +30,10 @@ padding: 10px 20px;
 line-height: 40px;
 }
 
+.extracted-info {
+padding: 20px;
+}
+
 pre.doc-content {
 padding: 20px;
 max-height: 360px;

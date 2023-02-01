@@ -10,6 +10,48 @@ import {trackPromise, usePromiseTracker} from 'react-promise-tracker';
 import config from "../config/config.json";
 
 
+// Extract information from summarized json for rendering
+function getExtractedInfo(dataObj) {
+    console.log("======Input: dataObj======");
+    console.log(dataObj);
+
+    let infoObj = {
+        'topography': '',
+        'histology': '',
+        'behavior': '',
+        'laterality': '',
+        'grade': ''
+    };
+
+    dataObj.neoplasms[0].attributes.forEach(item => {
+        if (item.name === 'topography') {
+            infoObj.topography = item.value;
+        }
+
+        if (item.name === 'histology') {
+            infoObj.histology = item.value;
+        }
+
+        if (item.name === 'behavior') {
+            infoObj.behavior = item.value;
+        }
+
+        if (item.name === 'laterality') {
+            infoObj.laterality = item.value;
+        }
+
+        if (item.name === 'grade') {
+            infoObj.grade = item.value;
+        }
+    });
+
+    console.log("======Output: infoObj======");
+    console.log(infoObj);
+
+    return infoObj;
+}
+
+
 /**
  * This function is a valid React component because it accepts a single “props” (which stands for properties) 
  * object argument with data and returns a React element. We call such components "function components" 
@@ -60,6 +102,7 @@ function DocumentDropzone(props) {
             setError('');
 
             // `acceptedFiles` is an array and stores the details of each accepted file
+            console.log("======acceptedFiles======");
             console.log(acceptedFiles);
 
             // We only handle one file
@@ -74,6 +117,8 @@ function DocumentDropzone(props) {
             reader.onload = () => {
                 // Do whatever you want with the file contents
                 const binaryStr = reader.result;
+
+                console.log("======binaryStr======");
                 console.log(binaryStr);
 
                 // Add new property `preview` to each file object
@@ -91,6 +136,8 @@ function DocumentDropzone(props) {
     // Submit button handler
     // Fetch data from backend API and store the text to react state variable
     function summarizeDocument() {
+        console.log("Executing summarizeDocument()...");
+
         const requestConfig = {
             'headers': {
                 'Content-Type': 'text/plain',
@@ -102,6 +149,7 @@ function DocumentDropzone(props) {
             axios.put(config.api_base_url + "summarizeOneDoc/doc/1", doc.preview, requestConfig)
             .then(
                 (res) => {
+                    console.log("======API call response: res======");
                     console.log(res)
 
                     // `data` is an object here
@@ -111,20 +159,21 @@ function DocumentDropzone(props) {
                 // instead of a catch() block so that we don't swallow
                 // exceptions from actual bugs in components.
                 (err) => {
+                    console.log("======API call err: err======");
                     setError(err);
                 }
             )
             .catch(err => console.log(err))
         );
-
-        console.log(result);
-        console.log(error);
     }
 
+    
     // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
     // Use <pre> to preserve the original preformatted text, 
     // in which structure is represented by typographic conventions rather than by elements.
     function documentPreview() {
+        console.log("Executing documentPreview()...");
+
         if (Object.keys(doc).length > 0) {
             return (
                 <div key={doc.name} className="doc-preview">
@@ -142,14 +191,18 @@ function DocumentDropzone(props) {
         }
     }
 
-    // Show the json payload of summarized doc or error message or nothing
+    // Show the extracted info along with json payload of summarized doc or error message or nothing
     // `result` is json object
     function summarizedDocument() {
+        console.log("Executing summarizedDocument()...");
+        
         // Show error message as long as the `error` is not empty object\
         // Show summaried doc as long as the `result` is not empty object
         if (Object.keys(error).length > 0) {
             return (<div className="alert alert-danger">{error.message}</div>);
         } else if (Object.keys(result).length > 0) {
+            let info = getExtractedInfo(result);
+
             return (
                 <div className="doc-summary">
 
@@ -157,6 +210,17 @@ function DocumentDropzone(props) {
                 <span className="text-primary doc-info">Review Document Summary</span>
                 </header>
                 
+                <div className="extracted-info">
+                <p>Extracted Info</p>
+                <ul>
+                <li>Topography: <span>{info.topography}</span></li>
+                <li>Histology: <span>{info.histology}</span></li>
+                <li>Behavior: <span>{info.behavior}</span></li>
+                <li>Laterality: <span>{info.laterality}</span></li>
+                <li>Grade: <span>{info.grade}</span></li>
+                </ul>
+                </div>
+
                 {/* Use <code> to wrap <pre> to highlight the preformatted result */}
                 <code><pre className="doc-content">{JSON.stringify(result, null, 2)}</pre></code>
 
@@ -183,7 +247,7 @@ function DocumentDropzone(props) {
         </div>
 
         <div>
-        {/* A function can be defined and use by the expression, remember to add () */}
+        {/* A function can be defined and used by the expression, remember to add () */}
         {summarizedDocument()}
         </div>
 
