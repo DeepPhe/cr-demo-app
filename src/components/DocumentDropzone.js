@@ -16,32 +16,52 @@ function getExtractedInfo(dataObj) {
     console.log(dataObj);
 
     let infoObj = {
-        'topography': '',
-        'histology': '',
-        'behavior': '',
-        'laterality': '',
-        'grade': ''
+        'topography': {
+            'value': '',
+            'mentions': []
+        },
+        'histology': {
+            'value': '',
+            'mentions': []
+        },
+        'behavior': {
+            'value': '',
+            'mentions': []
+        },
+        'laterality': {
+            'value': '',
+            'mentions': []
+        },
+        'grade': {
+            'value': '',
+            'mentions': []
+        }
     };
 
     dataObj.neoplasms[0].attributes.forEach(item => {
         if (item.name === 'topography') {
-            infoObj.topography = item.value;
+            infoObj.topography.value = item.value;
+            infoObj.topography.mentions = getTextMentions(item.directEvidence);
         }
 
-        if (item.name === 'histology') {
-            infoObj.histology = item.value;
+        if (item.name === 'histologic_type') {
+            infoObj.histology.value = item.value;
+            infoObj.histology.mentions = getTextMentions(item.directEvidence);
         }
 
         if (item.name === 'behavior') {
-            infoObj.behavior = item.value;
+            infoObj.behavior.value = item.value;
+            infoObj.behavior.mentions = getTextMentions(item.directEvidence);
         }
 
         if (item.name === 'laterality') {
-            infoObj.laterality = item.value;
+            infoObj.laterality.value = item.value;
+            infoObj.laterality.mentions = getTextMentions(item.directEvidence);
         }
 
         if (item.name === 'grade') {
-            infoObj.grade = item.value;
+            infoObj.grade.value = item.value;
+            infoObj.grade.mentions = getTextMentions(item.directEvidence);
         }
     });
 
@@ -49,6 +69,91 @@ function getExtractedInfo(dataObj) {
     console.log(infoObj);
 
     return infoObj;
+}
+
+
+// 
+function getTextMentions(arr) {
+    let textMentions = [];
+    
+    arr.forEach(item => {
+        let textMentionObj = {};
+        textMentionObj.text = item.classUri;
+        textMentionObj.beginOffset = item.begin;
+        textMentionObj.endOffset = item.end;
+        
+        textMentions.push(textMentionObj);
+    });
+
+    return textMentions;
+}
+
+
+// Highlight one or multiple text mentions
+function highlightTextMentions(textMentions, reportText) {
+    const cssClass = "highlighted_term";
+
+    // Sort the textMentions array first based on beginOffset
+    textMentions.sort(function(a, b) {
+        let comp = a.beginOffset - b.beginOffset;
+        if (comp === 0) {
+            return b.endOffset - a.endOffset;
+        } else {
+            return comp;
+        }
+    });
+
+    let textFragments = [];
+
+    if (textMentions.length === 1) {
+        let textMention = textMentions[0];
+
+        if (textMention.beginOffset === 0) {
+            textFragments.push('');
+        } else {
+            textFragments.push(reportText.substring(0, textMention.beginOffset));
+        }
+
+        textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
+        textFragments.push(reportText.substring(textMention.endOffset));
+    } else {
+        let lastValidTMIndex = 0;
+
+        for (let i = 0; i < textMentions.length; i++) {
+            let textMention = textMentions[i];
+            let lastValidTM = textMentions[lastValidTMIndex];
+
+            // If this is the first textmention, paste the start of the document before the first TM.
+            if (i === 0) {
+                if (textMention.beginOffset === 0) {
+                    textFragments.push('');
+                } else {
+                    textFragments.push(reportText.substring(0, textMention.beginOffset));
+                }
+            } else { // Otherwise, check if this text mention is valid. if it is, paste the text from last valid TM to this one.
+                if (textMention.beginOffset < lastValidTM.endOffset) {
+                        // Push end of the document
+                    continue; // Skipping this TM.
+                } else{
+                    textFragments.push(reportText.substring(lastValidTM.endOffset, textMention.beginOffset));
+                }
+            }
+
+            textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
+            lastValidTMIndex = i;
+        }
+        // Push end of the document
+        textFragments.push(reportText.substring(textMentions[lastValidTMIndex].endOffset));
+    }
+
+    // Assemble the final report content with highlighted texts
+    let highlightedReportText = '';
+
+    for (let j = 0; j < textFragments.length; j++) {
+        highlightedReportText += textFragments[j];
+    }
+
+    return highlightedReportText;
 }
 
 
@@ -195,13 +300,24 @@ function DocumentDropzone(props) {
     // `result` is json object
     function summarizedDocument() {
         console.log("Executing summarizedDocument()...");
-        
+
         // Show error message as long as the `error` is not empty object\
         // Show summaried doc as long as the `result` is not empty object
         if (Object.keys(error).length > 0) {
             return (<div className="alert alert-danger">{error.message}</div>);
         } else if (Object.keys(result).length > 0) {
             let info = getExtractedInfo(result);
+
+            const highlightText = (e) => {
+                console.log("Executing highlightText...");
+
+                let mentions = e.currentTarget.getAttribute("data-value");
+
+                console.log("======mentions======");
+                console.log(mentions);
+
+                doc.preview = highlightTextMentions(mentions, doc.preview);
+            };
 
             return (
                 <div className="doc-summary">
@@ -213,11 +329,11 @@ function DocumentDropzone(props) {
                 <div className="extracted-info">
                 <p>Extracted Info</p>
                 <ul>
-                <li>Topography: <span>{info.topography}</span></li>
-                <li>Histology: <span>{info.histology}</span></li>
-                <li>Behavior: <span>{info.behavior}</span></li>
-                <li>Laterality: <span>{info.laterality}</span></li>
-                <li>Grade: <span>{info.grade}</span></li>
+                <li>Topography: <span data-value="dddd" onClick={highlightText}>{info.topography.value}</span></li>
+                <li>Histology: <span data-value={info.histology.mentions} onClick={highlightText}>{info.histology.value}</span></li>
+                <li>Behavior: <span data-value={info.behavior.mentions} onClick={highlightText}>{info.behavior.value}</span></li>
+                <li>Laterality: <span data-value={info.laterality.mentions} onClick={highlightText}>{info.laterality.value}</span></li>
+                <li>Grade: <span data-value={info.grade.mentions} onClick={highlightText}>{info.grade.value}</span></li>
                 </ul>
                 </div>
 
