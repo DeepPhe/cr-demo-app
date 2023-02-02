@@ -1,6 +1,6 @@
 # DeepPhe-CR Demonstration Application
 
-A simple web application designed to demonstrate the capabilities of the DeepPhe-CR tools. This app will be based on the integration of DeepPhe-CR into CPDMS, as developed by KCR. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React web application designed to demonstrate the capabilities of the DeepPhe-CR tools. This app will be based on the integration of DeepPhe-CR into CPDMS, as developed by KCR. The backend REST API service is provided through the [DeepPhe Stream Multi-Container Stack](https://github.com/DeepPhe/dphe-stream-dock) project.
 
 ## Install
 
