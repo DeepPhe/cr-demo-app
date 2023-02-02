@@ -359,23 +359,23 @@ function DocumentDropzone(props) {
                 <div className="extracted-info">
                 <ul className="list-group rounded-0">
                 {info.topography.value !== '' &&
-                    <li className="list-group-item">Topography: <span className="term topography-term" onClick={() => highlightText(info.topography.mentions, 'topography-term')}>{info.topography.value}</span></li>
+                    <li className="list-group-item">Topography: <span className="term topography-term" onClick={() => highlightText(info.topography.mentions, 'topography-term')}>{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span></li>
                 }
 
                 {info.histology.value !== '' &&
-                    <li className="list-group-item">Histology: <span className="term histology-term" onClick={() => highlightText(info.histology.mentions, 'histology-term')}>{info.histology.value}</span></li>
+                    <li className="list-group-item">Histology: <span className="term histology-term" onClick={() => highlightText(info.histology.mentions, 'histology-term')}>{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span></li>
                 }
 
                 {info.behavior.value !== '' &&
-                    <li className="list-group-item">Behavior: <span className="term behavior-term" onClick={() => highlightText(info.behavior.mentions, 'behavior-term')}>{info.behavior.value}</span></li>
+                    <li className="list-group-item">Behavior: <span className="term behavior-term" onClick={() => highlightText(info.behavior.mentions, 'behavior-term')}>{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span></li>
                 }
 
                 {info.laterality.value !== '' &&
-                    <li className="list-group-item">Laterality: <span className="term laterality-term" onClick={() => highlightText(info.laterality.mentions, 'laterality-term')}>{info.laterality.value}</span></li>
+                    <li className="list-group-item">Laterality: <span className="term laterality-term" onClick={() => highlightText(info.laterality.mentions, 'laterality-term')}>{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span></li>
                 }
 
                 {info.grade.value !== '' &&
-                    <li className="list-group-item">Grade: <span className="term grade-term" onClick={() => highlightText(info.grade.mentions, 'grade-term')}>{info.grade.value}</span></li>
+                    <li className="list-group-item">Grade: <span className="term grade-term" onClick={() => highlightText(info.grade.mentions, 'grade-term')}>{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span></li>
                 }
                 </ul>
                 </div>

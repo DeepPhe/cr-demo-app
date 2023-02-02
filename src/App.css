@@ -73,6 +73,11 @@ float: right;
 cursor: pointer;
 }
 
+.term-count {
+margin-left: 2px;
+font-size: .8em;
+}
+
 .topography-term {
 background: #cfe2ff;
 }
