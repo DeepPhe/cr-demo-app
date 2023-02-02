@@ -39,7 +39,7 @@ function getExtractedInfo(dataObj) {
     };
 
     dataObj.neoplasms[0].attributes.forEach(item => {
-        if (item.name === 'topography') {
+        if (item.name === 'location') {
             infoObj.topography.value = item.value;
             infoObj.topography.mentions = getTextMentions(item.directEvidence);
         }
@@ -112,6 +112,7 @@ function highlightTextMentions(textMentions, cssClass, reportText) {
             textFragments.push(reportText.substring(0, textMention.beginOffset));
         }
 
+        // Don't use `className` attr, only `class` works
         textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
         textFragments.push(reportText.substring(textMention.endOffset));
     } else {
@@ -137,6 +138,7 @@ function highlightTextMentions(textMentions, cssClass, reportText) {
                 }
             }
 
+            // Don't use `className` attr, only `class` works
             textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
             lastValidTMIndex = i;
         }
@@ -151,8 +153,10 @@ function highlightTextMentions(textMentions, cssClass, reportText) {
         highlightedReportText += textFragments[j];
     }
 
+    console.log("======highlightedReportText======");
+    console.log(highlightedReportText);
+
     return <div dangerouslySetInnerHTML={{__html: highlightedReportText}} />;
-    //return highlightedReportText;
 }
 
 
@@ -268,6 +272,9 @@ function DocumentDropzone(props) {
 
                     // `data` is an object here
                     setResult(res.data);
+
+                    console.log("======Pretty print======");
+                    console.log(JSON.stringify(result, null, 2));
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
@@ -352,23 +359,23 @@ function DocumentDropzone(props) {
                 <div className="extracted-info">
                 <ul className="list-group rounded-0">
                 {info.topography.value !== '' &&
-                    <li class="list-group-item">Topography: <span className="term topography-term" onClick={() => highlightText(info.topography.mentions, 'topography-term')}>{info.topography.value}</span></li>
+                    <li className="list-group-item">Topography: <span className="term topography-term" onClick={() => highlightText(info.topography.mentions, 'topography-term')}>{info.topography.value}</span></li>
                 }
 
                 {info.histology.value !== '' &&
-                    <li class="list-group-item">Histology: <span className="term histology-term" onClick={() => highlightText(info.histology.mentions, 'histology-term')}>{info.histology.value}</span></li>
+                    <li className="list-group-item">Histology: <span className="term histology-term" onClick={() => highlightText(info.histology.mentions, 'histology-term')}>{info.histology.value}</span></li>
                 }
 
                 {info.behavior.value !== '' &&
-                    <li class="list-group-item">Behavior: <span className="term behavior-term" onClick={() => highlightText(info.behavior.mentions, 'behavior-term')}>{info.behavior.value}</span></li>
+                    <li className="list-group-item">Behavior: <span className="term behavior-term" onClick={() => highlightText(info.behavior.mentions, 'behavior-term')}>{info.behavior.value}</span></li>
                 }
 
                 {info.laterality.value !== '' &&
-                    <li class="list-group-item">Laterality: <span className="term laterality-term" onClick={() => highlightText(info.laterality.mentions, 'laterality-term')}>{info.laterality.value}</span></li>
+                    <li className="list-group-item">Laterality: <span className="term laterality-term" onClick={() => highlightText(info.laterality.mentions, 'laterality-term')}>{info.laterality.value}</span></li>
                 }
 
                 {info.grade.value !== '' &&
-                    <li class="list-group-item">Grade: <span className="term grade-term" onClick={() => highlightText(info.grade.mentions, 'grade-term')}>{info.grade.value}</span></li>
+                    <li className="list-group-item">Grade: <span className="term grade-term" onClick={() => highlightText(info.grade.mentions, 'grade-term')}>{info.grade.value}</span></li>
                 }
                 </ul>
                 </div>

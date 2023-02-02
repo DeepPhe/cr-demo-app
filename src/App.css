@@ -59,7 +59,7 @@ color: #282c34;
 
 .drop-zone {
 width: 300px;
-padding: 10px;
+padding: 5px;
 margin: 0 auto;
 text-align: center;
 }
@@ -74,7 +74,7 @@ cursor: pointer;
 }
 
 .topography-term {
-background: #ffb7b7;
+background: #cfe2ff;
 }
 
 .histology-term {
@@ -90,7 +90,7 @@ background: #ffe69c;
 }
 
 .grade-term {
-background: #cfe2ff;
+background: #ffb7b7;
 }
 
 .highlighted_term {
