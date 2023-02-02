@@ -90,9 +90,7 @@ function getTextMentions(arr) {
 
 
 // Highlight one or multiple text mentions
-function highlightTextMentions(textMentions, reportText) {
-    const cssClass = "highlighted_term";
-
+function highlightTextMentions(textMentions, cssClass, reportText) {
     // Sort the textMentions array first based on beginOffset
     textMentions.sort(function(a, b) {
         let comp = a.beginOffset - b.beginOffset;
@@ -182,7 +180,7 @@ function DocumentDropzone(props) {
             <span className="spinner">
             {promiseInProgress && 
             <ThreeDots 
-            height="40" 
+            height="30" 
             width="100" 
             radius="9"
             color="#4fa94d" 
@@ -303,8 +301,8 @@ function DocumentDropzone(props) {
                     <div key={doc.name} className="doc-preview">
 
                     <header className="doc-header">
-                    <span className="text-primary doc-info">{doc.name}</span>
-                    <button type="submit" className="btn btn-primary" onClick={summarizeDocument}>Summarize</button> 
+                    <span className="doc-info">{doc.name}</span>
+                    <button type="submit" className="btn btn-primary btn-sm" onClick={summarizeDocument}>Summarize =></button> 
                     <Spinner />
                     </header>
 
@@ -328,13 +326,13 @@ function DocumentDropzone(props) {
         } else if (Object.keys(result).length > 0) {
             let info = getExtractedInfo(result);
             
-            const highlightText = (mentions) => {
+            const highlightText = (mentions, cssClass) => {
                 console.log("Executing highlightText...");
 
                 console.log("======mentions======");
                 console.log(mentions);
 
-                let highlightedDocText = highlightTextMentions(mentions, docText);
+                let highlightedDocText = highlightTextMentions(mentions, cssClass, docText);
 
                 doc.preview = highlightedDocText;
 
@@ -348,29 +346,29 @@ function DocumentDropzone(props) {
                 <div className="doc-summary">
 
                 <header className="doc-header">
-                <span className="text-primary doc-info">Review Document Summary</span>
+                <span className="doc-info">Review Document Summary</span>
                 </header>
                 
                 <div className="extracted-info">
-                <ul>
+                <ul className="list-group rounded-0">
                 {info.topography.value !== '' &&
-                    <li>Topography: <span className="term" onClick={() => highlightText(info.topography.mentions)}>{info.topography.value}</span></li>
+                    <li class="list-group-item">Topography: <span className="term topography-term" onClick={() => highlightText(info.topography.mentions, 'topography-term')}>{info.topography.value}</span></li>
                 }
 
                 {info.histology.value !== '' &&
-                    <li>Histology: <span className="term" onClick={() => highlightText(info.histology.mentions)}>{info.histology.value}</span></li>
+                    <li class="list-group-item">Histology: <span className="term histology-term" onClick={() => highlightText(info.histology.mentions, 'histology-term')}>{info.histology.value}</span></li>
                 }
 
                 {info.behavior.value !== '' &&
-                    <li>Behavior: <span className="term" onClick={() => highlightText(info.behavior.mentions)}>{info.behavior.value}</span></li>
+                    <li class="list-group-item">Behavior: <span className="term behavior-term" onClick={() => highlightText(info.behavior.mentions, 'behavior-term')}>{info.behavior.value}</span></li>
                 }
 
                 {info.laterality.value !== '' &&
-                    <li>Laterality: <span className="term" onClick={() => highlightText(info.laterality.mentions)}>{info.laterality.value}</span></li>
+                    <li class="list-group-item">Laterality: <span className="term laterality-term" onClick={() => highlightText(info.laterality.mentions, 'laterality-term')}>{info.laterality.value}</span></li>
                 }
 
                 {info.grade.value !== '' &&
-                    <li>Grade: <span className="term" onClick={() => highlightText(info.grade.mentions)}>{info.grade.value}</span></li>
+                    <li class="list-group-item">Grade: <span className="term grade-term" onClick={() => highlightText(info.grade.mentions, 'grade-term')}>{info.grade.value}</span></li>
                 }
                 </ul>
                 </div>
