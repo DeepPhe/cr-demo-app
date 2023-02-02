@@ -251,6 +251,9 @@ function DocumentDropzone(props) {
     function summarizeDocument() {
         console.log("Executing summarizeDocument()...");
 
+        // Reset the preview to remove any highlighted terms
+        documentPreview(true);
+
         const requestConfig = {
             'headers': {
                 'Content-Type': 'text/plain',
@@ -281,30 +284,35 @@ function DocumentDropzone(props) {
     }
 
     // Only re-run the effect if highlightedReportText changes
-    useEffect(() => {
-        documentPreview();
-    }, [highlightedReportText]);
+    // useEffect(() => {
+    //     documentPreview();
+    // }, [highlightedReportText]);
     
     // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
-    // Use <pre> to preserve the original preformatted text, 
-    // in which structure is represented by typographic conventions rather than by elements.
-    function documentPreview() {
+    function documentPreview(reset = false) {
         console.log("Executing documentPreview()...");
-        
-        if (Object.keys(doc).length > 0) {
-            return (
-                <div key={doc.name} className="doc-preview">
 
-                <header className="doc-header">
-                <span className="text-primary doc-info">{doc.name}</span>
-                <button type="submit" className="btn btn-primary" onClick={summarizeDocument}>Summarize</button> 
-                <Spinner />
-                </header>
+        if (reset) {
+            console.log("Reset preview to the original doc text");
+            console.log(docText)
 
-                <pre className="doc-content">{doc.preview}</pre>
+            doc.preview = docText;
+        } else {
+            if (Object.keys(doc).length > 0) {
+                return (
+                    <div key={doc.name} className="doc-preview">
 
-                </div>
-            )
+                    <header className="doc-header">
+                    <span className="text-primary doc-info">{doc.name}</span>
+                    <button type="submit" className="btn btn-primary" onClick={summarizeDocument}>Summarize</button> 
+                    <Spinner />
+                    </header>
+
+                    <div className="doc-content">{doc.preview}</div>
+
+                    </div>
+                )
+            }    
         }
     }
 
@@ -344,18 +352,28 @@ function DocumentDropzone(props) {
                 </header>
                 
                 <div className="extracted-info">
-                <p>Extracted Info</p>
                 <ul>
-                <li>Topography: <span onClick={() => highlightText(info.topography.mentions)}>{info.topography.value}</span></li>
-                <li>Histology: <span onClick={() => highlightText(info.histology.mentions)}>{info.histology.value}</span></li>
-                <li>Behavior: <span onClick={() => highlightText(info.behavior.mentions)}>{info.behavior.value}</span></li>
-                <li>Laterality: <span onClick={() => highlightText(info.laterality.mentions)}>{info.laterality.value}</span></li>
-                <li>Grade: <span onClick={() => highlightText(info.grade.mentions)}>{info.grade.value}</span></li>
+                {info.topography.value !== '' &&
+                    <li>Topography: <span className="term" onClick={() => highlightText(info.topography.mentions)}>{info.topography.value}</span></li>
+                }
+
+                {info.histology.value !== '' &&
+                    <li>Histology: <span className="term" onClick={() => highlightText(info.histology.mentions)}>{info.histology.value}</span></li>
+                }
+
+                {info.behavior.value !== '' &&
+                    <li>Behavior: <span className="term" onClick={() => highlightText(info.behavior.mentions)}>{info.behavior.value}</span></li>
+                }
+
+                {info.laterality.value !== '' &&
+                    <li>Laterality: <span className="term" onClick={() => highlightText(info.laterality.mentions)}>{info.laterality.value}</span></li>
+                }
+
+                {info.grade.value !== '' &&
+                    <li>Grade: <span className="term" onClick={() => highlightText(info.grade.mentions)}>{info.grade.value}</span></li>
+                }
                 </ul>
                 </div>
-
-                {/* Use <code> to wrap <pre> to highlight the preformatted result */}
-                <code><pre className="doc-content">{JSON.stringify(result, null, 2)}</pre></code>
 
                 </div>
             );
@@ -375,13 +393,16 @@ function DocumentDropzone(props) {
         <p className="btn btn-primary">Click to select patient note</p>
         </div>
 
-        <div>
+        <div className="container">
+        <div className="row">
+        <div className="col-8">
         {documentPreview()}
         </div>
-
-        <div>
+        <div className="col">
         {/* A function can be defined and used by the expression, remember to add () */}
         {summarizedDocument()}
+        </div>
+        </div>
         </div>
 
         </div>
