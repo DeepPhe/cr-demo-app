@@ -36,7 +36,7 @@ padding: 20px;
 
 pre.doc-content {
 padding: 20px;
-max-height: 360px;
+max-height: 460px;
 overflow: scroll;
 margin-bottom: 0; /* There's a default margin  */
 }

@@ -153,7 +153,8 @@ function highlightTextMentions(textMentions, reportText) {
         highlightedReportText += textFragments[j];
     }
 
-    return highlightedReportText;
+    return <div dangerouslySetInnerHTML={{__html: highlightedReportText}} />;
+    //return highlightedReportText;
 }
 
 
