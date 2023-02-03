@@ -3,171 +3,22 @@
 import {useState, useEffect} from "react";
 import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
-import {ThreeDots} from 'react-loader-spinner';
-import {trackPromise, usePromiseTracker} from 'react-promise-tracker';
+import {trackPromise} from 'react-promise-tracker';
 
-// config data
-import config from "../config/config.json";
-
-
-// Extract information from summarized json for rendering
-function getExtractedInfo(dataObj) {
-    console.log("======Input: dataObj======");
-    console.log(dataObj);
-
-    let infoObj = {
-        'topography': {
-            'value': '',
-            'mentions': []
-        },
-        'histology': {
-            'value': '',
-            'mentions': []
-        },
-        'behavior': {
-            'value': '',
-            'mentions': []
-        },
-        'laterality': {
-            'value': '',
-            'mentions': []
-        },
-        'grade': {
-            'value': '',
-            'mentions': []
-        }
-    };
-
-    dataObj.neoplasms[0].attributes.forEach(item => {
-        if (item.name === 'location') {
-            infoObj.topography.value = item.value;
-            infoObj.topography.mentions = getTextMentions(item.directEvidence);
-        }
-
-        if (item.name === 'histologic_type') {
-            infoObj.histology.value = item.value;
-            infoObj.histology.mentions = getTextMentions(item.directEvidence);
-        }
-
-        if (item.name === 'behavior') {
-            infoObj.behavior.value = item.value;
-            infoObj.behavior.mentions = getTextMentions(item.directEvidence);
-        }
-
-        if (item.name === 'laterality') {
-            infoObj.laterality.value = item.value;
-            infoObj.laterality.mentions = getTextMentions(item.directEvidence);
-        }
-
-        if (item.name === 'grade') {
-            infoObj.grade.value = item.value;
-            infoObj.grade.mentions = getTextMentions(item.directEvidence);
-        }
-    });
-
-    console.log("======Output: infoObj======");
-    console.log(infoObj);
-
-    return infoObj;
-}
-
-
-// 
-function getTextMentions(arr) {
-    let textMentions = [];
-    
-    arr.forEach(item => {
-        let textMentionObj = {};
-        textMentionObj.text = item.classUri;
-        textMentionObj.beginOffset = item.begin;
-        textMentionObj.endOffset = item.end;
-        
-        textMentions.push(textMentionObj);
-    });
-
-    return textMentions;
-}
-
-
-// Highlight one or multiple text mentions
-function highlightTextMentions(textMentions, cssClass, reportText) {
-    // Sort the textMentions array first based on beginOffset
-    textMentions.sort(function(a, b) {
-        let comp = a.beginOffset - b.beginOffset;
-        if (comp === 0) {
-            return b.endOffset - a.endOffset;
-        } else {
-            return comp;
-        }
-    });
-
-    let textFragments = [];
-
-    if (textMentions.length === 1) {
-        let textMention = textMentions[0];
-
-        if (textMention.beginOffset === 0) {
-            textFragments.push('');
-        } else {
-            textFragments.push(reportText.substring(0, textMention.beginOffset));
-        }
-
-        // Don't use `className` attr, only `class` works
-        textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
-        textFragments.push(reportText.substring(textMention.endOffset));
-    } else {
-        let lastValidTMIndex = 0;
-
-        for (let i = 0; i < textMentions.length; i++) {
-            let textMention = textMentions[i];
-            let lastValidTM = textMentions[lastValidTMIndex];
-
-            // If this is the first textmention, paste the start of the document before the first TM.
-            if (i === 0) {
-                if (textMention.beginOffset === 0) {
-                    textFragments.push('');
-                } else {
-                    textFragments.push(reportText.substring(0, textMention.beginOffset));
-                }
-            } else { // Otherwise, check if this text mention is valid. if it is, paste the text from last valid TM to this one.
-                if (textMention.beginOffset < lastValidTM.endOffset) {
-                        // Push end of the document
-                    continue; // Skipping this TM.
-                } else{
-                    textFragments.push(reportText.substring(lastValidTM.endOffset, textMention.beginOffset));
-                }
-            }
-
-            // Don't use `className` attr, only `class` works
-            textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
-            lastValidTMIndex = i;
-        }
-        // Push end of the document
-        textFragments.push(reportText.substring(textMentions[lastValidTMIndex].endOffset));
-    }
-
-    // Assemble the final report content with highlighted texts
-    let highlightedReportText = '';
-
-    for (let j = 0; j < textFragments.length; j++) {
-        highlightedReportText += textFragments[j];
-    }
-
-    console.log("======highlightedReportText======");
-    console.log(highlightedReportText);
-
-    return <div dangerouslySetInnerHTML={{__html: highlightedReportText}} />;
-}
+// Local imports
+import config from '../config/config.json';
+import Spinner from './Spinner.js';
+import {getExtractedInfo, highlightTextMentions} from './Utils.js';
 
 
 /**
- * This function is a valid React component because it accepts a single “props” (which stands for properties) 
+ * This function is a valid React component because it accepts a single `props` (which stands for properties) 
  * object argument with data and returns a React element. We call such components "function components" 
  * because they are literally JavaScript functions.
  *
  * @param {object} props The properties object as input to a React component
  */
-function DocumentDropzone(props) {
+function Document(props) {
     // State variables with initial state
     // It returns a pair of values: the current state and a function that updates it
     const [doc, setDoc] = useState({}); // Empty object as initial state
@@ -175,26 +26,6 @@ function DocumentDropzone(props) {
     const [highlightedReportText, setHighlightedReportText] = useState(''); // Empty string as initial state
     const [result, setResult] = useState({}); // Empty object as initial state
     const [error, setError] = useState({}); // Empty object as initial state
-
-    // Function component of the spinner
-    const Spinner = props => {
-        const { promiseInProgress } = usePromiseTracker();
-
-        return (
-            <span className="spinner">
-            {promiseInProgress && 
-            <ThreeDots 
-            height="30" 
-            width="100" 
-            radius="9"
-            color="#4fa94d" 
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClassName=""
-            visible={true} />}
-            </span>
-        );
-    };
 
     // const with curly brackets is object destructuring assignment from ES6 specifications
     // a shorthand way to initialize variables from object properties
@@ -418,4 +249,4 @@ function DocumentDropzone(props) {
 }
 
 
-export default DocumentDropzone;
+export default Document;

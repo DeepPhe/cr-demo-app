@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 // components in curly brackets are named export
 // no need to use curly brackets for default export
-import DocumentDropzone from './components/DocumentDropzone';
+import Document from './components/Document';
 
 
 /**
@@ -17,7 +17,7 @@ function App() {
         </header>
 
         <div className="app-content">
-        <DocumentDropzone />
+        <Document />
         </div>
 
         </div>
