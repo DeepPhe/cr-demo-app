@@ -263,8 +263,11 @@ function DocumentDropzone(props) {
             }
         };
 
+        // Use file name as ID and remove file extension
+        let docId = doc.name.split('.')[0].toLowerCase();
+
         trackPromise(
-            axios.put(config.api_base_url + "summarizeOneDoc/doc/1", doc.preview, requestConfig)
+            axios.put(config.api_base_url + "summarizeOneDoc/doc/" + docId, doc.preview, requestConfig)
             .then(
                 (res) => {
                     console.log("======API call response: res======");
