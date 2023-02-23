@@ -1,6 +1,6 @@
 // components in curly brackets are named export
 // no need to use curly brackets for default export
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
 import {trackPromise} from 'react-promise-tracker';
@@ -87,18 +87,22 @@ function Document(props) {
         // Reset the preview to remove any highlighted terms
         documentPreview(true);
 
-        const requestConfig = {
-            'headers': {
-                'Content-Type': 'text/plain',
-                'Authorization': 'Bearer ' + config.auth_token
-            }
+        const requestHeaders = {
+            'Content-Type': 'text/plain',
+            'Authorization': 'Bearer ' + config.authToken
         };
 
         // Use file name as ID and remove file extension
         let docId = doc.name.split('.')[0].toLowerCase();
 
         trackPromise(
-            axios.put(config.api_base_url + "summarizeOneDoc/doc/" + docId, doc.preview, requestConfig)
+            // Config details: https://github.com/axios/axios#request-config
+            axios({
+                url: config.apiBaseUrl + "summarizeOneDoc/doc/" + docId,
+                method: 'PUT',
+                headers: requestHeaders,
+                data: doc.preview
+            })
             .then(
                 (res) => {
                     console.log("======API call response: res======");
@@ -121,11 +125,6 @@ function Document(props) {
             .catch(err => console.log(err))
         );
     }
-
-    // Only re-run the effect if highlightedReportText changes
-    // useEffect(() => {
-    //     documentPreview();
-    // }, [highlightedReportText]);
     
     // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
     function documentPreview(reset = false) {
