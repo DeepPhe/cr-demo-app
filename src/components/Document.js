@@ -212,7 +212,7 @@ function Document(props) {
                 }
                 </ul>
 
-                <div className="json"><code>{JSON.stringify(result, null, 2)}</code></div>
+                <div className="json"><code>{JSON.stringify(result.neoplasms, null, 2)}</code></div>
                 </div>
                 
                 </div>

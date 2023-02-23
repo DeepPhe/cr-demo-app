@@ -28,27 +28,27 @@ export function getExtractedInfo(dataObj) {
 
     dataObj.neoplasms[0].attributes.forEach(item => {
         if (item.name === 'topography_major') {
-            infoObj.topography.value = item.classUri;
+            infoObj.topography.value = item.value;
             infoObj.topography.mentions = getTextMentions(item.directEvidence);
         }
 
-        if (item.name === 'histologic_type') {
-            infoObj.histology.value = item.classUri;
+        if (item.name === 'histology') {
+            infoObj.histology.value = item.value;
             infoObj.histology.mentions = getTextMentions(item.directEvidence);
         }
 
         if (item.name === 'behavior') {
-            infoObj.behavior.value = item.classUri;
+            infoObj.behavior.value = item.value;
             infoObj.behavior.mentions = getTextMentions(item.directEvidence);
         }
 
         if (item.name === 'laterality') {
-            infoObj.laterality.value = item.classUri;
+            infoObj.laterality.value = item.value;
             infoObj.laterality.mentions = getTextMentions(item.directEvidence);
         }
 
         if (item.name === 'grade') {
-            infoObj.grade.value = item.classUri;
+            infoObj.grade.value = item.value;
             infoObj.grade.mentions = getTextMentions(item.directEvidence);
         }
     });
