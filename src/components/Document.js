@@ -211,8 +211,10 @@ function Document(props) {
                     <li className="list-group-item">Grade: <span className="term grade-term" onClick={() => highlightText(info.grade.mentions, 'grade-term')}>{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span></li>
                 }
                 </ul>
-                </div>
 
+                <div className="json"><code>{JSON.stringify(result, null, 2)}</code></div>
+                </div>
+                
                 </div>
             );
         } else {

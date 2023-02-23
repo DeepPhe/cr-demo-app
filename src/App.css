@@ -1,5 +1,9 @@
+body {
+background-color: #e9ecef;
+}
+
 .app {
-background-color: #e9ecef;;
+padding-bottom: 40px;
 }
 
 .app-header {
@@ -16,7 +20,6 @@ font-size: 1.5em;
 }
 
 .app-content {
-min-height: 600px;
 padding: 20px;
 }
 
@@ -38,7 +41,7 @@ line-height: 30px;
 font-family: monospace;
 font-size: .85em;
 padding: 20px;
-height: 460px;
+height: 600px;
 }
 
 .doc-content {
@@ -47,7 +50,7 @@ font-family: monospace;
 font-size: .85em;
 white-space: pre-wrap;
 padding: 20px;
-height: 460px;
+height: 600px;
 overflow-y: scroll;
 margin-bottom: 0; /* There's a default margin  */
 }
@@ -100,4 +103,15 @@ background: #ffb7b7;
 
 .highlighted_term {
 background:#FFDC00;
+}
+
+.json {
+width:374px;
+height:400px;
+border: 1px solid rgba(0, 0, 0, 0.125);
+white-space: pre-wrap;
+font-family: monospace;
+overflow-y: scroll;
+margin-top:15px;
+padding:10px;
 }
