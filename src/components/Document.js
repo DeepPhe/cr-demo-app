@@ -206,9 +206,14 @@ function Document(props) {
                 {info.laterality.value !== '' &&
                     <li className="list-group-item">Laterality: <span className="term laterality-term" onClick={() => highlightText(info.laterality.mentions, 'laterality-term')}>{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span></li>
                 }
-
-                {info.grade.value !== '' &&
+ 
+                {/* Grade 9 is correct for any document in which a grade term does not exist. From https://training.seer.cancer.gov/coding/guidelines/rule_g.html "9:  Grade or differentiation not determined, not stated or not applicable" */}
+                {info.grade.value !== '9' &&
                     <li className="list-group-item">Grade: <span className="term grade-term" onClick={() => highlightText(info.grade.mentions, 'grade-term')}>{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span></li>
+                }
+
+                {info.grade.value == '9' &&
+                    <li className="list-group-item">Grade: <span>{info.grade.value}</span><span className="term-count">(not determined or not stated)</span></li>
                 }
                 </ul>
 
