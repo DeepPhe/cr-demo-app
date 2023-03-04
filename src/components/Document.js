@@ -8,7 +8,7 @@ import {trackPromise} from 'react-promise-tracker';
 // Local imports
 import config from '../config/config.json';
 import Spinner from './Spinner.js';
-import {getExtractedInfo, highlightTextMentions} from './Utils.js';
+import {getExtractedInfo, highlightTextMentions, createHighlightedString} from './Utils.js';
 
 
 /**
@@ -166,13 +166,27 @@ function Document(props) {
         } else if (Object.keys(result).length > 0) {
             let info = getExtractedInfo(result);
 
+            let allTextMentions = [
+                ...info.topography.mentions,
+                ...info.histology.mentions,
+                ...info.behavior.mentions,
+                ...info.laterality.mentions,
+                ...info.grade.mentions
+            ];
+
+            let highlightedString = createHighlightedString(allTextMentions, docText);
+
+            console.log("======highlightedString======");
+            console.log(highlightedString);
+
             const highlightText = (mentions, cssClass) => {
                 console.log("Executing highlightText...");
 
                 console.log("======mentions======");
                 console.log(mentions);
 
-                let highlightedDocText = highlightTextMentions(mentions, cssClass, docText);
+                // let highlightedDocText = highlightTextMentions(mentions, cssClass, docText);
+                let highlightedDocText = highlightedString;
 
                 doc.preview = highlightedDocText;
 
