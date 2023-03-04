@@ -6,22 +6,32 @@ export function getExtractedInfo(dataObj) {
     let infoObj = {
         'topography': {
             'value': '',
+            'bgcolor': '#cfe2ff',
+            'cssClass': 'topography-term',
             'mentions': []
         },
         'histology': {
             'value': '',
+            'bgcolor': '#f8d7da',
+            'cssClass': 'histology-term',
             'mentions': []
         },
         'behavior': {
             'value': '',
+            'bgcolor': '#a3cfbb',
+            'cssClass': 'behavior-term',
             'mentions': []
         },
         'laterality': {
             'value': '',
+            'bgcolor': '#ffe69c',
+            'cssClass': 'laterality-term',
             'mentions': []
         },
         'grade': {
             'value': '',
+            'bgcolor': '#ffb7b7',
+            'cssClass': 'grade-term',
             'mentions': []
         }
     };
@@ -29,27 +39,27 @@ export function getExtractedInfo(dataObj) {
     dataObj.neoplasms[0].attributes.forEach(item => {
         if (item.name === 'topography_major') {
             infoObj.topography.value = item.value;
-            infoObj.topography.mentions = getTextMentions(item.directEvidence, 'topography-term');
+            infoObj.topography.mentions = getTextMentions(item.directEvidence, infoObj.topography.cssClass, infoObj.topography.bgcolor);
         }
 
         if (item.name === 'histology') {
             infoObj.histology.value = item.value;
-            infoObj.histology.mentions = getTextMentions(item.directEvidence, 'histology-term');
+            infoObj.histology.mentions = getTextMentions(item.directEvidence, infoObj.histology.cssClass, infoObj.histology.bgcolor);
         }
 
         if (item.name === 'behavior') {
             infoObj.behavior.value = item.value;
-            infoObj.behavior.mentions = getTextMentions(item.directEvidence, 'behavior-term');
+            infoObj.behavior.mentions = getTextMentions(item.directEvidence, infoObj.behavior.cssClass, infoObj.behavior.bgcolor);
         }
 
         if (item.name === 'laterality') {
             infoObj.laterality.value = item.value;
-            infoObj.laterality.mentions = getTextMentions(item.directEvidence, 'laterality-term');
+            infoObj.laterality.mentions = getTextMentions(item.directEvidence, infoObj.laterality.cssClass, infoObj.laterality.bgcolor);
         }
 
         if (item.name === 'grade') {
             infoObj.grade.value = item.value;
-            infoObj.grade.mentions = getTextMentions(item.directEvidence, 'grade-term');
+            infoObj.grade.mentions = getTextMentions(item.directEvidence, infoObj.grade.cssClass, infoObj.grade.bgcolor);
         }
     });
 
@@ -61,16 +71,18 @@ export function getExtractedInfo(dataObj) {
 
 
 // Build the target text mentions array from the source array
-function getTextMentions(arr, cssClass) {
+function getTextMentions(arr, cssClass, bgcolor) {
     let textMentions = [];
     
     arr.forEach(item => {
         let textMentionObj = {};
+        // To support old implementation
         textMentionObj.cssClass = cssClass;
         textMentionObj.beginOffset = item.begin;
         textMentionObj.endOffset = item.end;
 
-        //textMentionObj.tooltip = cssClass;
+        // To support new implementation
+        textMentionObj.bgcolor = bgcolor;
         textMentionObj.begin = item.begin;
         textMentionObj.end = item.end;
         
@@ -155,41 +167,12 @@ export function highlightTextMentions(textMentions, cssClass, reportText) {
 }
 
 
-// let element = {
-//     "text": "The blood pressure was initially elevated on the patient's outpatient medications, so his hypertension medicines were adjusted by increasing his lisinopril to 20 mg qd."
-//   },
-//   rawText = element.text.slice(),
-//   spans = [{
-//     "begin": 145,
-//     "end": 155,
-//     "tooltip": "section 1"
-//   }, {
-//     "begin": 4,
-//     "end": 18,
-//     "tooltip": "section 2"
-//   }, {
-//     "begin": 4,
-//     "end": 18,
-//     "tooltip": "section 3"
-//   }, {
-//     "begin": 90,
-//     "end": 102,
-//     "tooltip": "section 4"
-//   }, {
-//     "begin": 4,
-//     "end": 41,
-//     "tooltip": "section 5"
-//   }];
-
-// let highlightedString = createHighlightedString(spans,element.text);
-// document.getElementById('text').innerHTML = highlightedString;
-
-// https://stackoverflow.com/questions/40117156/creating-overlapping-text-spans-in-javascript
+// Based on https://stackoverflow.com/questions/40117156/creating-overlapping-text-spans-in-javascript
 export function createHighlightedString(ranges, text) {
     let flatRanges = flattenRanges(ranges);
     let inflatedRanges = inflateRanges(flatRanges, text.length);
     let filledRanges = fillRanges(inflatedRanges, text);
-    let str = "";
+    let str = '';
     let index = 0;
 
     for (let i in filledRanges) {
@@ -198,20 +181,22 @@ export function createHighlightedString(ranges, text) {
 
         if (range.count > 0) {
             // range.cssClass is an array
-            console.log(range.cssClass);
             console.log("======range.cssClass======");
+            console.log(range.cssClass);
+            
+            console.log("======range.bgcolor======");
+            console.log(range.bgcolor);
 
-            if (range.cssClass.length > 1) {
-                str += "<span class='" + range.cssClass.join(' ') + ")'>" + range.text + "</span>";
+            // Currently we don't handle overlapping from more than two variables
+            // Note: the range.text contains an extra char at the end
+            if (range.bgcolor.length === 2) {
+                str += '<span style="background: linear-gradient(to bottom, ' + range.bgcolor[0] + ' 50%, ' + range.bgcolor[1] + ' 50%);">' + range.text + '</span>';
+            } else if (range.bgcolor.length === 1) {
+                // str += '<span class="' + range.cssClass[0] + '">' + range.text + '</span>';
+                str += '<span style="background: ' + range.bgcolor[0] + '">' + range.text + '</span>';
             } else {
-                str += "<span class='" + range.cssClass[0] + "'>" + range.text + "</span>";
+                console.log("======range.bgcolor has more than 2 variables overlapping======");
             }
-
-            // if (range.tooltip) {
-            //     str += "<span class='highlight-" + range.count + " tooltip'>" + range.text + "<span class='tooltiptext tooltip-bottom'>" + range.tooltip.join('<br/>') + "</span></span>";
-            // } else {
-            //     str += "<span class='highlight-" + range.count + "'>" + range.text + "</span>";
-            // }
         } else {
             str += range.text;
         }
@@ -227,6 +212,9 @@ export function createHighlightedString(ranges, text) {
 
 
 function flattenRanges(ranges) {
+    console.log("======input ranges======");
+    console.log(ranges);
+
     let points = [];
     let flattened = [];
     for (let i in ranges) {
@@ -235,6 +223,7 @@ function flattenRanges(ranges) {
             ranges[i].end = ranges[i].begin;
             ranges[i].begin = tmp;
         }
+
         points.push(ranges[i].begin);
         points.push(ranges[i].end);
     }
@@ -243,8 +232,8 @@ function flattenRanges(ranges) {
     //FIND THE INTERSECTING SPANS FOR EACH PAIR OF POINTS (IF ANY)
     //ALSO MERGE THE ATTRIBUTES OF EACH INTERSECTING SPAN, AND INCREASE THE COUNT FOR EACH INTERSECTION
     for (let i in points) {
-        if (i==0 || points[i]==points[i-1]) continue;
-        let includedRanges = ranges.filter(function(x){
+        if (i == 0 || points[i] == points[i-1]) continue;
+        let includedRanges = ranges.filter(function(x) {
             return (Math.max(x.begin,points[i-1]) < Math.min(x.end,points[i]));
         });
         if (includedRanges.length > 0) {
@@ -253,19 +242,27 @@ function flattenRanges(ranges) {
                 end:points[i],
                 count:0
             }
+
             for (let j in includedRanges) {
                 let includedRange = includedRanges[j];
+
                 for (let prop in includedRange) {
                     if (prop != 'begin' && prop != 'end') {
                         if (!flattenedRange[prop]) flattenedRange[prop] = [];
                         flattenedRange[prop].push(includedRange[prop]);
                     }
                 }
+
                 flattenedRange.count++;
             }
+
             flattened.push(flattenedRange);
         }
     }
+
+    console.log("======flattened ranges======");
+    console.log(flattened);
+
     return flattened;
 }
 
@@ -274,7 +271,7 @@ function inflateRanges(ranges, length=0) {
     let inflated = [];
     let lastIndex;
     for (let i in ranges) {
-        if (i==0) {
+        if (i == 0) {
             //IF THERE IS EMPTY TEXT IN THE BEGINNING, CREATE AN EMOTY RANGE
             if (ranges[i].begin > 0){
                 inflated.push({
@@ -283,6 +280,7 @@ function inflateRanges(ranges, length=0) {
                     count:0
                 });
             }
+
             inflated.push(ranges[i]);
         } else {
             if (ranges[i].begin == ranges[i-1].end) {
@@ -314,7 +312,9 @@ function inflateRanges(ranges, length=0) {
 
 function fillRanges(ranges, text) {
     for (let i in ranges) {
-        ranges[i].text = text.slice(ranges[i].begin,ranges[i].end+1);
+        // This causes the range.text contains an extra char at the end
+        // Will need to figure out a better solution
+        ranges[i].text = text.slice(ranges[i].begin, ranges[i].end + 1);
     }
 
     return ranges;
