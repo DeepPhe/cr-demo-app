@@ -261,28 +261,28 @@ function Document(props) {
                 {info.topography.value !== '' &&
                     <li className="list-group-item">
                     <input type="checkbox" onClick={() => highlightText('topography')} />
-                    Topography: <span className="term topography-term">{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span>
+                    Topography: <span className="topography-term">{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span>
                     </li>
                 }
 
                 {info.histology.value !== '' &&
                     <li className="list-group-item">
                     <input type="checkbox" onClick={() => highlightText('histology')} />
-                    Histology: <span className="term histology-term">{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span>
+                    Histology: <span className="histology-term">{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span>
                     </li>
                 }
 
                 {info.behavior.value !== '' &&
                     <li className="list-group-item">
                     <input type="checkbox" onClick={() => highlightText('behavior')} />
-                    Behavior: <span className="term behavior-term">{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span>
+                    Behavior: <span className="behavior-term">{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span>
                     </li>
                 }
 
                 {info.laterality.value !== '' &&
                     <li className="list-group-item">
                     <input type="checkbox" onClick={() => highlightText('laterality')} />
-                    Laterality: <span className="term laterality-term">{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span>
+                    Laterality: <span className="laterality-term">{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span>
                     </li>
                 }
  
@@ -290,7 +290,7 @@ function Document(props) {
                 {info.grade.value !== '9' &&
                     <li className="list-group-item">
                     <input type="checkbox" onClick={() => highlightText('grade')} />
-                    Grade: <span className="term grade-term">{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span>
+                    Grade: <span className="grade-term">{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span>
                     </li>
                 }
 

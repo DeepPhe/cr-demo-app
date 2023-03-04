@@ -72,10 +72,6 @@ width: 120px;
 float: right;
 }
 
-.term {
-cursor: pointer;
-}
-
 .term-count {
 margin-left: 2px;
 font-size: .8em;
