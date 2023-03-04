@@ -8,7 +8,7 @@ import {trackPromise} from 'react-promise-tracker';
 // Local imports
 import config from '../config/config.json';
 import Spinner from './Spinner.js';
-import {getExtractedInfo, highlightTextMentions, createHighlightedString} from './Utils.js';
+import {getExtractedInfo, highlightTextMentions} from './Utils.js';
 
 
 /**
@@ -26,6 +26,13 @@ function Document(props) {
     const [highlightedReportText, setHighlightedReportText] = useState(''); // Empty string as initial state
     const [result, setResult] = useState({}); // Empty object as initial state
     const [error, setError] = useState({}); // Empty object as initial state
+    
+    // Checkboxes
+    const [topographyChecked, setTopographyChecked] = useState(false);
+    const [histologyChecked, setHistologyChecked] = useState(false);
+    const [behaviorChecked, setBehaviorChecked] = useState(false);
+    const [lateralityChecked, setLateralityChecked] = useState(false);
+    const [gradeChecked, setGradeChecked] = useState(false);
 
     // const with curly brackets is object destructuring assignment from ES6 specifications
     // a shorthand way to initialize variables from object properties
@@ -159,6 +166,12 @@ function Document(props) {
     function summarizedDocument() {
         console.log("Executing summarizedDocument()...");
 
+        console.log("topographyChecked: " + topographyChecked);
+        console.log("histologyChecked: " + histologyChecked);
+        console.log("behaviorChecked: " + behaviorChecked);
+        console.log("lateralityChecked: " + lateralityChecked);
+        console.log("gradeChecked: " + gradeChecked);
+
         // Show error message as long as the `error` is not empty object\
         // Show summaried doc as long as the `result` is not empty object
         if (Object.keys(error).length > 0) {
@@ -166,34 +179,74 @@ function Document(props) {
         } else if (Object.keys(result).length > 0) {
             let info = getExtractedInfo(result);
 
-            let allTextMentions = [
-                ...info.topography.mentions,
-                ...info.histology.mentions,
-                ...info.behavior.mentions,
-                ...info.laterality.mentions,
-                ...info.grade.mentions
-            ];
+            const highlightText = (variable) => {
+                console.log("Executing highlightText for " + variable);
 
-            let highlightedString = createHighlightedString(allTextMentions, docText);
+                // Always reset to empty
+                let allTextMentions = [];
 
-            console.log("======highlightedString======");
-            console.log(highlightedString);
+                if (variable === 'topography') {
+                    setTopographyChecked(!topographyChecked);
+                }
 
-            const highlightText = (mentions, cssClass) => {
-                console.log("Executing highlightText...");
+                if (variable === 'histology') {
+                    setHistologyChecked(!histologyChecked);
+                }
 
-                console.log("======mentions======");
-                console.log(mentions);
+                if (variable === 'behavior') {
+                    setBehaviorChecked(!behaviorChecked);
+                }
 
-                // let highlightedDocText = highlightTextMentions(mentions, cssClass, docText);
-                let highlightedDocText = highlightedString;
+                if (variable === 'laterality') {
+                    setLateralityChecked(!lateralityChecked);
+                }
 
-                doc.preview = highlightedDocText;
+                if (variable === 'grade') {
+                    setGradeChecked(!gradeChecked);
+                }
 
-                console.log("======highlightedDocText======");
-                console.log(highlightedDocText);
+                console.log("topographyChecked: " + topographyChecked);
+                console.log("histologyChecked: " + histologyChecked);
+                console.log("behaviorChecked: " + behaviorChecked);
+                console.log("lateralityChecked: " + lateralityChecked);
+                console.log("gradeChecked: " + gradeChecked);
 
-                setHighlightedReportText(highlightedDocText);
+                // Build the array of all mentions based on checked variables
+                // Merge into a big array using the spread operator ...
+                if (topographyChecked) {
+                    allTextMentions = [...allTextMentions, ...info.topography.mentions];
+                }
+
+                if (histologyChecked) {
+                    allTextMentions = [...allTextMentions, ...info.histology.mentions];
+                }
+
+                if (behaviorChecked) {
+                    allTextMentions = [...allTextMentions, ...info.behavior.mentions];
+                }
+
+                if (lateralityChecked) {
+                    allTextMentions = [...allTextMentions, ...info.laterality.mentions];
+                }
+
+                if (gradeChecked) {
+                    allTextMentions = [...allTextMentions, ...info.grade.mentions];
+                }
+ 
+                console.log("======allTextMentions======");
+                console.log(allTextMentions);
+
+                if (allTextMentions.length > 0) {
+                    let highlightedDocText = highlightTextMentions(allTextMentions, docText);
+                    doc.preview = highlightedDocText;
+
+                    console.log("======highlightedDocText======");
+                    console.log(highlightedDocText);
+
+                    setHighlightedReportText(highlightedDocText);
+                } else {
+                    doc.preview = docText;
+                }                
             };
 
             return (
@@ -206,28 +259,46 @@ function Document(props) {
                 <div className="extracted-info">
                 <ul className="list-group rounded-0">
                 {info.topography.value !== '' &&
-                    <li className="list-group-item">Topography: <span className="term topography-term" onClick={() => highlightText(info.topography.mentions, 'topography-term')}>{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span></li>
+                    <li className="list-group-item">
+                    <input type="checkbox" onClick={() => highlightText('topography')} />
+                    Topography: <span className="term topography-term">{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span>
+                    </li>
                 }
 
                 {info.histology.value !== '' &&
-                    <li className="list-group-item">Histology: <span className="term histology-term" onClick={() => highlightText(info.histology.mentions, 'histology-term')}>{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span></li>
+                    <li className="list-group-item">
+                    <input type="checkbox" onClick={() => highlightText('histology')} />
+                    Histology: <span className="term histology-term">{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span>
+                    </li>
                 }
 
                 {info.behavior.value !== '' &&
-                    <li className="list-group-item">Behavior: <span className="term behavior-term" onClick={() => highlightText(info.behavior.mentions, 'behavior-term')}>{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span></li>
+                    <li className="list-group-item">
+                    <input type="checkbox" onClick={() => highlightText('behavior')} />
+                    Behavior: <span className="term behavior-term">{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span>
+                    </li>
                 }
 
                 {info.laterality.value !== '' &&
-                    <li className="list-group-item">Laterality: <span className="term laterality-term" onClick={() => highlightText(info.laterality.mentions, 'laterality-term')}>{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span></li>
+                    <li className="list-group-item">
+                    <input type="checkbox" onClick={() => highlightText('laterality')} />
+                    Laterality: <span className="term laterality-term">{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span>
+                    </li>
                 }
  
                 {/* Grade 9 is correct for any document in which a grade term does not exist. From https://training.seer.cancer.gov/coding/guidelines/rule_g.html "9:  Grade or differentiation not determined, not stated or not applicable" */}
                 {info.grade.value !== '9' &&
-                    <li className="list-group-item">Grade: <span className="term grade-term" onClick={() => highlightText(info.grade.mentions, 'grade-term')}>{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span></li>
+                    <li className="list-group-item">
+                    <input type="checkbox" onClick={() => highlightText('grade')} />
+                    Grade: <span className="term grade-term">{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span>
+                    </li>
                 }
 
                 {info.grade.value == '9' &&
-                    <li className="list-group-item">Grade: <span>{info.grade.value}</span><span className="term-count">(not determined or not stated)</span></li>
+                    <li className="list-group-item">
+                    <input type="checkbox" disabled />
+                    Grade: <span>{info.grade.value}</span><span className="term-count">(not determined or not stated)</span>
+                    </li>
                 }
                 </ul>
 

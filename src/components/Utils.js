@@ -7,31 +7,26 @@ export function getExtractedInfo(dataObj) {
         'topography': {
             'value': '',
             'bgcolor': '#cfe2ff',
-            'cssClass': 'topography-term',
             'mentions': []
         },
         'histology': {
             'value': '',
             'bgcolor': '#f8d7da',
-            'cssClass': 'histology-term',
             'mentions': []
         },
         'behavior': {
             'value': '',
             'bgcolor': '#a3cfbb',
-            'cssClass': 'behavior-term',
             'mentions': []
         },
         'laterality': {
             'value': '',
             'bgcolor': '#ffe69c',
-            'cssClass': 'laterality-term',
             'mentions': []
         },
         'grade': {
             'value': '',
             'bgcolor': '#ffb7b7',
-            'cssClass': 'grade-term',
             'mentions': []
         }
     };
@@ -39,27 +34,27 @@ export function getExtractedInfo(dataObj) {
     dataObj.neoplasms[0].attributes.forEach(item => {
         if (item.name === 'topography_major') {
             infoObj.topography.value = item.value;
-            infoObj.topography.mentions = getTextMentions(item.directEvidence, infoObj.topography.cssClass, infoObj.topography.bgcolor);
+            infoObj.topography.mentions = getTextMentions(item.directEvidence, infoObj.topography.bgcolor);
         }
 
         if (item.name === 'histology') {
             infoObj.histology.value = item.value;
-            infoObj.histology.mentions = getTextMentions(item.directEvidence, infoObj.histology.cssClass, infoObj.histology.bgcolor);
+            infoObj.histology.mentions = getTextMentions(item.directEvidence, infoObj.histology.bgcolor);
         }
 
         if (item.name === 'behavior') {
             infoObj.behavior.value = item.value;
-            infoObj.behavior.mentions = getTextMentions(item.directEvidence, infoObj.behavior.cssClass, infoObj.behavior.bgcolor);
+            infoObj.behavior.mentions = getTextMentions(item.directEvidence, infoObj.behavior.bgcolor);
         }
 
         if (item.name === 'laterality') {
             infoObj.laterality.value = item.value;
-            infoObj.laterality.mentions = getTextMentions(item.directEvidence, infoObj.laterality.cssClass, infoObj.laterality.bgcolor);
+            infoObj.laterality.mentions = getTextMentions(item.directEvidence, infoObj.laterality.bgcolor);
         }
 
         if (item.name === 'grade') {
             infoObj.grade.value = item.value;
-            infoObj.grade.mentions = getTextMentions(item.directEvidence, infoObj.grade.cssClass, infoObj.grade.bgcolor);
+            infoObj.grade.mentions = getTextMentions(item.directEvidence, infoObj.grade.bgcolor);
         }
     });
 
@@ -71,17 +66,11 @@ export function getExtractedInfo(dataObj) {
 
 
 // Build the target text mentions array from the source array
-function getTextMentions(arr, cssClass, bgcolor) {
+function getTextMentions(arr, bgcolor) {
     let textMentions = [];
     
     arr.forEach(item => {
         let textMentionObj = {};
-        // To support old implementation
-        textMentionObj.cssClass = cssClass;
-        textMentionObj.beginOffset = item.begin;
-        textMentionObj.endOffset = item.end;
-
-        // To support new implementation
         textMentionObj.bgcolor = bgcolor;
         textMentionObj.begin = item.begin;
         textMentionObj.end = item.end;
@@ -92,14 +81,13 @@ function getTextMentions(arr, cssClass, bgcolor) {
     return textMentions;
 }
 
-
 // Highlight one or multiple text mentions
-export function highlightTextMentions(textMentions, cssClass, reportText) {
+export function highlightTextMentions(textMentions, reportText) {
     // Sort the textMentions array first based on beginOffset
     textMentions.sort(function(a, b) {
-        let comp = a.beginOffset - b.beginOffset;
+        let comp = a.begin - b.begin;
         if (comp === 0) {
-            return b.endOffset - a.endOffset;
+            return b.end - a.end;
         } else {
             return comp;
         }
@@ -108,20 +96,36 @@ export function highlightTextMentions(textMentions, cssClass, reportText) {
     console.log("======sorted textMentions======");
     console.log(textMentions);
 
+    // Flatten the ranges, this is the key to solve overlapping
+    textMentions = flattenRanges(textMentions);
+
     let textFragments = [];
 
     if (textMentions.length === 1) {
         let textMention = textMentions[0];
 
-        if (textMention.beginOffset === 0) {
+        if (textMention.begin === 0) {
             textFragments.push('');
         } else {
-            textFragments.push(reportText.substring(0, textMention.beginOffset));
+            textFragments.push(reportText.substring(0, textMention.begin));
         }
 
         // Don't use `className` attr, only `class` works
-        textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
-        textFragments.push(reportText.substring(textMention.endOffset));
+        //textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>');
+
+        // Currently we don't handle overlapping from more than two variables
+        // Note: the range.text contains an extra char at the end
+        if (textMention.bgcolor.length === 2) {
+            let str = '<span style="background: linear-gradient(to bottom, ' + textMention.bgcolor[0] + ' 50%, ' + textMention.bgcolor[1] + ' 50%);">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
+            textFragments.push(str);
+        } else if (textMention.bgcolor.length === 1) {
+            let str = '<span style="background: ' + textMention.bgcolor[0] + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
+            textFragments.push(str);
+        } else {
+            console.log("======range.bgcolor has more than 2 variables overlapping======");
+        }
+
+        textFragments.push(reportText.substring(textMention.end));
     } else {
         let lastValidTMIndex = 0;
 
@@ -131,26 +135,37 @@ export function highlightTextMentions(textMentions, cssClass, reportText) {
 
             // If this is the first textmention, paste the start of the document before the first TM.
             if (i === 0) {
-                if (textMention.beginOffset === 0) {
+                if (textMention.begin === 0) {
                     textFragments.push('');
                 } else {
-                    textFragments.push(reportText.substring(0, textMention.beginOffset));
+                    textFragments.push(reportText.substring(0, textMention.begin));
                 }
             } else { // Otherwise, check if this text mention is valid. if it is, paste the text from last valid TM to this one.
-                if (textMention.beginOffset < lastValidTM.endOffset) {
+                if (textMention.begin < lastValidTM.end) {
                         // Push end of the document
                     continue; // Skipping this TM.
                 } else{
-                    textFragments.push(reportText.substring(lastValidTM.endOffset, textMention.beginOffset));
+                    textFragments.push(reportText.substring(lastValidTM.end, textMention.begin));
                 }
             }
 
             // Don't use `className` attr, only `class` works
-            textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
+            //textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
+
+            if (textMention.bgcolor.length === 2) {
+                let str = '<span style="background: linear-gradient(to bottom, ' + textMention.bgcolor[0] + ' 50%, ' + textMention.bgcolor[1] + ' 50%);">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
+                textFragments.push(str);
+            } else if (textMention.bgcolor.length === 1) {
+                let str = '<span style="background: ' + textMention.bgcolor[0] + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
+                textFragments.push(str);
+            } else {
+                console.log("======range.bgcolor has more than 2 variables overlapping======");
+            }
+
             lastValidTMIndex = i;
         }
         // Push end of the document
-        textFragments.push(reportText.substring(textMentions[lastValidTMIndex].endOffset));
+        textFragments.push(reportText.substring(textMentions[lastValidTMIndex].end));
     }
 
     // Assemble the final report content with highlighted texts
@@ -168,49 +183,6 @@ export function highlightTextMentions(textMentions, cssClass, reportText) {
 
 
 // Based on https://stackoverflow.com/questions/40117156/creating-overlapping-text-spans-in-javascript
-export function createHighlightedString(ranges, text) {
-    let flatRanges = flattenRanges(ranges);
-    let inflatedRanges = inflateRanges(flatRanges, text.length);
-    let filledRanges = fillRanges(inflatedRanges, text);
-    let str = '';
-    let index = 0;
-
-    for (let i in filledRanges) {
-        let range = filledRanges[i];
-        let begin = range.begin, end = range.end;
-
-        if (range.count > 0) {
-            // range.cssClass is an array
-            console.log("======range.cssClass======");
-            console.log(range.cssClass);
-            
-            console.log("======range.bgcolor======");
-            console.log(range.bgcolor);
-
-            // Currently we don't handle overlapping from more than two variables
-            // Note: the range.text contains an extra char at the end
-            if (range.bgcolor.length === 2) {
-                str += '<span style="background: linear-gradient(to bottom, ' + range.bgcolor[0] + ' 50%, ' + range.bgcolor[1] + ' 50%);">' + range.text + '</span>';
-            } else if (range.bgcolor.length === 1) {
-                // str += '<span class="' + range.cssClass[0] + '">' + range.text + '</span>';
-                str += '<span style="background: ' + range.bgcolor[0] + '">' + range.text + '</span>';
-            } else {
-                console.log("======range.bgcolor has more than 2 variables overlapping======");
-            }
-        } else {
-            str += range.text;
-        }
-    }
-
-    //return str;
-
-    console.log("======str======");
-    console.log(str);
-
-    return <div dangerouslySetInnerHTML={{__html: str}} />;
-}
-
-
 function flattenRanges(ranges) {
     console.log("======input ranges======");
     console.log(ranges);
@@ -266,56 +238,3 @@ function flattenRanges(ranges) {
     return flattened;
 }
 
-
-function inflateRanges(ranges, length=0) {
-    let inflated = [];
-    let lastIndex;
-    for (let i in ranges) {
-        if (i == 0) {
-            //IF THERE IS EMPTY TEXT IN THE BEGINNING, CREATE AN EMOTY RANGE
-            if (ranges[i].begin > 0){
-                inflated.push({
-                    begin:0,
-                    end:ranges[i].begin-1,
-                    count:0
-                });
-            }
-
-            inflated.push(ranges[i]);
-        } else {
-            if (ranges[i].begin == ranges[i-1].end) {
-                ranges[i-1].end--;
-            }
-            
-            if (ranges[i].begin - ranges[i-1].end > 1) {
-                inflated.push({
-                    begin:ranges[i-1].end+1,
-                    end:ranges[i].begin-1,
-                    count:0
-                });
-            }
-            inflated.push(ranges[i]);
-        }
-        lastIndex = ranges[i].end;
-    }
-    //FOR SIMPLICITY, ADD ANY REMAINING TEXT AS AN EMPTY RANGE
-    if (lastIndex+1 < length-1) {
-        inflated.push({
-            begin:lastIndex+1,
-            end:length-1,
-            count:0
-        })
-    }
-
-    return inflated;
-}
-
-function fillRanges(ranges, text) {
-    for (let i in ranges) {
-        // This causes the range.text contains an extra char at the end
-        // Will need to figure out a better solution
-        ranges[i].text = text.slice(ranges[i].begin, ranges[i].end + 1);
-    }
-
-    return ranges;
-}
