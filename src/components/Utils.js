@@ -29,27 +29,27 @@ export function getExtractedInfo(dataObj) {
     dataObj.neoplasms[0].attributes.forEach(item => {
         if (item.name === 'topography_major') {
             infoObj.topography.value = item.value;
-            infoObj.topography.mentions = getTextMentions(item.directEvidence);
+            infoObj.topography.mentions = getTextMentions(item.directEvidence, 'topography-term');
         }
 
         if (item.name === 'histology') {
             infoObj.histology.value = item.value;
-            infoObj.histology.mentions = getTextMentions(item.directEvidence);
+            infoObj.histology.mentions = getTextMentions(item.directEvidence, 'histology-term');
         }
 
         if (item.name === 'behavior') {
             infoObj.behavior.value = item.value;
-            infoObj.behavior.mentions = getTextMentions(item.directEvidence);
+            infoObj.behavior.mentions = getTextMentions(item.directEvidence, 'behavior-term');
         }
 
         if (item.name === 'laterality') {
             infoObj.laterality.value = item.value;
-            infoObj.laterality.mentions = getTextMentions(item.directEvidence);
+            infoObj.laterality.mentions = getTextMentions(item.directEvidence, 'laterality-term');
         }
 
         if (item.name === 'grade') {
             infoObj.grade.value = item.value;
-            infoObj.grade.mentions = getTextMentions(item.directEvidence);
+            infoObj.grade.mentions = getTextMentions(item.directEvidence, 'grade-term');
         }
     });
 
@@ -61,12 +61,12 @@ export function getExtractedInfo(dataObj) {
 
 
 // Build the target text mentions array from the source array
-function getTextMentions(arr) {
+function getTextMentions(arr, cssClass) {
     let textMentions = [];
     
     arr.forEach(item => {
         let textMentionObj = {};
-        textMentionObj.text = item.classUri;
+        textMentionObj.cssClass = [cssClass]
         textMentionObj.beginOffset = item.begin;
         textMentionObj.endOffset = item.end;
         
@@ -88,6 +88,9 @@ export function highlightTextMentions(textMentions, cssClass, reportText) {
             return comp;
         }
     });
+
+    console.log("======sorted textMentions======");
+    console.log(textMentions);
 
     let textFragments = [];
 
@@ -146,3 +149,4 @@ export function highlightTextMentions(textMentions, cssClass, reportText) {
 
     return <div dangerouslySetInnerHTML={{__html: highlightedReportText}} />;
 }
+

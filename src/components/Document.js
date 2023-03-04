@@ -165,7 +165,7 @@ function Document(props) {
             return (<div className="alert alert-danger">{error.message}</div>);
         } else if (Object.keys(result).length > 0) {
             let info = getExtractedInfo(result);
-            
+
             const highlightText = (mentions, cssClass) => {
                 console.log("Executing highlightText...");
 
