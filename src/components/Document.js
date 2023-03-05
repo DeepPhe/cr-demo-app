@@ -1,6 +1,6 @@
 // components in curly brackets are named export
 // no need to use curly brackets for default export
-import {useState} from "react";
+import {useState, useRef} from "react";
 import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
 import {trackPromise} from 'react-promise-tracker';
@@ -19,6 +19,8 @@ import {getExtractedInfo, highlightTextMentions} from './Utils.js';
  * @param {object} props The properties object as input to a React component
  */
 function Document(props) {
+    const ref = useRef(null);
+
     // State variables with initial state
     // It returns a pair of values: the current state and a function that updates it
     const [doc, setDoc] = useState({}); // Empty object as initial state
@@ -166,12 +168,6 @@ function Document(props) {
     function summarizedDocument() {
         console.log("Executing summarizedDocument()...");
 
-        console.log("topographyChecked: " + topographyChecked);
-        console.log("histologyChecked: " + histologyChecked);
-        console.log("behaviorChecked: " + behaviorChecked);
-        console.log("lateralityChecked: " + lateralityChecked);
-        console.log("gradeChecked: " + gradeChecked);
-
         // Show error message as long as the `error` is not empty object\
         // Show summaried doc as long as the `result` is not empty object
         if (Object.keys(error).length > 0) {
@@ -182,9 +178,12 @@ function Document(props) {
             const highlightText = (variable) => {
                 console.log("Executing highlightText for " + variable);
 
+                console.log(ref.current);
+
                 // Always reset to empty
                 let allTextMentions = [];
 
+                // The checed state won't be updated until the next render
                 if (variable === 'topography') {
                     setTopographyChecked(!topographyChecked);
                 }
@@ -211,25 +210,26 @@ function Document(props) {
                 console.log("lateralityChecked: " + lateralityChecked);
                 console.log("gradeChecked: " + gradeChecked);
 
+                // Note: 
                 // Build the array of all mentions based on checked variables
                 // Merge into a big array using the spread operator ...
-                if (topographyChecked) {
+                if (ref.current.id === 'topography') {
                     allTextMentions = [...allTextMentions, ...info.topography.mentions];
                 }
 
-                if (histologyChecked) {
+                if (ref.current.id === 'histology') {
                     allTextMentions = [...allTextMentions, ...info.histology.mentions];
                 }
 
-                if (behaviorChecked) {
+                if (ref.current.id === 'behavior') {
                     allTextMentions = [...allTextMentions, ...info.behavior.mentions];
                 }
 
-                if (lateralityChecked) {
+                if (ref.current.id === 'laterality') {
                     allTextMentions = [...allTextMentions, ...info.laterality.mentions];
                 }
 
-                if (gradeChecked) {
+                if (ref.current.id === 'grade') {
                     allTextMentions = [...allTextMentions, ...info.grade.mentions];
                 }
  
@@ -260,28 +260,28 @@ function Document(props) {
                 <ul className="list-group rounded-0">
                 {info.topography.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => highlightText('topography')} />
+                    <input type="checkbox" id="topography" ref={ref} onClick={() => highlightText('topography')} />
                     Topography: <span className="topography-term">{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span>
                     </li>
                 }
 
                 {info.histology.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => highlightText('histology')} />
+                    <input type="checkbox" id="histology" ref={ref} onClick={() => highlightText('histology')} />
                     Histology: <span className="histology-term">{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span>
                     </li>
                 }
 
                 {info.behavior.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => highlightText('behavior')} />
+                    <input type="checkbox" id="behavior" ref={ref} onClick={() => highlightText('behavior')} />
                     Behavior: <span className="behavior-term">{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span>
                     </li>
                 }
 
                 {info.laterality.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => highlightText('laterality')} />
+                    <input type="checkbox" id="laterality" ref={ref} onClick={() => highlightText('laterality')} />
                     Laterality: <span className="laterality-term">{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span>
                     </li>
                 }
@@ -289,7 +289,7 @@ function Document(props) {
                 {/* Grade 9 is correct for any document in which a grade term does not exist. From https://training.seer.cancer.gov/coding/guidelines/rule_g.html "9:  Grade or differentiation not determined, not stated or not applicable" */}
                 {info.grade.value !== '9' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => highlightText('grade')} />
+                    <input type="checkbox" id="grade" ref={ref} onClick={() => highlightText('grade')} />
                     Grade: <span className="grade-term">{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span>
                     </li>
                 }
