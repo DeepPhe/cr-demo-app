@@ -263,44 +263,44 @@ function Document(props) {
                 <ul className="list-group rounded-0">
                 {info.topography.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => handleCheckbox('topography')} />
-                    Topography: <span className="topography-term">{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span>
+                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('topography')} />
+                    <label className="form-check-label">Topography: <span className="topography-term">{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span></label>
                     </li>
                 }
 
                 {info.histology.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => handleCheckbox('histology')} />
-                    Histology: <span className="histology-term">{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span>
+                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('histology')} />
+                    <label className="form-check-label">Histology: <span className="histology-term">{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span></label>
                     </li>
                 }
 
                 {info.behavior.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => handleCheckbox('behavior')} />
-                    Behavior: <span className="behavior-term">{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span>
+                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('behavior')} />
+                    <label className="form-check-label">Behavior: <span className="behavior-term">{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span></label>
                     </li>
                 }
 
                 {info.laterality.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => handleCheckbox('laterality')} />
-                    Laterality: <span className="laterality-term">{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span>
+                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('laterality')} />
+                    <label className="form-check-label">Laterality: <span className="laterality-term">{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span></label>
                     </li>
                 }
  
                 {/* Grade 9 is correct for any document in which a grade term does not exist. From https://training.seer.cancer.gov/coding/guidelines/rule_g.html "9:  Grade or differentiation not determined, not stated or not applicable" */}
                 {info.grade.value !== '9' &&
                     <li className="list-group-item">
-                    <input type="checkbox" onClick={() => handleCheckbox('grade')} />
-                    Grade: <span className="grade-term">{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span>
+                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('grade')} />
+                    <label className="form-check-label">Grade: <span className="grade-term">{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span></label>
                     </li>
                 }
 
                 {info.grade.value == '9' &&
                     <li className="list-group-item">
-                    <input type="checkbox" disabled />
-                    Grade: <span>{info.grade.value}</span><span className="term-count">(not determined or not stated)</span>
+                    <input type="checkbox" className="form-check-input" disabled />
+                    <label className="form-check-label">Grade: <span>{info.grade.value}</span><span className="term-count">(not determined or not stated)</span></label>
                     </li>
                 }
                 </ul>

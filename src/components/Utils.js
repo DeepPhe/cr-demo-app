@@ -115,10 +115,10 @@ export function highlightTextMentions(textMentions, reportText) {
 
         // Currently we don't handle overlapping from more than two variables
         // Note: the range.text contains an extra char at the end
-        if (textMention.bgcolor.length === 2) {
+        if (textMention.count === 2) {
             let str = '<span style="background: linear-gradient(to bottom, ' + textMention.bgcolor[0] + ' 50%, ' + textMention.bgcolor[1] + ' 50%);">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
             textFragments.push(str);
-        } else if (textMention.bgcolor.length === 1) {
+        } else if (textMention.count === 1) {
             let str = '<span style="background: ' + textMention.bgcolor[0] + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
             textFragments.push(str);
         } else {
@@ -152,7 +152,7 @@ export function highlightTextMentions(textMentions, reportText) {
             // Don't use `className` attr, only `class` works
             //textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
 
-            if (textMention.bgcolor.length === 2) {
+            if (textMention.count === 2) {
                 let str = '<span style="background: linear-gradient(to bottom, ' + textMention.bgcolor[0] + ' 50%, ' + textMention.bgcolor[1] + ' 50%);">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
                 textFragments.push(str);
             } else if (textMention.bgcolor.length === 1) {
@@ -199,15 +199,20 @@ function flattenRanges(ranges) {
         points.push(ranges[i].begin);
         points.push(ranges[i].end);
     }
+
     //MAKE SURE OUR LIST OF POINTS IS IN ORDER
-    points.sort(function(a, b){return a-b});
-    //FIND THE INTERSECTING SPANS FOR EACH PAIR OF POINTS (IF ANY)
-    //ALSO MERGE THE ATTRIBUTES OF EACH INTERSECTING SPAN, AND INCREASE THE COUNT FOR EACH INTERSECTION
+    points.sort(function(a, b) {
+        return a - b;
+    });
+
+    // FIND THE INTERSECTING SPANS FOR EACH PAIR OF POINTS (IF ANY)
+    // ALSO MERGE THE ATTRIBUTES OF EACH INTERSECTING SPAN, AND INCREASE THE COUNT FOR EACH INTERSECTION
     for (let i in points) {
         if (i == 0 || points[i] == points[i-1]) continue;
         let includedRanges = ranges.filter(function(x) {
             return (Math.max(x.begin,points[i-1]) < Math.min(x.end,points[i]));
         });
+
         if (includedRanges.length > 0) {
             let flattenedRange = {
                 begin:points[i-1],

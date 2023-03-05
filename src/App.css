@@ -97,6 +97,11 @@ background: #ffe69c;
 background: #ffb7b7;
 }
 
+.form-check-label {
+margin-left: 5px;
+line-height: 23px;
+}
+
 .json {
 width:374px;
 height:360px;
