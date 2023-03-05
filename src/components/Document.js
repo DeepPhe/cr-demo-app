@@ -1,6 +1,6 @@
 // components in curly brackets are named export
 // no need to use curly brackets for default export
-import {useState, useRef} from "react";
+import {useState, useEffect} from "react";
 import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
 import {trackPromise} from 'react-promise-tracker';
@@ -19,8 +19,6 @@ import {getExtractedInfo, highlightTextMentions} from './Utils.js';
  * @param {object} props The properties object as input to a React component
  */
 function Document(props) {
-    const ref = useRef(null);
-
     // State variables with initial state
     // It returns a pair of values: the current state and a function that updates it
     const [doc, setDoc] = useState({}); // Empty object as initial state
@@ -93,9 +91,6 @@ function Document(props) {
     function summarizeDocument() {
         console.log("Executing summarizeDocument()...");
 
-        // Reset the preview to remove any highlighted terms
-        documentPreview(true);
-
         const requestHeaders = {
             'Content-Type': 'text/plain',
             'Authorization': 'Bearer ' + config.authToken
@@ -136,32 +131,114 @@ function Document(props) {
     }
     
     // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
-    function documentPreview(reset = false) {
+    function documentPreview() {
         console.log("Executing documentPreview()...");
 
-        if (reset) {
-            console.log("Reset preview to the original doc text");
-            console.log(docText)
+        if (Object.keys(doc).length > 0) {
+            return (
+                <div key={doc.name} className="doc-preview">
 
-            doc.preview = docText;
-        } else {
-            if (Object.keys(doc).length > 0) {
-                return (
-                    <div key={doc.name} className="doc-preview">
+                <header className="doc-header">
+                <span className="doc-info">{doc.name}</span>
+                <button type="submit" className="btn btn-primary btn-sm" onClick={summarizeDocument}>Summarize =></button> 
+                <Spinner />
+                </header>
 
-                    <header className="doc-header">
-                    <span className="doc-info">{doc.name}</span>
-                    <button type="submit" className="btn btn-primary btn-sm" onClick={summarizeDocument}>Summarize =></button> 
-                    <Spinner />
-                    </header>
+                <div className="doc-content">{doc.preview}</div>
 
-                    <div className="doc-content">{doc.preview}</div>
-
-                    </div>
-                )
-            }    
+                </div>
+            )
         }
     }
+
+    useEffect(() => {
+        console.log("topographyChecked: " + topographyChecked);
+        console.log("histologyChecked: " + histologyChecked);
+        console.log("behaviorChecked: " + behaviorChecked);
+        console.log("lateralityChecked: " + lateralityChecked);
+        console.log("gradeChecked: " + gradeChecked);
+        
+        console.log("======result======");
+        console.log(result);
+        
+        // Need this if check otherwise error on initial load when `result` is an empty Object
+        if (Object.keys(result).length > 0) {
+            multiHighlighting();
+        }
+    }, [topographyChecked, histologyChecked, behaviorChecked, lateralityChecked, gradeChecked]);
+
+    function multiHighlighting() {
+        console.log("Executing multiHighlighting()");
+
+        // Always reset to empty
+        let allTextMentions = [];
+
+        let info = getExtractedInfo(result);
+
+        // Build the array of all mentions based on checked variables
+        // Merge into a big array using the spread operator ...
+        if (topographyChecked) {
+            allTextMentions = [...allTextMentions, ...info.topography.mentions];
+        }
+
+        if (histologyChecked) {
+            allTextMentions = [...allTextMentions, ...info.histology.mentions];
+        }
+
+        if (behaviorChecked) {
+            allTextMentions = [...allTextMentions, ...info.behavior.mentions];
+        }
+
+        if (lateralityChecked) {
+            allTextMentions = [...allTextMentions, ...info.laterality.mentions];
+        }
+
+        if (gradeChecked) {
+            allTextMentions = [...allTextMentions, ...info.grade.mentions];
+        }
+
+        console.log("======allTextMentions======");
+        console.log(allTextMentions);
+
+        if (allTextMentions.length > 0) {
+            let highlightedDocText = highlightTextMentions(allTextMentions, docText);
+            doc.preview = highlightedDocText;
+
+            console.log("======highlightedDocText======");
+            console.log(highlightedDocText);
+
+            setHighlightedReportText(highlightedDocText);
+        } else {
+            doc.preview = docText;
+        }
+    }
+
+    // Update the checkbox state
+    // The checed state won't be updated until the next render
+    // That's when useEffect() hook is needed 
+    const handleCheckbox = (variable) => {
+        console.log("Executing handleCheckbox for " + variable);
+
+        if (variable === 'topography') {
+            setTopographyChecked(!topographyChecked);
+        }
+
+        if (variable === 'histology') {
+            setHistologyChecked(!histologyChecked);
+        }
+
+        if (variable === 'behavior') {
+            setBehaviorChecked(!behaviorChecked);
+        }
+
+        if (variable === 'laterality') {
+            setLateralityChecked(!lateralityChecked);
+        }
+
+        if (variable === 'grade') {
+            setGradeChecked(!gradeChecked);
+        }           
+    };
 
     // Show the extracted info along with json payload of summarized doc or error message or nothing
     // `result` is json object
@@ -175,80 +252,6 @@ function Document(props) {
         } else if (Object.keys(result).length > 0) {
             let info = getExtractedInfo(result);
 
-            const highlightText = (variable) => {
-                console.log("Executing highlightText for " + variable);
-
-                console.log(ref.current);
-
-                // Always reset to empty
-                let allTextMentions = [];
-
-                // The checed state won't be updated until the next render
-                if (variable === 'topography') {
-                    setTopographyChecked(!topographyChecked);
-                }
-
-                if (variable === 'histology') {
-                    setHistologyChecked(!histologyChecked);
-                }
-
-                if (variable === 'behavior') {
-                    setBehaviorChecked(!behaviorChecked);
-                }
-
-                if (variable === 'laterality') {
-                    setLateralityChecked(!lateralityChecked);
-                }
-
-                if (variable === 'grade') {
-                    setGradeChecked(!gradeChecked);
-                }
-
-                console.log("topographyChecked: " + topographyChecked);
-                console.log("histologyChecked: " + histologyChecked);
-                console.log("behaviorChecked: " + behaviorChecked);
-                console.log("lateralityChecked: " + lateralityChecked);
-                console.log("gradeChecked: " + gradeChecked);
-
-                // Note: 
-                // Build the array of all mentions based on checked variables
-                // Merge into a big array using the spread operator ...
-                if (ref.current.id === 'topography') {
-                    allTextMentions = [...allTextMentions, ...info.topography.mentions];
-                }
-
-                if (ref.current.id === 'histology') {
-                    allTextMentions = [...allTextMentions, ...info.histology.mentions];
-                }
-
-                if (ref.current.id === 'behavior') {
-                    allTextMentions = [...allTextMentions, ...info.behavior.mentions];
-                }
-
-                if (ref.current.id === 'laterality') {
-                    allTextMentions = [...allTextMentions, ...info.laterality.mentions];
-                }
-
-                if (ref.current.id === 'grade') {
-                    allTextMentions = [...allTextMentions, ...info.grade.mentions];
-                }
- 
-                console.log("======allTextMentions======");
-                console.log(allTextMentions);
-
-                if (allTextMentions.length > 0) {
-                    let highlightedDocText = highlightTextMentions(allTextMentions, docText);
-                    doc.preview = highlightedDocText;
-
-                    console.log("======highlightedDocText======");
-                    console.log(highlightedDocText);
-
-                    setHighlightedReportText(highlightedDocText);
-                } else {
-                    doc.preview = docText;
-                }                
-            };
-
             return (
                 <div className="doc-summary">
 
@@ -260,28 +263,28 @@ function Document(props) {
                 <ul className="list-group rounded-0">
                 {info.topography.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" id="topography" ref={ref} onClick={() => highlightText('topography')} />
+                    <input type="checkbox" onClick={() => handleCheckbox('topography')} />
                     Topography: <span className="topography-term">{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span>
                     </li>
                 }
 
                 {info.histology.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" id="histology" ref={ref} onClick={() => highlightText('histology')} />
+                    <input type="checkbox" onClick={() => handleCheckbox('histology')} />
                     Histology: <span className="histology-term">{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span>
                     </li>
                 }
 
                 {info.behavior.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" id="behavior" ref={ref} onClick={() => highlightText('behavior')} />
+                    <input type="checkbox" onClick={() => handleCheckbox('behavior')} />
                     Behavior: <span className="behavior-term">{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span>
                     </li>
                 }
 
                 {info.laterality.value !== '' &&
                     <li className="list-group-item">
-                    <input type="checkbox" id="laterality" ref={ref} onClick={() => highlightText('laterality')} />
+                    <input type="checkbox" onClick={() => handleCheckbox('laterality')} />
                     Laterality: <span className="laterality-term">{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span>
                     </li>
                 }
@@ -289,7 +292,7 @@ function Document(props) {
                 {/* Grade 9 is correct for any document in which a grade term does not exist. From https://training.seer.cancer.gov/coding/guidelines/rule_g.html "9:  Grade or differentiation not determined, not stated or not applicable" */}
                 {info.grade.value !== '9' &&
                     <li className="list-group-item">
-                    <input type="checkbox" id="grade" ref={ref} onClick={() => highlightText('grade')} />
+                    <input type="checkbox" onClick={() => handleCheckbox('grade')} />
                     Grade: <span className="grade-term">{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span>
                     </li>
                 }
@@ -303,6 +306,7 @@ function Document(props) {
                 </ul>
 
                 <div className="json"><code>{JSON.stringify(result.neoplasms, null, 2)}</code></div>
+
                 </div>
                 
                 </div>
