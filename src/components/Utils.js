@@ -184,7 +184,7 @@ function flattenRanges(ranges) {
     // FIND THE INTERSECTING SPANS FOR EACH PAIR OF POINTS (IF ANY)
     // ALSO MERGE THE ATTRIBUTES OF EACH INTERSECTING SPAN, AND INCREASE THE COUNT FOR EACH INTERSECTION
     for (let i in points) {
-        if (i == 0 || points[i] == points[i-1]) continue;
+        if (i === 0 || points[i] === points[i-1]) continue;
         let includedRanges = ranges.filter(function(x) {
             return (Math.max(x.begin,points[i-1]) < Math.min(x.end,points[i]));
         });
@@ -200,7 +200,7 @@ function flattenRanges(ranges) {
                 let includedRange = includedRanges[j];
 
                 for (let prop in includedRange) {
-                    if (prop != 'begin' && prop != 'end') {
+                    if (prop !== 'begin' && prop !== 'end') {
                         if (!flattenedRange[prop]) flattenedRange[prop] = [];
                         flattenedRange[prop].push(includedRange[prop]);
                     }

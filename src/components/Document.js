@@ -201,7 +201,7 @@ function Document(props) {
             (index === position) ? !item : item
         );
 
-        setCheckedVariables(updatedCheckedVariables);          
+        setCheckedVariables(updatedCheckedVariables);      
     };
 
     // Show the extracted info along with json payload of summarized doc or error message or nothing
