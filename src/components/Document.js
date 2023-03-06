@@ -8,6 +8,7 @@ import {trackPromise} from 'react-promise-tracker';
 // Local imports
 import config from '../config/config.json';
 import Spinner from './Spinner.js';
+import {variablesObj} from './Variables.js';
 import {getExtractedInfo, highlightTextMentions} from './Utils.js';
 
 
@@ -27,12 +28,9 @@ function Document(props) {
     const [result, setResult] = useState({}); // Empty object as initial state
     const [error, setError] = useState({}); // Empty object as initial state
     
-    // Checkboxes
-    const [topographyChecked, setTopographyChecked] = useState(false);
-    const [histologyChecked, setHistologyChecked] = useState(false);
-    const [behaviorChecked, setBehaviorChecked] = useState(false);
-    const [lateralityChecked, setLateralityChecked] = useState(false);
-    const [gradeChecked, setGradeChecked] = useState(false);
+    // Variables and their checkboxes
+    const variableNamesArr = Object.keys(variablesObj);
+    const [checkedVariables, setCheckedVariables] = useState(new Array(variableNamesArr.length).fill(false));
 
     // const with curly brackets is object destructuring assignment from ES6 specifications
     // a shorthand way to initialize variables from object properties
@@ -109,8 +107,8 @@ function Document(props) {
             })
             .then(
                 (res) => {
-                    console.log("======API call response: res======");
-                    console.log(res)
+                    // console.log("======API call response: res======");
+                    // console.log(res)
 
                     // `data` is an object here
                     setResult(res.data);
@@ -151,22 +149,18 @@ function Document(props) {
         }
     }
 
+    // Show multi highlighting after the DOM has been updated based on the `checkedVariables` dependency
     useEffect(() => {
-        console.log("topographyChecked: " + topographyChecked);
-        console.log("histologyChecked: " + histologyChecked);
-        console.log("behaviorChecked: " + behaviorChecked);
-        console.log("lateralityChecked: " + lateralityChecked);
-        console.log("gradeChecked: " + gradeChecked);
-        
-        console.log("======result======");
-        console.log(result);
+        console.log("======checkedVariables======");
+        console.log(checkedVariables);
         
         // Need this if check otherwise error on initial load when `result` is an empty Object
         if (Object.keys(result).length > 0) {
             multiHighlighting();
         }
-    }, [topographyChecked, histologyChecked, behaviorChecked, lateralityChecked, gradeChecked]);
+    }, [checkedVariables]);
 
+    // Highlight the target text mentions in report text
     function multiHighlighting() {
         console.log("Executing multiHighlighting()");
 
@@ -177,25 +171,11 @@ function Document(props) {
 
         // Build the array of all mentions based on checked variables
         // Merge into a big array using the spread operator ...
-        if (topographyChecked) {
-            allTextMentions = [...allTextMentions, ...info.topography.mentions];
-        }
-
-        if (histologyChecked) {
-            allTextMentions = [...allTextMentions, ...info.histology.mentions];
-        }
-
-        if (behaviorChecked) {
-            allTextMentions = [...allTextMentions, ...info.behavior.mentions];
-        }
-
-        if (lateralityChecked) {
-            allTextMentions = [...allTextMentions, ...info.laterality.mentions];
-        }
-
-        if (gradeChecked) {
-            allTextMentions = [...allTextMentions, ...info.grade.mentions];
-        }
+        checkedVariables.forEach((checkedVariable, index) => {
+            if (checkedVariable) {
+                allTextMentions = [...allTextMentions, ...info[variableNamesArr[index]].mentions];
+            }
+        });
 
         console.log("======allTextMentions======");
         console.log(allTextMentions);
@@ -216,28 +196,17 @@ function Document(props) {
     // Update the checkbox state
     // The checed state won't be updated until the next render
     // That's when useEffect() hook is needed 
-    const handleCheckbox = (variable) => {
-        console.log("Executing handleCheckbox for " + variable);
+    const handleCheckbox = (position) => {
+        console.log("Executing handleCheckbox for ");
 
-        if (variable === 'topography') {
-            setTopographyChecked(!topographyChecked);
-        }
+        // Loop over the checkedVariables array using the array map method
+        // If the value of the passed position parameter matches with the current index, reverse its value
+        // If the value is true it will be converted to false using !item and if the value is false, then it will be converted to true
+        const updatedCheckedVariables = checkedVariables.map((item, index) =>
+            (index === position) ? !item : item
+        );
 
-        if (variable === 'histology') {
-            setHistologyChecked(!histologyChecked);
-        }
-
-        if (variable === 'behavior') {
-            setBehaviorChecked(!behaviorChecked);
-        }
-
-        if (variable === 'laterality') {
-            setLateralityChecked(!lateralityChecked);
-        }
-
-        if (variable === 'grade') {
-            setGradeChecked(!gradeChecked);
-        }           
+        setCheckedVariables(updatedCheckedVariables);          
     };
 
     // Show the extracted info along with json payload of summarized doc or error message or nothing
@@ -261,48 +230,28 @@ function Document(props) {
                 
                 <div className="extracted-info">
                 <ul className="list-group rounded-0">
-                {info.topography.value !== '' &&
-                    <li className="list-group-item">
-                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('topography')} />
-                    <label className="form-check-label">Topography: <span className="topography-term">{info.topography.value}</span><span className="term-count">({info.topography.mentions.length})</span></label>
-                    </li>
-                }
 
-                {info.histology.value !== '' &&
-                    <li className="list-group-item">
-                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('histology')} />
-                    <label className="form-check-label">Histology: <span className="histology-term">{info.histology.value}</span><span className="term-count">({info.histology.mentions.length})</span></label>
-                    </li>
-                }
+                {variableNamesArr.map((name, index) => {
+                    if (info[name]['value'] !== '') {
+                        // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
+                        if (name === 'grade' && info[name]['value'] === '9') {
+                            return (
+                                <li className="list-group-item" key={index}>
+                                <input type="checkbox" className="form-check-input" disabled />
+                                <label className="form-check-label">{name}: <span>{info.grade.value}</span><span className="term-count">(not determined or not stated)</span></label>
+                                </li>
+                            );
+                        } else {
+                            return (
+                                <li key={index} className="list-group-item" key={index}>
+                                <input type="checkbox" name={name} value={name} className="form-check-input" checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} />
+                                <label className="form-check-label">{name}: <span className={`${name}-term`}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
+                                </li>
+                            );
+                        }
+                    }
+                })}
 
-                {info.behavior.value !== '' &&
-                    <li className="list-group-item">
-                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('behavior')} />
-                    <label className="form-check-label">Behavior: <span className="behavior-term">{info.behavior.value}</span><span className="term-count">({info.behavior.mentions.length})</span></label>
-                    </li>
-                }
-
-                {info.laterality.value !== '' &&
-                    <li className="list-group-item">
-                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('laterality')} />
-                    <label className="form-check-label">Laterality: <span className="laterality-term">{info.laterality.value}</span><span className="term-count">({info.laterality.mentions.length})</span></label>
-                    </li>
-                }
- 
-                {/* Grade 9 is correct for any document in which a grade term does not exist. From https://training.seer.cancer.gov/coding/guidelines/rule_g.html "9:  Grade or differentiation not determined, not stated or not applicable" */}
-                {info.grade.value !== '9' &&
-                    <li className="list-group-item">
-                    <input type="checkbox" className="form-check-input" onClick={() => handleCheckbox('grade')} />
-                    <label className="form-check-label">Grade: <span className="grade-term">{info.grade.value}</span><span className="term-count">({info.grade.mentions.length})</span></label>
-                    </li>
-                }
-
-                {info.grade.value == '9' &&
-                    <li className="list-group-item">
-                    <input type="checkbox" className="form-check-input" disabled />
-                    <label className="form-check-label">Grade: <span>{info.grade.value}</span><span className="term-count">(not determined or not stated)</span></label>
-                    </li>
-                }
                 </ul>
 
                 <div className="json"><code>{JSON.stringify(result.neoplasms, null, 2)}</code></div>
