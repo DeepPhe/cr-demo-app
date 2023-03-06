@@ -22,10 +22,10 @@ import {getExtractedInfo, highlightTextMentions} from './Utils.js';
 function Document(props) {
     // State variables with initial state
     // It returns a pair of values: the current state and a function that updates it
-    const [doc, setDoc] = useState({}); // Empty object as initial state
-    const [docText, setDocText] = useState(''); // Empty string as initial state
-    const [highlightedReportText, setHighlightedReportText] = useState(''); // Empty string as initial state
-    const [result, setResult] = useState({}); // Empty object as initial state
+    const [doc, setDoc] = useState({}); // Uploaded doc file, empty object as initial state
+    const [docText, setDocText] = useState(''); // The original plain text of the doc, empty string as initial state
+    const [docPreview, setDocPreview] = useState(''); // The preview of doc, contains highlighted html. Empty string as initial state
+    const [result, setResult] = useState({}); // NLP extracted json, empty object as initial state
     const [error, setError] = useState({}); // Empty object as initial state
     
     // Variables and their checkboxes
@@ -52,7 +52,7 @@ function Document(props) {
             console.log(acceptedFiles);
 
             // We only handle one file
-            let file = acceptedFiles[0];
+            let docFile = acceptedFiles[0];
 
             // https://developer.mozilla.org/en-US/docs/Web/API/FileReader
             // no arguments
@@ -64,23 +64,18 @@ function Document(props) {
                 // Do whatever you want with the file contents
                 const binaryStr = reader.result;
 
-                console.log("======binaryStr======");
-                console.log(binaryStr);
+                // console.log("======binaryStr======");
+                // console.log(binaryStr);
 
                 setDocText(binaryStr);
-
-                // Add new property `preview` to each file object
-                file.preview = binaryStr;
-
-                console.log("======file.preview======");
-                console.log(file.preview);
+                setDocPreview(binaryStr);
             }
 
             // Note, this readAsText() returns None (undefined).
-            reader.readAsText(file);
+            reader.readAsText(docFile);
 
-            // Update the state variable `doc` using the `file` information 
-            setDoc(file);
+            // Update the state variable `doc` using the `docFile` information 
+            setDoc(docFile);
         }
     });
 
@@ -103,7 +98,7 @@ function Document(props) {
                 url: config.apiBaseUrl + "summarizeOneDoc/doc/" + docId,
                 method: 'PUT',
                 headers: requestHeaders,
-                data: doc.preview
+                data: docText // The original doc plain text
             })
             .then(
                 (res) => {
@@ -141,8 +136,8 @@ function Document(props) {
                 <button type="submit" className="btn btn-primary btn-sm" onClick={summarizeDocument}>Summarize =></button> 
                 <Spinner />
                 </header>
-
-                <div className="doc-content">{doc.preview}</div>
+                
+                <div className="doc-content">{docPreview}</div>
 
                 </div>
             )
@@ -181,15 +176,15 @@ function Document(props) {
         console.log(allTextMentions);
 
         if (allTextMentions.length > 0) {
-            let highlightedDocText = highlightTextMentions(allTextMentions, docText);
-            doc.preview = highlightedDocText;
+            let highlightedDocHtml = highlightTextMentions(allTextMentions, docText);
 
-            console.log("======highlightedDocText======");
-            console.log(highlightedDocText);
+            console.log("======highlightedDocHtml======");
+            console.log(highlightedDocHtml);
 
-            setHighlightedReportText(highlightedDocText);
+            // Update preview state
+            setDocPreview(highlightedDocHtml);
         } else {
-            doc.preview = docText;
+            setDocPreview(docText);
         }
     }
 
@@ -223,7 +218,6 @@ function Document(props) {
 
             return (
                 <div className="doc-summary">
-
                 <header className="doc-header">
                 <span className="doc-info">Review Document Summary</span>
                 </header>
@@ -253,11 +247,8 @@ function Document(props) {
                 })}
 
                 </ul>
-
                 <div className="json"><code>{JSON.stringify(result.neoplasms, null, 2)}</code></div>
-
                 </div>
-                
                 </div>
             );
         } else {

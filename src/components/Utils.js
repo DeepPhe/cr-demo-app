@@ -151,8 +151,8 @@ export function highlightTextMentions(textMentions, reportText) {
         highlightedReportText += textFragments[j];
     }
 
-    console.log("======highlightedReportText======");
-    console.log(highlightedReportText);
+    // console.log("======highlightedReportText======");
+    // console.log(highlightedReportText);
 
     return <div dangerouslySetInnerHTML={{__html: highlightedReportText}} />;
 }
