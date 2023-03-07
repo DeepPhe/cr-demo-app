@@ -25,12 +25,24 @@ function Document(props) {
     const [doc, setDoc] = useState({}); // Uploaded doc file, empty object as initial state
     const [docText, setDocText] = useState(''); // The original plain text of the doc, empty string as initial state
     const [docPreview, setDocPreview] = useState(''); // The preview of doc, contains highlighted html. Empty string as initial state
-    const [result, setResult] = useState({}); // NLP extracted json, empty object as initial state
+    const [nlpResult, setNlpResult] = useState({}); // NLP extracted json, empty object as initial state
     const [error, setError] = useState({}); // Empty object as initial state
     
     // Variables and their checkboxes
     const variableNamesArr = Object.keys(variablesObj);
     const [checkedVariables, setCheckedVariables] = useState(new Array(variableNamesArr.length).fill(false));
+
+    // Reset the state variables on each new file selection
+    function resetStates() {
+        console.log("Executing resetStates()...");
+
+        setDoc({});
+        setDocText('');
+        setDocPreview('');
+        setNlpResult({});
+        setError('');
+        setCheckedVariables(new Array(variableNamesArr.length).fill(false));
+    }
 
     // const with curly brackets is object destructuring assignment from ES6 specifications
     // a shorthand way to initialize variables from object properties
@@ -43,9 +55,7 @@ function Document(props) {
             'text/plain': ['.txt']
         },
         onDrop: acceptedFiles => {
-            // Reset the extraction summary result on each new file selection
-            setResult('');
-            setError('');
+            resetStates();
 
             // `acceptedFiles` is an array and stores the details of each accepted file
             console.log("======acceptedFiles======");
@@ -106,16 +116,16 @@ function Document(props) {
                     // console.log(res)
 
                     // `data` is an object here
-                    setResult(res.data);
+                    setNlpResult(res.data);
 
-                    console.log("======Pretty print======");
-                    console.log(JSON.stringify(result, null, 2));
+                    // console.log("======Pretty print======");
+                    // console.log(JSON.stringify(res.data, null, 2));
                 },
                 // Note: it's important to handle errors here
                 // instead of a catch() block so that we don't swallow
                 // exceptions from actual bugs in components.
                 (err) => {
-                    console.log("======API call err: err======");
+                    console.log("======API call error: err======");
                     setError(err);
                 }
             )
@@ -146,23 +156,25 @@ function Document(props) {
 
     // Show multi highlighting after the DOM has been updated based on the `checkedVariables` dependency
     useEffect(() => {
+        console.log("Executing useEffect()...");
+
         console.log("======checkedVariables======");
         console.log(checkedVariables);
         
-        // Need this if check otherwise error on initial load when `result` is an empty Object
-        if (Object.keys(result).length > 0) {
+        // Need this if check otherwise error on initial load when `nlpResult` is an empty Object
+        if (Object.keys(nlpResult).length > 0) {
             multiHighlighting();
         }
     }, [checkedVariables]);
 
     // Highlight the target text mentions in report text
     function multiHighlighting() {
-        console.log("Executing multiHighlighting()");
+        console.log("Executing multiHighlighting()...");
 
         // Always reset to empty
         let allTextMentions = [];
 
-        let info = getExtractedInfo(result);
+        let info = getExtractedInfo(nlpResult);
 
         // Build the array of all mentions based on checked variables
         // Merge into a big array using the spread operator ...
@@ -192,7 +204,7 @@ function Document(props) {
     // The checed state won't be updated until the next render
     // That's when useEffect() hook is needed 
     const handleCheckbox = (position) => {
-        console.log("Executing handleCheckbox for ");
+        console.log("Executing handleCheckbox for position: " + position);
 
         // Loop over the checkedVariables array using the array map method
         // If the value of the passed position parameter matches with the current index, reverse its value
@@ -205,16 +217,16 @@ function Document(props) {
     };
 
     // Show the extracted info along with json payload of summarized doc or error message or nothing
-    // `result` is json object
+    // `nlpResult` is json object
     function summarizedDocument() {
         console.log("Executing summarizedDocument()...");
 
         // Show error message as long as the `error` is not empty object\
-        // Show summaried doc as long as the `result` is not empty object
+        // Show summaried doc as long as the `nlpResult` is not empty object
         if (Object.keys(error).length > 0) {
             return (<div className="alert alert-danger">{error.message}</div>);
-        } else if (Object.keys(result).length > 0) {
-            let info = getExtractedInfo(result);
+        } else if (Object.keys(nlpResult).length > 0) {
+            let info = getExtractedInfo(nlpResult);
 
             return (
                 <div className="doc-summary">
@@ -247,7 +259,7 @@ function Document(props) {
                 })}
 
                 </ul>
-                <div className="json"><code>{JSON.stringify(result.neoplasms, null, 2)}</code></div>
+                <div className="json"><code>{JSON.stringify(nlpResult.neoplasms, null, 2)}</code></div>
                 </div>
                 </div>
             );
