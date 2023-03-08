@@ -227,7 +227,8 @@ function Document(props) {
             return (<div className="alert alert-danger">{error.message}</div>);
         } else if (Object.keys(nlpResult).length > 0) {
             let info = getExtractedInfo(nlpResult);
-
+            
+            // JSX expression
             return (
                 <div className="doc-summary">
                 <header className="doc-header">
@@ -248,10 +249,14 @@ function Document(props) {
                                 </li>
                             );
                         } else {
+                            const styles = {
+                                background: info[name].bgcolor
+                            };
+
                             return (
                                 <li key={index} className="list-group-item" key={index}>
                                 <input type="checkbox" name={name} value={name} className="form-check-input" checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} />
-                                <label className="form-check-label">{name}: <span className={`${name}-term`}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
+                                <label className="form-check-label">{name}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
                                 </li>
                             );
                         }

@@ -77,26 +77,6 @@ margin-left: 2px;
 font-size: .8em;
 }
 
-.topography-term {
-background: #cfe2ff;
-}
-
-.histology-term {
-background: #f8d7da; 
-}
-
-.behavior-term {
-background: #a3cfbb;
-}
-
-.laterality-term {
-background: #ffe69c;
-}
-
-.grade-term {
-background: #ffb7b7;
-}
-
 .form-check-label {
 margin-left: 5px;
 line-height: 23px;

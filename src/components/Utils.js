@@ -86,11 +86,7 @@ export function highlightTextMentions(textMentions, reportText) {
             textFragments.push(reportText.substring(0, textMention.begin));
         }
 
-        // Don't use `className` attr, only `class` works
-        //textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>');
-
-        // Currently we don't handle overlapping from more than two variables
-        // Note: the range.text contains an extra char at the end
+        // Don't use JSX expression here because we wanted to return HTML
         if (textMention.count === 1) {
             let str = '<span style="background: ' + textMention.bgcolor[0] + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
             textFragments.push(str);
@@ -121,10 +117,8 @@ export function highlightTextMentions(textMentions, reportText) {
                     textFragments.push(reportText.substring(lastValidTM.end, textMention.begin));
                 }
             }
-
-            // Don't use `className` attr, only `class` works
-            //textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
             
+            // Don't use JSX expression here because we wanted to return HTML
             if (textMention.count === 1) {
                 let str = '<span style="background: ' + textMention.bgcolor[0] + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
                 textFragments.push(str);
@@ -162,14 +156,44 @@ export function highlightTextMentions(textMentions, reportText) {
 function buildColorDistribution(textMention) {
     let colorDistribution = [];
     let increment = (100/textMention.count).toFixed(2);
-    
+
     for (let i = 0; i < textMention.count; i++) {
         let bgcolor = textMention.bgcolor[i];
-        colorDistribution.push(bgcolor + " " + i*increment + "%");
-        colorDistribution.push(bgcolor + " " + (i + 1)*increment + "%");
+        let start = (i > 0) ? i*increment + "%" : 0;
+        let finish = (i < textMention.count - 1) ? (i + 1)*increment + "%" : "100%";
+        colorDistribution.push(bgcolor + " " + start);
+        colorDistribution.push(bgcolor + " " + finish);
     }
 
     return colorDistribution;
+}
+
+function buildHighlightedTextStyle(textMention, reportText) {
+    let str = '';
+
+    if (textMention.count === 1) {
+        // JSX expression
+        const styles = {
+            "background": textMention.bgcolor[0]
+        };
+        str = <span style={styles}>{reportText.substring(textMention.begin, textMention.end)}</span>;
+    }else if (textMention.count >= 2 && textMention.count <= Object.keys(variablesObj).length) {
+        // 2 color example: background: linear-gradient(to bottom, #f8d7da 0%, #f8d7da 50%, #a3cfbb 50%, #a3cfbb 100%);
+        // 3 color example: style="background: linear-gradient(to bottom, #f8d7da 0%, #f8d7da 33.33%, #a3cfbb 33.33%, #a3cfbb 66.66%, #cfe2ff 66.66%, #cfe2ff 99.99%);"
+        let colorDistribution = buildColorDistribution(textMention);
+        const styles = {
+            "background": "linear-gradient(to bottom, " + colorDistribution.join(", ") + ")"
+        };
+        str = <span style={styles}>{reportText.substring(textMention.begin, textMention.end)}</span>;
+    } else {
+        console.log("Incorrect data, should not have more than " + Object.keys(variablesObj).length + " variables/colors");
+    }
+
+    const styles = {
+        "background": textMention.bgcolor[0]
+    };
+
+    return str;
 }
 
 // Based on https://stackoverflow.com/questions/40117156/creating-overlapping-text-spans-in-javascript
