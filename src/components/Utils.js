@@ -91,14 +91,11 @@ export function highlightTextMentions(textMentions, reportText) {
 
         // Currently we don't handle overlapping from more than two variables
         // Note: the range.text contains an extra char at the end
-        if (textMention.count === 2) {
-            let str = '<span style="background: linear-gradient(to bottom, ' + textMention.bgcolor[0] + ' 50%, ' + textMention.bgcolor[1] + ' 50%);">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
-            textFragments.push(str);
-        } else if (textMention.count === 1) {
+        if (textMention.count === 1) {
             let str = '<span style="background: ' + textMention.bgcolor[0] + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
             textFragments.push(str);
         } else {
-            console.log("======range.bgcolor has more than 2 variables overlapping======");
+            console.log("Incorrect data, should be only 1 text mention with 1 bgcolor");
         }
 
         textFragments.push(reportText.substring(textMention.end));
@@ -127,15 +124,18 @@ export function highlightTextMentions(textMentions, reportText) {
 
             // Don't use `className` attr, only `class` works
             //textFragments.push('<span class="' + cssClass + '">' + reportText.substring(textMention.beginOffset, textMention.endOffset) + '</span>');
-
-            if (textMention.count === 2) {
-                let str = '<span style="background: linear-gradient(to bottom, ' + textMention.bgcolor[0] + ' 50%, ' + textMention.bgcolor[1] + ' 50%);">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
-                textFragments.push(str);
-            } else if (textMention.bgcolor.length === 1) {
+            
+            if (textMention.count === 1) {
                 let str = '<span style="background: ' + textMention.bgcolor[0] + '">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
                 textFragments.push(str);
+            }else if (textMention.count >= 2 && textMention.count <= Object.keys(variablesObj).length) {
+                // 2 color example: background: linear-gradient(to bottom, #f8d7da 0%, #f8d7da 50%, #a3cfbb 50%, #a3cfbb 100%);
+                // 3 color example: style="background: linear-gradient(to bottom, #f8d7da 0%, #f8d7da 33.33%, #a3cfbb 33.33%, #a3cfbb 66.66%, #cfe2ff 66.66%, #cfe2ff 99.99%);"
+                let colorDistribution = buildColorDistribution(textMention);
+                let str = '<span style="background: linear-gradient(to bottom, ' + colorDistribution.join(", ") + ');">' + reportText.substring(textMention.begin, textMention.end) + '</span>';
+                textFragments.push(str);
             } else {
-                console.log("======range.bgcolor has more than 2 variables overlapping======");
+                console.log("Incorrect data, should not have more than " + Object.keys(variablesObj).length + " variables/colors");
             }
 
             lastValidTMIndex = i;
@@ -157,6 +157,20 @@ export function highlightTextMentions(textMentions, reportText) {
     return <div dangerouslySetInnerHTML={{__html: highlightedReportText}} />;
 }
 
+// 2 color example: #f8d7da 0%, #f8d7da 50%, #a3cfbb 50%, #a3cfbb 100%
+// 3 color example: #f8d7da 0%, #f8d7da 33.33%, #a3cfbb 33.33%, #a3cfbb 66.66%, #cfe2ff 66.66%, #cfe2ff 99.99%
+function buildColorDistribution(textMention) {
+    let colorDistribution = [];
+    let increment = (100/textMention.count).toFixed(2);
+    
+    for (let i = 0; i < textMention.count; i++) {
+        let bgcolor = textMention.bgcolor[i];
+        colorDistribution.push(bgcolor + " " + i*increment + "%");
+        colorDistribution.push(bgcolor + " " + (i + 1)*increment + "%");
+    }
+
+    return colorDistribution;
+}
 
 // Based on https://stackoverflow.com/questions/40117156/creating-overlapping-text-spans-in-javascript
 function flattenRanges(ranges) {
