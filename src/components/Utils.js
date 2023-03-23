@@ -40,22 +40,8 @@ export function getExtractedInfo(dataObj, reportText) {
     return infoObj;
 }
 
-
-// Build the target text mentions array from the source array
-function getTextMentions(arr, bgcolor, reportText) {
-    let textMentions = [];
-    
-    arr.forEach(item => {
-        let textMentionObj = {};
-        textMentionObj.bgcolor = bgcolor;
-        textMentionObj.begin = item.begin;
-        textMentionObj.end = item.end;
-        textMentionObj.text = reportText.substring(item.begin, item.end)
-        
-        textMentions.push(textMentionObj);
-    });
-
-    return textMentions;
+export function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 // Highlight one or multiple text mentions
@@ -150,6 +136,23 @@ export function highlightTextMentions(textMentions, reportText) {
     // console.log(highlightedReportText);
 
     return <div dangerouslySetInnerHTML={{__html: highlightedReportText}} />;
+}
+
+// Build the target text mentions array from the source array
+function getTextMentions(arr, bgcolor, reportText) {
+    let textMentions = [];
+    
+    arr.forEach(item => {
+        let textMentionObj = {};
+        textMentionObj.bgcolor = bgcolor;
+        textMentionObj.begin = item.begin;
+        textMentionObj.end = item.end;
+        textMentionObj.text = reportText.substring(item.begin, item.end)
+        
+        textMentions.push(textMentionObj);
+    });
+
+    return textMentions;
 }
 
 // 2 color example: #f8d7da 0%, #f8d7da 50%, #a3cfbb 50%, #a3cfbb 100%

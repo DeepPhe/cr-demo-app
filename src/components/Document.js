@@ -9,7 +9,7 @@ import {trackPromise} from 'react-promise-tracker';
 import config from '../config/config.json';
 import Spinner from './Spinner.js';
 import {variablesObj} from './Variables.js';
-import {getExtractedInfo, highlightTextMentions} from './Utils.js';
+import {getExtractedInfo, highlightTextMentions, capitalize} from './Utils.js';
 
 
 /**
@@ -253,21 +253,24 @@ function Document(props) {
                                 background: info[name].bgcolor
                             };
 
-                            const textMentionsArr = info[name].mentions.map(function (obj) { return obj.text });
-                            const uniqueTextMentions = new Set(textMentionsArr);
+                            // Remove duplicates
+                            const textMentionsSet = new Set(info[name].mentions.map((obj) => { return obj.text }));
+
+                            // Convert set into array and sort
+                            const sortedTextsArr = Array.from(textMentionsSet).sort();
 
                             return (
                                 <li key={index} className="list-group-item" key={index}>
                                 <input type="checkbox" name={name} value={name} className="form-check-input" checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} />
-                                <label className="form-check-label">{name}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
+                                <label className="form-check-label">{capitalize(name)}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
                                 
                                 <div className="dropdown">
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option selected>Selet extracted value</option>
+                                <select className="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option>Selet extracted value</option>
 
-                                {uniqueTextMentions.map((text, index) => {
+                                {sortedTextsArr.map((text, index) => {
                                     return (
-                                        <option value={text}>{text}</option>
+                                        <option value={text} key={index}>{text}</option>
                                     );
                                 })}
 
