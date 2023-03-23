@@ -254,7 +254,9 @@ function Document(props) {
                             };
 
                             // Remove duplicates
-                            const textMentionsSet = new Set(info[name].mentions.map((obj) => { return obj.text }));
+                            const textMentionsSet = new Set(info[name].mentions.map((obj) => { 
+                                return obj.text 
+                            }));
 
                             // Convert set into array and sort
                             const sortedTextsArr = Array.from(textMentionsSet).sort();
@@ -266,12 +268,18 @@ function Document(props) {
                                 
                                 <div className="dropdown">
                                 <select className="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option>Selet extracted value</option>
+                                <option>Selet...</option>
 
                                 {sortedTextsArr.map((text, index) => {
-                                    return (
-                                        <option value={text} key={index}>{text}</option>
-                                    );
+                                    if (name === 'histology') {
+                                        return (
+                                            <option value={text} key={index}>{info[name].value}/{info.behavior.value} - INVASIVE CARC OF NO SPECIAL TYPE</option>
+                                        );
+                                    } else {
+                                        return (
+                                            <option value={text} key={index}>{text}</option>
+                                        );
+                                    }
                                 })}
 
                                 </select>
