@@ -264,7 +264,6 @@ function Document(props) {
                 })}
 
                 </ul>
-                <div className="json"><code>{JSON.stringify(nlpResult.neoplasms, null, 2)}</code></div>
                 </div>
                 </div>
             );
