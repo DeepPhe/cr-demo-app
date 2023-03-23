@@ -174,7 +174,7 @@ function Document(props) {
         // Always reset to empty
         let allTextMentions = [];
 
-        let info = getExtractedInfo(nlpResult);
+        let info = getExtractedInfo(nlpResult, docText);
 
         // Build the array of all mentions based on checked variables
         // Merge into a big array using the spread operator ...
@@ -226,7 +226,7 @@ function Document(props) {
         if (Object.keys(error).length > 0) {
             return (<div className="alert alert-danger">{error.message}</div>);
         } else if (Object.keys(nlpResult).length > 0) {
-            let info = getExtractedInfo(nlpResult);
+            let info = getExtractedInfo(nlpResult, docText);
             
             // JSX expression
             return (
@@ -253,10 +253,27 @@ function Document(props) {
                                 background: info[name].bgcolor
                             };
 
+                            const textMentionsArr = info[name].mentions.map(function (obj) { return obj.text });
+                            const uniqueTextMentions = new Set(textMentionsArr);
+
                             return (
                                 <li key={index} className="list-group-item" key={index}>
                                 <input type="checkbox" name={name} value={name} className="form-check-input" checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} />
                                 <label className="form-check-label">{name}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
+                                
+                                <div className="dropdown">
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                <option selected>Selet extracted value</option>
+
+                                {uniqueTextMentions.map((text, index) => {
+                                    return (
+                                        <option value={text}>{text}</option>
+                                    );
+                                })}
+
+                                </select>
+                                </div>
+
                                 </li>
                             );
                         }

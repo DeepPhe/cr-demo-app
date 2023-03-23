@@ -92,3 +92,7 @@ overflow-y: scroll;
 margin-top:15px;
 padding:10px;
 }
+
+.dropdown {
+margin: 5px 0;
+}

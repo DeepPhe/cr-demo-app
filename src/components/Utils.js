@@ -1,7 +1,7 @@
 import {variablesObj} from './Variables.js';
 
 // Extract information from summarized json for rendering
-export function getExtractedInfo(dataObj) {
+export function getExtractedInfo(dataObj, reportText) {
     console.log("======Input: dataObj======");
     console.log(dataObj);
 
@@ -10,27 +10,27 @@ export function getExtractedInfo(dataObj) {
     dataObj.neoplasms[0].attributes.forEach(item => {
         if (item.name === 'topography_major') {
             infoObj.topography.value = item.value;
-            infoObj.topography.mentions = getTextMentions(item.directEvidence, infoObj.topography.bgcolor);
+            infoObj.topography.mentions = getTextMentions(item.directEvidence, infoObj.topography.bgcolor, reportText);
         }
 
         if (item.name === 'histology') {
             infoObj.histology.value = item.value;
-            infoObj.histology.mentions = getTextMentions(item.directEvidence, infoObj.histology.bgcolor);
+            infoObj.histology.mentions = getTextMentions(item.directEvidence, infoObj.histology.bgcolor, reportText);
         }
 
         if (item.name === 'behavior') {
             infoObj.behavior.value = item.value;
-            infoObj.behavior.mentions = getTextMentions(item.directEvidence, infoObj.behavior.bgcolor);
+            infoObj.behavior.mentions = getTextMentions(item.directEvidence, infoObj.behavior.bgcolor, reportText);
         }
 
         if (item.name === 'laterality') {
             infoObj.laterality.value = item.value;
-            infoObj.laterality.mentions = getTextMentions(item.directEvidence, infoObj.laterality.bgcolor);
+            infoObj.laterality.mentions = getTextMentions(item.directEvidence, infoObj.laterality.bgcolor, reportText);
         }
 
         if (item.name === 'grade') {
             infoObj.grade.value = item.value;
-            infoObj.grade.mentions = getTextMentions(item.directEvidence, infoObj.grade.bgcolor);
+            infoObj.grade.mentions = getTextMentions(item.directEvidence, infoObj.grade.bgcolor, reportText);
         }
     });
 
@@ -42,7 +42,7 @@ export function getExtractedInfo(dataObj) {
 
 
 // Build the target text mentions array from the source array
-function getTextMentions(arr, bgcolor) {
+function getTextMentions(arr, bgcolor, reportText) {
     let textMentions = [];
     
     arr.forEach(item => {
@@ -50,6 +50,7 @@ function getTextMentions(arr, bgcolor) {
         textMentionObj.bgcolor = bgcolor;
         textMentionObj.begin = item.begin;
         textMentionObj.end = item.end;
+        textMentionObj.text = reportText.substring(item.begin, item.end)
         
         textMentions.push(textMentionObj);
     });
