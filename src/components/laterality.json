@@ -1,0 +1,30 @@
+[
+  {
+    "code": 0,
+    "description": "Not paired"
+  },
+  {
+    "code": 1,
+    "description": "Right origin"
+  },
+  {
+    "code": 2,
+    "description": "Left origin"
+  },
+  {
+    "code": 3,
+    "description": "One side only, R or L unknown"
+  },
+  {
+    "code": 4,
+    "description": "Bilateral, side of origin unkn."
+  },
+  {
+    "code": 5,
+    "description": "Paired site midline tumor"
+  },
+  {
+    "code": 9,
+    "description": "Paired but unkn. laterality"
+  }
+]

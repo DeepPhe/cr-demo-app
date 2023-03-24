@@ -1,0 +1,38 @@
+[
+  {
+    "code": 1,
+    "description": "Well diff."
+  },
+  {
+    "code": 2,
+    "description": "Moderately diff."
+  },
+  {
+    "code": 3,
+    "description": "Poorly diff."
+  },
+  {
+    "code": 4,
+    "description": "Undiff."
+  },
+  {
+    "code": 5,
+    "description": "T-cell"
+  },
+  {
+    "code": 6,
+    "description": "B-cell"
+  },
+  {
+    "code": 7,
+    "description": "Null cell"
+  },
+  {
+    "code": 8,
+    "description": "N K cell"
+  },
+  {
+    "code": 9,
+    "description": "Unknown or N/A"
+  }
+]

@@ -1,0 +1,5078 @@
+[
+  {
+    "code": 140,
+    "description": "UPPER LIP, NOS"
+  },
+  {
+    "code": 140.1,
+    "description": "LOWER LIP, NOS"
+  },
+  {
+    "code": 140.3,
+    "description": "MUCOSA OF UPPER LIP"
+  },
+  {
+    "code": 140.4,
+    "description": "MUCOSA OF LOWER LIP"
+  },
+  {
+    "code": 140.5,
+    "description": "MUCOSA OF LIP, UNSPECIFIED"
+  },
+  {
+    "code": 140.6,
+    "description": "COMMISSURE OF LIP"
+  },
+  {
+    "code": 140.8,
+    "description": "OVERLAPING SITES OF LIP"
+  },
+  {
+    "code": 140.9,
+    "description": "LIP, NOS"
+  },
+  {
+    "code": 141,
+    "description": "BASE OF TONGUE, NOS"
+  },
+  {
+    "code": 141.1,
+    "description": "DORSAL SURFACE OF TONGUE, NOS"
+  },
+  {
+    "code": 141.2,
+    "description": "TIP / BORDER OF TONGUE"
+  },
+  {
+    "code": 141.3,
+    "description": "VENTRAL SURFACE OF TONGUE, NOS"
+  },
+  {
+    "code": 141.4,
+    "description": "ANTERIOR 2/3 OF TONGUE, NOS"
+  },
+  {
+    "code": 141.5,
+    "description": "JUNCTIONAL TONGUE"
+  },
+  {
+    "code": 141.6,
+    "description": "LINGUAL TONSIL"
+  },
+  {
+    "code": 141.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 141.9,
+    "description": "TONGUE, NOS"
+  },
+  {
+    "code": 142,
+    "description": "PAROTID GLAND"
+  },
+  {
+    "code": 142.1,
+    "description": "SUBMANDIBULAR GLAND"
+  },
+  {
+    "code": 142.2,
+    "description": "SUBLINGUAL GLAND"
+  },
+  {
+    "code": 142.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 142.9,
+    "description": "MAJOR SALIVARY GLAND, NOS"
+  },
+  {
+    "code": 143,
+    "description": "UPPER GUM"
+  },
+  {
+    "code": 143.1,
+    "description": "LOWER GUM"
+  },
+  {
+    "code": 143.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 143.9,
+    "description": "GUM, NOS"
+  },
+  {
+    "code": 144,
+    "description": "ANTERIOR FLOOR OF MOUTH"
+  },
+  {
+    "code": 144.1,
+    "description": "LATERAL FLOOR OF MOUTH"
+  },
+  {
+    "code": 144.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 144.9,
+    "description": "FLOOR OF MOUTH, NOS"
+  },
+  {
+    "code": 145,
+    "description": "CHEEK MUCOSA"
+  },
+  {
+    "code": 145.1,
+    "description": "VESTIBULE OF MOUTH"
+  },
+  {
+    "code": 145.2,
+    "description": "HARD PALATE"
+  },
+  {
+    "code": 145.3,
+    "description": "SOFT PALATE, NOS"
+  },
+  {
+    "code": 145.4,
+    "description": "UVULA"
+  },
+  {
+    "code": 145.5,
+    "description": "PALATE, NOS"
+  },
+  {
+    "code": 145.6,
+    "description": "RETROMOLAR AREA"
+  },
+  {
+    "code": 145.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 145.9,
+    "description": "ORAL CAVITY,NOS"
+  },
+  {
+    "code": 146,
+    "description": "TONSIL, NOS"
+  },
+  {
+    "code": 146.1,
+    "description": "TONSILLAR FOSSA"
+  },
+  {
+    "code": 146.2,
+    "description": "TONSILLAR PILLAR"
+  },
+  {
+    "code": 146.3,
+    "description": "VALLECULA EPIGLOTTICA"
+  },
+  {
+    "code": 146.4,
+    "description": "ANTERIOR SURFACE OF EPIGLOTTIS"
+  },
+  {
+    "code": 146.5,
+    "description": "JUNCT. REGION OF OROPHARYNX"
+  },
+  {
+    "code": 146.6,
+    "description": "LATERAL WALL OF OROPHARYNX"
+  },
+  {
+    "code": 146.7,
+    "description": "POSTERIOR WALL OF OROPHARYNX"
+  },
+  {
+    "code": 146.8,
+    "description": "OTHER PARTS OF OROPHARYNX"
+  },
+  {
+    "code": 146.9,
+    "description": "OROPHARYNX, NOS"
+  },
+  {
+    "code": 147,
+    "description": "SUPERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": 147.1,
+    "description": "POSTERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": 147.2,
+    "description": "LATERAL WALL OF NASOPHARYNX"
+  },
+  {
+    "code": 147.3,
+    "description": "ANTERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": 147.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 147.9,
+    "description": "NASOPHARYNX, NOS"
+  },
+  {
+    "code": 148,
+    "description": "POSTCRICOID REGION"
+  },
+  {
+    "code": 148.1,
+    "description": "PYRIFORM SINUS"
+  },
+  {
+    "code": 148.2,
+    "description": "ARYEPIGLOTTIC FOLD"
+  },
+  {
+    "code": 148.3,
+    "description": "POSTERIOR WALL OF HYPOPHARYNX"
+  },
+  {
+    "code": 148.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 148.9,
+    "description": "HYPOPHARYNX, NOS"
+  },
+  {
+    "code": 149,
+    "description": "PHARYNX, NOS"
+  },
+  {
+    "code": 149.1,
+    "description": "WALDEYER S RING, NOS"
+  },
+  {
+    "code": 149.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 149.9,
+    "description": "ORAL ILL-DEFINED SITES"
+  },
+  {
+    "code": 150,
+    "description": "CERVICAL ESOPHAGUS"
+  },
+  {
+    "code": 150.1,
+    "description": "THORACIC ESOPHAGUS"
+  },
+  {
+    "code": 150.2,
+    "description": "ABDOMINAL ESOPHAGUS"
+  },
+  {
+    "code": 150.3,
+    "description": "UPPER THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": 150.4,
+    "description": "MIDDLE THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": 150.5,
+    "description": "LOWER THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": 150.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 150.9,
+    "description": "ESOPHAGUS, NOS"
+  },
+  {
+    "code": 151,
+    "description": "CARDIA, NOS"
+  },
+  {
+    "code": 151.1,
+    "description": "PYLORUS"
+  },
+  {
+    "code": 151.2,
+    "description": "PYLORIC ANTRUM"
+  },
+  {
+    "code": 151.3,
+    "description": "FUNDUS OF STOMACH"
+  },
+  {
+    "code": 151.4,
+    "description": "BODY OF STOMACH"
+  },
+  {
+    "code": 151.5,
+    "description": "LESSER CURV. OF STOMACH"
+  },
+  {
+    "code": 151.6,
+    "description": "GREATER CURV. OF STOMACH"
+  },
+  {
+    "code": 151.8,
+    "description": "OTHER SPEC PARTS OF STOMACH"
+  },
+  {
+    "code": 151.9,
+    "description": "STOMACH, NOS"
+  },
+  {
+    "code": 152,
+    "description": "DUODENUM"
+  },
+  {
+    "code": 152.1,
+    "description": "JEJUNUM"
+  },
+  {
+    "code": 152.2,
+    "description": "ILEUM"
+  },
+  {
+    "code": 152.3,
+    "description": "MECKEL S DIVERTCULUM"
+  },
+  {
+    "code": 152.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 152.9,
+    "description": "SMALL INTESTINE"
+  },
+  {
+    "code": 153,
+    "description": "HEPATIC FLEXURE OF COLON"
+  },
+  {
+    "code": 153.1,
+    "description": "TRANSVERSE COLON"
+  },
+  {
+    "code": 153.2,
+    "description": "DESCENDING COLON"
+  },
+  {
+    "code": 153.3,
+    "description": "SIGMOID COLON"
+  },
+  {
+    "code": 153.4,
+    "description": "CECUM"
+  },
+  {
+    "code": 153.5,
+    "description": "APPENDIX"
+  },
+  {
+    "code": 153.6,
+    "description": "ASCENDING COLON"
+  },
+  {
+    "code": 153.7,
+    "description": "SPLENIC FLEXURE OF COLON"
+  },
+  {
+    "code": 153.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 153.9,
+    "description": "COLON, NOS"
+  },
+  {
+    "code": 154,
+    "description": "RECTOSISMOID JUNCTION"
+  },
+  {
+    "code": 154.1,
+    "description": "RECTUM, NOS"
+  },
+  {
+    "code": 154.2,
+    "description": "ANAL CANAL"
+  },
+  {
+    "code": 154.3,
+    "description": "ANUS, NOS"
+  },
+  {
+    "code": 154.8,
+    "description": "OTHER PARTS OF RECTUM"
+  },
+  {
+    "code": 155,
+    "description": "LIVER, PRIMARY"
+  },
+  {
+    "code": 155.1,
+    "description": "INTRAHEPATIC BILE DUCT"
+  },
+  {
+    "code": 156,
+    "description": "GALLBLADDER"
+  },
+  {
+    "code": 156.1,
+    "description": "EXTRAHEPATIC BILE DUCT"
+  },
+  {
+    "code": 156.2,
+    "description": "AMPULLA OF VATER"
+  },
+  {
+    "code": 156.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 156.9,
+    "description": "BILIARY TRACT, NOS"
+  },
+  {
+    "code": 157,
+    "description": "PANCREAS, HEAD"
+  },
+  {
+    "code": 157.1,
+    "description": "PANCREAS, BODY"
+  },
+  {
+    "code": 157.2,
+    "description": "PANCREAS, TAIL"
+  },
+  {
+    "code": 157.3,
+    "description": "PANCREATIC DUC"
+  },
+  {
+    "code": 157.4,
+    "description": "ISLETS OF LANGERHANS"
+  },
+  {
+    "code": 157.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 157.9,
+    "description": "PANCREAS, NOS"
+  },
+  {
+    "code": 158,
+    "description": "RETROPERITONEUM"
+  },
+  {
+    "code": 158.8,
+    "description": "SPECIFIED PARTS OF PERITONEUM"
+  },
+  {
+    "code": 158.9,
+    "description": "PERITONEUM, NOS"
+  },
+  {
+    "code": 159,
+    "description": "INTESTINAL TRACT, NOS"
+  },
+  {
+    "code": 159.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 159.9,
+    "description": "GASTROINTESTINAL TRACT, NOS"
+  },
+  {
+    "code": 160,
+    "description": "NASAL CAVITIES"
+  },
+  {
+    "code": 160.1,
+    "description": "MIDDLE EAR"
+  },
+  {
+    "code": 160.2,
+    "description": "MAXILLARY SINUS"
+  },
+  {
+    "code": 160.3,
+    "description": "ETHMOID SINUS"
+  },
+  {
+    "code": 160.4,
+    "description": "FRONTAL SINUS"
+  },
+  {
+    "code": 160.5,
+    "description": "SPHENOID SINUS"
+  },
+  {
+    "code": 160.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 160.9,
+    "description": "ACCESSARY SINUS, NOS"
+  },
+  {
+    "code": 161,
+    "description": "GLOTTIS"
+  },
+  {
+    "code": 161.1,
+    "description": "SUPRAGLOTTIS"
+  },
+  {
+    "code": 161.2,
+    "description": "SUBGLOTTIS"
+  },
+  {
+    "code": 161.3,
+    "description": "LARYNGEAL CARTILAGE"
+  },
+  {
+    "code": 161.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 161.9,
+    "description": "LARYNX, NOS"
+  },
+  {
+    "code": 162,
+    "description": "TRACHEA"
+  },
+  {
+    "code": 162.2,
+    "description": "MAIN BRONCHUS"
+  },
+  {
+    "code": 162.3,
+    "description": "UPPER LOBE, LUNG"
+  },
+  {
+    "code": 162.4,
+    "description": "MIDDLE LOBE, LUNG"
+  },
+  {
+    "code": 162.5,
+    "description": "LOWER LOBE, LUNG"
+  },
+  {
+    "code": 162.8,
+    "description": "OTHER PARTS, LUNG OR BRONCHUS"
+  },
+  {
+    "code": 162.9,
+    "description": "LUNG, NOS"
+  },
+  {
+    "code": 163,
+    "description": "PARIETAL PLEURA"
+  },
+  {
+    "code": 163.1,
+    "description": "VISCERAL PLEURA"
+  },
+  {
+    "code": 163.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 163.9,
+    "description": "PLEURA, NOS"
+  },
+  {
+    "code": 164,
+    "description": "THYMUS"
+  },
+  {
+    "code": 164.1,
+    "description": "HEART"
+  },
+  {
+    "code": 164.2,
+    "description": "ANTERIOR MEDIASTINUM"
+  },
+  {
+    "code": 164.3,
+    "description": "POSTERIOR MEDIASTINUM"
+  },
+  {
+    "code": 164.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 164.9,
+    "description": "MEDIASTINUM, NOS"
+  },
+  {
+    "code": 165,
+    "description": "UPPER RESPIRATORY TRACT"
+  },
+  {
+    "code": 165.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 165.9,
+    "description": "ILL-DEFINED SITES, RESPIRATORY"
+  },
+  {
+    "code": 169,
+    "description": "BLOOD"
+  },
+  {
+    "code": 169.1,
+    "description": "BONE MARROW"
+  },
+  {
+    "code": 169.2,
+    "description": "SPLEEN"
+  },
+  {
+    "code": 169.3,
+    "description": "RETICULOENDOTHELIAL, NOS"
+  },
+  {
+    "code": 169.9,
+    "description": "HEMATOPOIETIC SYSTEM, NOS"
+  },
+  {
+    "code": 170,
+    "description": "BONES OF SKULL/FACE"
+  },
+  {
+    "code": 170.1,
+    "description": "MANDIBLE"
+  },
+  {
+    "code": 170.2,
+    "description": "VERTEBRAL COLUMN"
+  },
+  {
+    "code": 170.3,
+    "description": "RIBS, STERNUM, CLAVICLE"
+  },
+  {
+    "code": 170.4,
+    "description": "LONG BONES UPPER LIMBS,SCAPULA"
+  },
+  {
+    "code": 170.5,
+    "description": "SHORT BONES UPPER LIMBS,JOINTS"
+  },
+  {
+    "code": 170.6,
+    "description": "PELVIC, SACRUM, COCCYX, JOINTS"
+  },
+  {
+    "code": 170.7,
+    "description": "LONG BONES LOWER LIMBS, JOINTS"
+  },
+  {
+    "code": 170.8,
+    "description": "SHORT BONES LOWER LIMBS,JOINTS"
+  },
+  {
+    "code": 170.9,
+    "description": "BONE, NOS"
+  },
+  {
+    "code": 171,
+    "description": "SOFT TISSUES, HEAD"
+  },
+  {
+    "code": 171.2,
+    "description": "SOFT TIS. UPPER LIMB, SHOULDER"
+  },
+  {
+    "code": 171.3,
+    "description": "SOFT TIS. LOWER LIMB, HIP"
+  },
+  {
+    "code": 171.4,
+    "description": "SOFT TISSUE, THORAX"
+  },
+  {
+    "code": 171.5,
+    "description": "SOFT TISSUE, ABDOM"
+  },
+  {
+    "code": 171.6,
+    "description": "SOFT TISSUE, PELVIS"
+  },
+  {
+    "code": 171.7,
+    "description": "SOFT TISSUE, TRUNK"
+  },
+  {
+    "code": 171.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 171.9,
+    "description": "SOFT TISSUE, NOS"
+  },
+  {
+    "code": 173,
+    "description": "SKIN OF LIP, NOS"
+  },
+  {
+    "code": 173.1,
+    "description": "EYELID"
+  },
+  {
+    "code": 173.2,
+    "description": "EXTERNAL EAR"
+  },
+  {
+    "code": 173.3,
+    "description": "FACE, UNSPEC."
+  },
+  {
+    "code": 173.4,
+    "description": "SKIN OF SCALP AND NECK"
+  },
+  {
+    "code": 173.5,
+    "description": "SKIN OF TRUNK"
+  },
+  {
+    "code": 173.6,
+    "description": "SKIN OF ARM AND SHOULDER"
+  },
+  {
+    "code": 173.7,
+    "description": "SKIN OF LEG AND HIP"
+  },
+  {
+    "code": 173.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 173.9,
+    "description": "SKIN, NOS"
+  },
+  {
+    "code": 174,
+    "description": "NIPPLE, AREOLA"
+  },
+  {
+    "code": 174.1,
+    "description": "CENTRAL PORTION OF BREAST"
+  },
+  {
+    "code": 174.2,
+    "description": "UPPER-INNER QUAD. OF BREAST"
+  },
+  {
+    "code": 174.3,
+    "description": "LOWER-INNER QUAD. OF BREAST"
+  },
+  {
+    "code": 174.4,
+    "description": "UPPER-OUTER QUAD. OF BREAST"
+  },
+  {
+    "code": 174.5,
+    "description": "LOWER-OUTER QUAD. OF BREAST"
+  },
+  {
+    "code": 174.6,
+    "description": "AXILLARY TAIL OF BREAST"
+  },
+  {
+    "code": 174.8,
+    "description": "INNER BREAST"
+  },
+  {
+    "code": 174.9,
+    "description": "FEMALE BREAST, NOS"
+  },
+  {
+    "code": 175.9,
+    "description": "MALE BREAST, NOS"
+  },
+  {
+    "code": 179.9,
+    "description": "UTERUS, NOS"
+  },
+  {
+    "code": 180,
+    "description": "ENDOCERVIX"
+  },
+  {
+    "code": 180.1,
+    "description": "EXOCERVIX"
+  },
+  {
+    "code": 180.8,
+    "description": "OTHER PARTS OF CERVIX"
+  },
+  {
+    "code": 180.9,
+    "description": "CERVIX UTERI"
+  },
+  {
+    "code": 181.9,
+    "description": "PLACENTA"
+  },
+  {
+    "code": 182,
+    "description": "CORPUS UTERI"
+  },
+  {
+    "code": 182.1,
+    "description": "ISTHMUS UTERI"
+  },
+  {
+    "code": 182.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 183,
+    "description": "OVARY"
+  },
+  {
+    "code": 183.2,
+    "description": "FALLOPIAN TUBE"
+  },
+  {
+    "code": 183.3,
+    "description": "BROAD LIGAMENT"
+  },
+  {
+    "code": 183.4,
+    "description": "PARAMETRIUM"
+  },
+  {
+    "code": 183.5,
+    "description": "ROUND LIGAMENT"
+  },
+  {
+    "code": 183.8,
+    "description": "OTHER PARTS OF UTERINE ADNEXA"
+  },
+  {
+    "code": 183.9,
+    "description": "UTERINE ADNEXA"
+  },
+  {
+    "code": 184,
+    "description": "VAGINA"
+  },
+  {
+    "code": 184.1,
+    "description": "LABIUM MAJUS"
+  },
+  {
+    "code": 184.2,
+    "description": "LABIUM MINUS"
+  },
+  {
+    "code": 184.3,
+    "description": "CLITORIS"
+  },
+  {
+    "code": 184.4,
+    "description": "VULVA, NOS"
+  },
+  {
+    "code": 184.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 184.9,
+    "description": "FEMALE GENITAL, NOS"
+  },
+  {
+    "code": 185.9,
+    "description": "PROSTATE GLAND"
+  },
+  {
+    "code": 186,
+    "description": "UNDESCENDED TESTIS"
+  },
+  {
+    "code": 186.9,
+    "description": "TESTIS, NOS"
+  },
+  {
+    "code": 187.1,
+    "description": "PREPUCE"
+  },
+  {
+    "code": 187.2,
+    "description": "GLANS PENIS"
+  },
+  {
+    "code": 187.3,
+    "description": "BODY OF PENIS"
+  },
+  {
+    "code": 187.4,
+    "description": "PENIS, NOS"
+  },
+  {
+    "code": 187.5,
+    "description": "EPIDIDYMIS"
+  },
+  {
+    "code": 187.6,
+    "description": "SPERMATIC CORD"
+  },
+  {
+    "code": 187.7,
+    "description": "SCROTUM, NOS"
+  },
+  {
+    "code": 187.8,
+    "description": "OTHER SPEC SITES, MALE GENITAL"
+  },
+  {
+    "code": 187.9,
+    "description": "MALE GENITAL ORGANS, NOS"
+  },
+  {
+    "code": 188,
+    "description": "TRIGONE OF URINARY BLADDER"
+  },
+  {
+    "code": 188.1,
+    "description": "DOME OF URINARY BLADDER"
+  },
+  {
+    "code": 188.2,
+    "description": "LATERAL WALL, URINARY BLADDER"
+  },
+  {
+    "code": 188.3,
+    "description": "ANTERIOR WALL, URINARY BLADDER"
+  },
+  {
+    "code": 188.4,
+    "description": "POSTERIOR WALL,URINARY BLADDER"
+  },
+  {
+    "code": 188.5,
+    "description": "BLADDER NECK"
+  },
+  {
+    "code": 188.6,
+    "description": "URETERIC ORIFICE"
+  },
+  {
+    "code": 188.7,
+    "description": "URACHUS"
+  },
+  {
+    "code": 188.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 188.9,
+    "description": "URINARY BLADDER, NOS"
+  },
+  {
+    "code": 189,
+    "description": "KIDNEY, NOS"
+  },
+  {
+    "code": 189.1,
+    "description": "RENAL PELVIS"
+  },
+  {
+    "code": 189.2,
+    "description": "URETER"
+  },
+  {
+    "code": 189.3,
+    "description": "URETHRA"
+  },
+  {
+    "code": 189.4,
+    "description": "PARAURETHRAL GLANDS"
+  },
+  {
+    "code": 189.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 189.9,
+    "description": "URINARY SYSTEM, NOS"
+  },
+  {
+    "code": 190,
+    "description": "EYEBALL"
+  },
+  {
+    "code": 190.1,
+    "description": "ORBIT, NOS"
+  },
+  {
+    "code": 190.2,
+    "description": "LACRIMAL GLAND"
+  },
+  {
+    "code": 190.3,
+    "description": "CONJUNCTIVA"
+  },
+  {
+    "code": 190.4,
+    "description": "CORNEA, NOS"
+  },
+  {
+    "code": 190.5,
+    "description": "RETINA"
+  },
+  {
+    "code": 190.6,
+    "description": "CHOROID"
+  },
+  {
+    "code": 190.7,
+    "description": "LACRIMAL DUCT, NOS"
+  },
+  {
+    "code": 190.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 190.9,
+    "description": "EYE, NOS"
+  },
+  {
+    "code": 191,
+    "description": "CEREBRUM"
+  },
+  {
+    "code": 191.1,
+    "description": "FRONTAL LOBE"
+  },
+  {
+    "code": 191.2,
+    "description": "TEMPORAL LOBE"
+  },
+  {
+    "code": 191.3,
+    "description": "PARIETAL LOBE"
+  },
+  {
+    "code": 191.4,
+    "description": "OCCIPITAL LOBE"
+  },
+  {
+    "code": 191.5,
+    "description": "VENTRICLE, NOS"
+  },
+  {
+    "code": 191.6,
+    "description": "CEREBELLUM NOS"
+  },
+  {
+    "code": 191.7,
+    "description": "BRAIN STEM"
+  },
+  {
+    "code": 191.8,
+    "description": "OTHER PARTS OF BRAIN"
+  },
+  {
+    "code": 191.9,
+    "description": "BRAIN, NOS"
+  },
+  {
+    "code": 192,
+    "description": "CRANIAL NERVES"
+  },
+  {
+    "code": 192.1,
+    "description": "CEREBRAL MENINGES"
+  },
+  {
+    "code": 192.2,
+    "description": "SPINAL CORD"
+  },
+  {
+    "code": 192.3,
+    "description": "SPINAL MENINGES"
+  },
+  {
+    "code": 192.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 192.9,
+    "description": "NERVOUS SYSTEM, NOS"
+  },
+  {
+    "code": 193.9,
+    "description": "THYROID GLAND"
+  },
+  {
+    "code": 194,
+    "description": "SUPRARENAL GLAND"
+  },
+  {
+    "code": 194.1,
+    "description": "PARATHYROID GLAND"
+  },
+  {
+    "code": 194.3,
+    "description": "PITUITARY GLAND"
+  },
+  {
+    "code": 194.4,
+    "description": "PINEAL GLAND"
+  },
+  {
+    "code": 194.5,
+    "description": "CAROTID BODY"
+  },
+  {
+    "code": 194.6,
+    "description": "AORTIC BODY, OTHER PARAGANGLIA"
+  },
+  {
+    "code": 194.8,
+    "description": "MULTIPLE ENDOCRINE GLANDS"
+  },
+  {
+    "code": 194.9,
+    "description": "ENDOCRINE GLANDS, NOS"
+  },
+  {
+    "code": 195,
+    "description": "HEAD, FACE, NECK NOS"
+  },
+  {
+    "code": 195.1,
+    "description": "THORAX, NOS"
+  },
+  {
+    "code": 195.2,
+    "description": "ABDOMEN, NOS"
+  },
+  {
+    "code": 195.3,
+    "description": "PELVIS, NOS"
+  },
+  {
+    "code": 195.4,
+    "description": "UPPER LIMB, NOS"
+  },
+  {
+    "code": 195.5,
+    "description": "LOWER LIMB, NOS"
+  },
+  {
+    "code": 195.8,
+    "description": "OTHER ILL-DEFINED SITES"
+  },
+  {
+    "code": 196,
+    "description": "LYMPH NODES OF HEAD,NECK, FACE"
+  },
+  {
+    "code": 196.1,
+    "description": "INTRATHORACIC LYMPH NODES"
+  },
+  {
+    "code": 196.2,
+    "description": "INTRA-ABDOMINAL LYMPH NODES"
+  },
+  {
+    "code": 196.3,
+    "description": "LYMPH NODES OF AXILLA OR ARM"
+  },
+  {
+    "code": 196.5,
+    "description": "LYMPH NODES OF INGUINAL REGION"
+  },
+  {
+    "code": 196.6,
+    "description": "LYMPH NODES, PELVIC"
+  },
+  {
+    "code": 196.8,
+    "description": "LYMPH NODES, MULTIPLE REGIONS"
+  },
+  {
+    "code": 196.9,
+    "description": "LYMPH NODE, NOS"
+  },
+  {
+    "code": 199.9,
+    "description": "UNKNOWN PRIMARY SITE"
+  },
+  {
+    "code": "C00.0",
+    "description": "UPPER LIP, NOS"
+  },
+  {
+    "code": "C00.1",
+    "description": "LOWER LIP, NOS"
+  },
+  {
+    "code": "C00.2",
+    "description": "EXTERNAL LIP, NOS"
+  },
+  {
+    "code": "C00.3",
+    "description": "MUCOSA OF UPPER LIP"
+  },
+  {
+    "code": "C00.4",
+    "description": "MUCOSA OF LOWER LIP"
+  },
+  {
+    "code": "C00.5",
+    "description": "MUCOSA OF LIP, UNSPECIFIED"
+  },
+  {
+    "code": "C00.6",
+    "description": "COMMISSURE OF LIP"
+  },
+  {
+    "code": "C00.8",
+    "description": "OVERLAPPING SITES OF LIP"
+  },
+  {
+    "code": "C00.9",
+    "description": "LIP, NOS"
+  },
+  {
+    "code": "C01.9",
+    "description": "BASE OF TONGUE, NOS"
+  },
+  {
+    "code": "C02.0",
+    "description": "DORSAL SURFACE OF TONGUE, NOS"
+  },
+  {
+    "code": "C02.1",
+    "description": "TIP / BORDER OF TONGUE"
+  },
+  {
+    "code": "C02.2",
+    "description": "VENTRAL SURFACE OF TONGUE, NOS"
+  },
+  {
+    "code": "C02.3",
+    "description": "ANTERIOR 2/3 OF TONGUE, NOS"
+  },
+  {
+    "code": "C02.4",
+    "description": "LINGUAL TONSIL"
+  },
+  {
+    "code": "C02.8",
+    "description": "OVERLAP. SITES OF TONGUE"
+  },
+  {
+    "code": "C02.9",
+    "description": "TONGUE, NOS"
+  },
+  {
+    "code": "C03.0",
+    "description": "UPPER GUM"
+  },
+  {
+    "code": "C03.1",
+    "description": "LOWER GUM"
+  },
+  {
+    "code": "C03.9",
+    "description": "GUM, NOS"
+  },
+  {
+    "code": "C04.0",
+    "description": "ANTERIOR FLOOR OF MOUTH"
+  },
+  {
+    "code": "C04.1",
+    "description": "LATERAL FLOOR OF MOUTH"
+  },
+  {
+    "code": "C04.8",
+    "description": "OVERLAP. SITES/FLOOR OF MOUTH"
+  },
+  {
+    "code": "C04.9",
+    "description": "FLOOR OF MOUTH, NOS"
+  },
+  {
+    "code": "C05.0",
+    "description": "HARD PALATE"
+  },
+  {
+    "code": "C05.1",
+    "description": "SOFT PALATE, NOS"
+  },
+  {
+    "code": "C05.2",
+    "description": "UVULA"
+  },
+  {
+    "code": "C05.8",
+    "description": "OVERLAPPING LESION OF PALATE"
+  },
+  {
+    "code": "C05.9",
+    "description": "PALATE, NOS"
+  },
+  {
+    "code": "C06.0",
+    "description": "CHEEK MUCOSA"
+  },
+  {
+    "code": "C06.1",
+    "description": "VESTIBULE OF MOUTH"
+  },
+  {
+    "code": "C06.2",
+    "description": "RETROMOLAR AREA"
+  },
+  {
+    "code": "C06.8",
+    "description": "OVERLAP. SITES OF MOUTH"
+  },
+  {
+    "code": "C06.9",
+    "description": "ORAL CAVITY, NOS"
+  },
+  {
+    "code": "C07.9",
+    "description": "PAROTID GLAND"
+  },
+  {
+    "code": "C08.0",
+    "description": "SUBMANDIBULAR GLAND"
+  },
+  {
+    "code": "C08.1",
+    "description": "SUBLINGUAL GLAND"
+  },
+  {
+    "code": "C08.8",
+    "description": "OVERLAP. SITES/SALIVARY GLANDS"
+  },
+  {
+    "code": "C08.9",
+    "description": "MAJOR SALIVARY GLAND, NOS"
+  },
+  {
+    "code": "C09.0",
+    "description": "TONSILLAR FOSSA"
+  },
+  {
+    "code": "C09.1",
+    "description": "TONSILLAR PILLAR"
+  },
+  {
+    "code": "C09.8",
+    "description": "OVERLAPPING LESION OF TONSIL"
+  },
+  {
+    "code": "C09.9",
+    "description": "TONSIL, NOS"
+  },
+  {
+    "code": "C10.0",
+    "description": "VALLECULA EPIGLOTTICA"
+  },
+  {
+    "code": "C10.1",
+    "description": "ANTERIOR SURFACE OF EPIGLOTTIS"
+  },
+  {
+    "code": "C10.2",
+    "description": "LATERAL WALL OF OROPHARYNX"
+  },
+  {
+    "code": "C10.3",
+    "description": "POSTERIOR WALL OF OROPHARYNX"
+  },
+  {
+    "code": "C10.4",
+    "description": "BRANCHIAL CLEFT"
+  },
+  {
+    "code": "C10.8",
+    "description": "OVERLAP. LESION OF OROPHARYNX"
+  },
+  {
+    "code": "C10.9",
+    "description": "OROPHARYNX, NOS"
+  },
+  {
+    "code": "C11.0",
+    "description": "SUPERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": "C11.1",
+    "description": "POSTERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": "C11.2",
+    "description": "LATERAL WALL OF NASOPHARYNX"
+  },
+  {
+    "code": "C11.3",
+    "description": "ANTERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": "C11.8",
+    "description": "OVERLAP. SITES/ NASOPHARYNX"
+  },
+  {
+    "code": "C11.9",
+    "description": "NASOPHARYNX, NOS"
+  },
+  {
+    "code": "C12.9",
+    "description": "PYRIFORM SINUS"
+  },
+  {
+    "code": "C13.0",
+    "description": "POSTCRICOID REGION"
+  },
+  {
+    "code": "C13.1",
+    "description": "ARYEPIGLOTTIC FOLD"
+  },
+  {
+    "code": "C13.2",
+    "description": "POSTERIOR WALL OF HYPOPHARYNX"
+  },
+  {
+    "code": "C13.8",
+    "description": "OVERLAP. SITES/ HYPOPHARYNX"
+  },
+  {
+    "code": "C13.9",
+    "description": "HYPOPHARYNX, NOS"
+  },
+  {
+    "code": "C14.0",
+    "description": "PHARYNX, NOS"
+  },
+  {
+    "code": "C14.1",
+    "description": "LARYNGOPHARYNX"
+  },
+  {
+    "code": "C14.2",
+    "description": "WALDEYER S RING, NOS"
+  },
+  {
+    "code": "C14.8",
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": "C15.0",
+    "description": "CERVICAL ESOPHAGUS"
+  },
+  {
+    "code": "C15.1",
+    "description": "THORACIC ESOPHAGUS"
+  },
+  {
+    "code": "C15.2",
+    "description": "ABDOMINAL ESOPHAGUS"
+  },
+  {
+    "code": "C15.3",
+    "description": "UPPER THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": "C15.4",
+    "description": "MIDDLE THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": "C15.5",
+    "description": "LOWER THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": "C15.8",
+    "description": "OVERLAP. SITES/ ESOPHAGUS"
+  },
+  {
+    "code": "C15.9",
+    "description": "ESOPHAGUS, NOS"
+  },
+  {
+    "code": "C16.0",
+    "description": "CARDIA, NOS"
+  },
+  {
+    "code": "C16.1",
+    "description": "FUNDUS OF STOMACH"
+  },
+  {
+    "code": "C16.2",
+    "description": "BODY OF STOMACH"
+  },
+  {
+    "code": "C16.3",
+    "description": "GASTRIC ANTRUM"
+  },
+  {
+    "code": "C16.4",
+    "description": "PYLORUS"
+  },
+  {
+    "code": "C16.5",
+    "description": "LESSER CURV. OF STOMACH"
+  },
+  {
+    "code": "C16.6",
+    "description": "GREATER CURV. OF STOMACH"
+  },
+  {
+    "code": "C16.8",
+    "description": "OVERLAPPING LESION/ STOMACH"
+  },
+  {
+    "code": "C16.9",
+    "description": "STOMACH, NOS"
+  },
+  {
+    "code": "C17.0",
+    "description": "DUODENUM"
+  },
+  {
+    "code": "C17.1",
+    "description": "JEJUNUM"
+  },
+  {
+    "code": "C17.2",
+    "description": "ILEUM"
+  },
+  {
+    "code": "C17.3",
+    "description": "MECKEL'S DIVERTCULUM"
+  },
+  {
+    "code": "C17.8",
+    "description": "OVERLAP. SITES/SM INTESTINE"
+  },
+  {
+    "code": "C17.9",
+    "description": "SMALL INTESTINE, NOS"
+  },
+  {
+    "code": "C18.0",
+    "description": "CECUM"
+  },
+  {
+    "code": "C18.1",
+    "description": "APPENDIX"
+  },
+  {
+    "code": "C18.2",
+    "description": "ASCENDING COLON"
+  },
+  {
+    "code": "C18.3",
+    "description": "HEPATIC FLEXURE OF COLON"
+  },
+  {
+    "code": "C18.4",
+    "description": "TRANSVERSE COLON"
+  },
+  {
+    "code": "C18.5",
+    "description": "SPLENIC FLEXURE OF COLON"
+  },
+  {
+    "code": "C18.6",
+    "description": "DESCENDING COLON"
+  },
+  {
+    "code": "C18.7",
+    "description": "SIGMOID COLON"
+  },
+  {
+    "code": "C18.8",
+    "description": "OVERLAP. SITES OF COLON"
+  },
+  {
+    "code": "C18.9",
+    "description": "COLON, NOS"
+  },
+  {
+    "code": "C19.9",
+    "description": "RECTOSIGMOID JUNCTION"
+  },
+  {
+    "code": "C20.9",
+    "description": "RECTUM, NOS"
+  },
+  {
+    "code": "C21.0",
+    "description": "ANUS, NOS"
+  },
+  {
+    "code": "C21.1",
+    "description": "ANAL CANAL"
+  },
+  {
+    "code": "C21.2",
+    "description": "CLOACOGENIC ZONE"
+  },
+  {
+    "code": "C21.8",
+    "description": "OVERLAP LESION RECTUM, ANUS"
+  },
+  {
+    "code": "C22.0",
+    "description": "LIVER, PRIMARY"
+  },
+  {
+    "code": "C22.1",
+    "description": "INTRAHEPATIC BILE DUCT"
+  },
+  {
+    "code": "C23.9",
+    "description": "GALLBLADDER"
+  },
+  {
+    "code": "C24.0",
+    "description": "EXTRAHEPATIC BILE DUCT"
+  },
+  {
+    "code": "C24.1",
+    "description": "AMPULLA OF VATER"
+  },
+  {
+    "code": "C24.8",
+    "description": "OVERLAP. SITES/BILIARY TRACT"
+  },
+  {
+    "code": "C24.9",
+    "description": "BILIARY TRACT, NOS"
+  },
+  {
+    "code": "C25.0",
+    "description": "PANCREAS, HEAD"
+  },
+  {
+    "code": "C25.1",
+    "description": "PANCREAS, BODY"
+  },
+  {
+    "code": "C25.2",
+    "description": "PANCREAS, TAIL"
+  },
+  {
+    "code": "C25.3",
+    "description": "PANCREATIC DUCT"
+  },
+  {
+    "code": "C25.4",
+    "description": "ISLETS OF LANGERHANS"
+  },
+  {
+    "code": "C25.7",
+    "description": "OTHER SPECIFIED PARTS,PANCREAS"
+  },
+  {
+    "code": "C25.8",
+    "description": "OVERLAPPING LESION OF PANCREAS"
+  },
+  {
+    "code": "C25.9",
+    "description": "PANCREAS, NOS"
+  },
+  {
+    "code": "C26.0",
+    "description": "INTESTINAL TRACT, NOS"
+  },
+  {
+    "code": "C26.8",
+    "description": "OVERLAP. SITES/DIGESTIVE SYS"
+  },
+  {
+    "code": "C26.9",
+    "description": "GASTROINTESTINAL TRACT, NOS"
+  },
+  {
+    "code": "C30.0",
+    "description": "NASAL CAVITIES"
+  },
+  {
+    "code": "C30.1",
+    "description": "MIDDLE EAR"
+  },
+  {
+    "code": "C31.0",
+    "description": "MAXILLARY SINUS"
+  },
+  {
+    "code": "C31.1",
+    "description": "ETHMOID SINUS"
+  },
+  {
+    "code": "C31.2",
+    "description": "FRONTAL SINUS"
+  },
+  {
+    "code": "C31.3",
+    "description": "SPHENOID SINUS"
+  },
+  {
+    "code": "C31.8",
+    "description": "OVERLAP. SITES OF SINUSES"
+  },
+  {
+    "code": "C31.9",
+    "description": "ACCESSARY SINUS, NOS"
+  },
+  {
+    "code": "C32.0",
+    "description": "GLOTTIS"
+  },
+  {
+    "code": "C32.1",
+    "description": "SUPRAGLOTTIS"
+  },
+  {
+    "code": "C32.2",
+    "description": "SUBGLOTTIS"
+  },
+  {
+    "code": "C32.3",
+    "description": "LARYNGEAL CARTILAGE"
+  },
+  {
+    "code": "C32.8",
+    "description": "OVERLAP. SITES OF LARYNX"
+  },
+  {
+    "code": "C32.9",
+    "description": "LARYNX, NOS"
+  },
+  {
+    "code": "C33.9",
+    "description": "TRACHEA"
+  },
+  {
+    "code": "C34.0",
+    "description": "MAIN BRONCHUS"
+  },
+  {
+    "code": "C34.1",
+    "description": "UPPER LOBE, LUNG"
+  },
+  {
+    "code": "C34.2",
+    "description": "MIDDLE LOBE, LUNG"
+  },
+  {
+    "code": "C34.3",
+    "description": "LOWER LOBE, LUNG"
+  },
+  {
+    "code": "C34.8",
+    "description": "OVERLAPPING LESION OF LUNG"
+  },
+  {
+    "code": "C34.9",
+    "description": "LUNG, NOS"
+  },
+  {
+    "code": "C37.9",
+    "description": "THYMUS"
+  },
+  {
+    "code": "C38.0",
+    "description": "HEART"
+  },
+  {
+    "code": "C38.1",
+    "description": "ANTERIOR MEDIASTINUM"
+  },
+  {
+    "code": "C38.2",
+    "description": "POSTERIOR MEDIASTINUM"
+  },
+  {
+    "code": "C38.3",
+    "description": "MEDIASTINUM, NOS"
+  },
+  {
+    "code": "C38.4",
+    "description": "PLEURA, NOS"
+  },
+  {
+    "code": "C38.8",
+    "description": "OVERLAP. SITES OF PLEURA"
+  },
+  {
+    "code": "C39.0",
+    "description": "UPPER RESPIRATORY TRACT"
+  },
+  {
+    "code": "C39.8",
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": "C39.9",
+    "description": "ILL-DEFINED SITES, RESPIRATORY"
+  },
+  {
+    "code": "C40.0",
+    "description": "LONG BONES UPPER LIMBS,SCAPULA"
+  },
+  {
+    "code": "C40.1",
+    "description": "SHORT BONES UPPER LIMBS,JOINTS"
+  },
+  {
+    "code": "C40.2",
+    "description": "LONG BONES LOWER LIMBS, JOINTS"
+  },
+  {
+    "code": "C40.3",
+    "description": "SHORT BONES LOWER LIMBS,JOINTS"
+  },
+  {
+    "code": "C40.8",
+    "description": "OVERLAP BONES,JOINTS OF LIMBS"
+  },
+  {
+    "code": "C40.9",
+    "description": "BONE OF LIMB"
+  },
+  {
+    "code": "C41.0",
+    "description": "BONES OF SKULL/FACE"
+  },
+  {
+    "code": "C41.1",
+    "description": "MANDIBLE"
+  },
+  {
+    "code": "C41.2",
+    "description": "VERTEBRAL COLUMN"
+  },
+  {
+    "code": "C41.3",
+    "description": "RIBS, STERNUM, CLAVICLE"
+  },
+  {
+    "code": "C41.4",
+    "description": "PELVIC, SACRUM, COCCYX, JOINTS"
+  },
+  {
+    "code": "C41.8",
+    "description": "OVERLAP LESION BONES, JOINTS"
+  },
+  {
+    "code": "C41.9",
+    "description": "BONE, NOS"
+  },
+  {
+    "code": "C42.0",
+    "description": "BLOOD"
+  },
+  {
+    "code": "C42.1",
+    "description": "BONE MARROW"
+  },
+  {
+    "code": "C42.2",
+    "description": "SPLEEN"
+  },
+  {
+    "code": "C42.3",
+    "description": "RETICULOENDOTHELIAL, NOS"
+  },
+  {
+    "code": "C42.4",
+    "description": "HEMATOPOIETIC SYSTEM, NOS"
+  },
+  {
+    "code": "C44.0",
+    "description": "SKIN OF LIP, NOS"
+  },
+  {
+    "code": "C44.1",
+    "description": "EYELID"
+  },
+  {
+    "code": "C44.2",
+    "description": "EXTERNAL EAR"
+  },
+  {
+    "code": "C44.3",
+    "description": "FACE, UNSPECIFIED"
+  },
+  {
+    "code": "C44.4",
+    "description": "SKIN OF SCALP AND NECK"
+  },
+  {
+    "code": "C44.5",
+    "description": "SKIN OF TRUNK"
+  },
+  {
+    "code": "C44.6",
+    "description": "SKIN OF ARM AND SHOULDER"
+  },
+  {
+    "code": "C44.7",
+    "description": "SKIN OF LEG AND HIP"
+  },
+  {
+    "code": "C44.8",
+    "description": "OVERLAP. SITES OF SKIN"
+  },
+  {
+    "code": "C44.9",
+    "description": "SKIN, NOS"
+  },
+  {
+    "code": "C47.0",
+    "description": "PERIPH. NERVES/ANS OF HEAD"
+  },
+  {
+    "code": "C47.1",
+    "description": "PERIPH. NERVES/ANS, UPPER LIMB"
+  },
+  {
+    "code": "C47.2",
+    "description": "PERIPH. NERVES/ANS, LOWER LIMB"
+  },
+  {
+    "code": "C47.3",
+    "description": "PERIPH. NERVES/ANS, THORAX"
+  },
+  {
+    "code": "C47.4",
+    "description": "PERIPH. NERVES/ANS, ABDOMEN"
+  },
+  {
+    "code": "C47.5",
+    "description": "PERIPH. NERVES/ANS, PELVIS"
+  },
+  {
+    "code": "C47.6",
+    "description": "PERIPH. NERVES/ANS, TRUNK NOS"
+  },
+  {
+    "code": "C47.8",
+    "description": "PERIPH. NERVES/ANS, OVERLAP."
+  },
+  {
+    "code": "C47.9",
+    "description": "AUTONOMIC NERVOUS SYSTEM, NOS"
+  },
+  {
+    "code": "C48.0",
+    "description": "RETROPERITONEUM"
+  },
+  {
+    "code": "C48.1",
+    "description": "SPECIFIED PARTS OF PERITONEUM"
+  },
+  {
+    "code": "C48.2",
+    "description": "PERITONEUM, NOS"
+  },
+  {
+    "code": "C48.8",
+    "description": "OVERLAP LESION,RETROPERITONEUM"
+  },
+  {
+    "code": "C49.0",
+    "description": "SOFT TISSUES, HEAD"
+  },
+  {
+    "code": "C49.1",
+    "description": "SOFT TIS. UPPER LIMB, SHOULDER"
+  },
+  {
+    "code": "C49.2",
+    "description": "SOFT TIS. LOWER LIMB, HIP"
+  },
+  {
+    "code": "C49.3",
+    "description": "SOFT TISSUE, THORAX"
+  },
+  {
+    "code": "C49.4",
+    "description": "SOFT TISSUE, ABDOMEM"
+  },
+  {
+    "code": "C49.5",
+    "description": "SOFT TISSUE, PELVIS"
+  },
+  {
+    "code": "C49.6",
+    "description": "SOFT TISSUE, TRUNK"
+  },
+  {
+    "code": "C49.8",
+    "description": "OVERLAP. SITES /SOFT TISSUE"
+  },
+  {
+    "code": "C49.9",
+    "description": "SOFT TISSUE, NOS"
+  },
+  {
+    "code": "C50.0",
+    "description": "NIPPLE, AREOLA"
+  },
+  {
+    "code": "C50.1",
+    "description": "CENTRAL PORTION OF BREAST"
+  },
+  {
+    "code": "C50.2",
+    "description": "UPPER-INNER QUAD. OF BREAST"
+  },
+  {
+    "code": "C50.3",
+    "description": "LOWER-INNER QUAD. OF BREAST"
+  },
+  {
+    "code": "C50.4",
+    "description": "UPPER-OUTER QUAD. OF BREAST"
+  },
+  {
+    "code": "C50.5",
+    "description": "LOWER-OUTER QUAD. OF BREAST"
+  },
+  {
+    "code": "C50.6",
+    "description": "AXILLARY TAIL OF BREAST"
+  },
+  {
+    "code": "C50.8",
+    "description": "OVERLAPPING SITES OF BREAST"
+  },
+  {
+    "code": "C50.9",
+    "description": "BREAST, NOS"
+  },
+  {
+    "code": "C51.0",
+    "description": "LABIUM MAJUS"
+  },
+  {
+    "code": "C51.1",
+    "description": "LABIUM MINUS"
+  },
+  {
+    "code": "C51.2",
+    "description": "CLITORIS"
+  },
+  {
+    "code": "C51.8",
+    "description": "OVERLAP. SITES OF VULVA"
+  },
+  {
+    "code": "C51.9",
+    "description": "VULVA, NOS"
+  },
+  {
+    "code": "C52.9",
+    "description": "VAGINA"
+  },
+  {
+    "code": "C53.0",
+    "description": "ENDOCERVIX"
+  },
+  {
+    "code": "C53.1",
+    "description": "EXOCERVIX"
+  },
+  {
+    "code": "C53.8",
+    "description": "OVERLAP LESION OF CERVIX UTERI"
+  },
+  {
+    "code": "C53.9",
+    "description": "CERVIX UTERI"
+  },
+  {
+    "code": "C54.0",
+    "description": "ISTHMUS UTERI"
+  },
+  {
+    "code": "C54.1",
+    "description": "ENDOMETRIUM"
+  },
+  {
+    "code": "C54.2",
+    "description": "MYOMETRIUM"
+  },
+  {
+    "code": "C54.3",
+    "description": "FUNDUS UTERI"
+  },
+  {
+    "code": "C54.8",
+    "description": "OVERLAP. SITES/CORPUS UTERI"
+  },
+  {
+    "code": "C54.9",
+    "description": "CORPUS UTERI"
+  },
+  {
+    "code": "C55.9",
+    "description": "UTERUS, NOS"
+  },
+  {
+    "code": "C56.9",
+    "description": "OVARY"
+  },
+  {
+    "code": "C57.0",
+    "description": "FALLOPIAN TUBE"
+  },
+  {
+    "code": "C57.1",
+    "description": "BROAD LIGAMENT"
+  },
+  {
+    "code": "C57.2",
+    "description": "ROUND LIGAMENT"
+  },
+  {
+    "code": "C57.3",
+    "description": "PARAMETRIUM"
+  },
+  {
+    "code": "C57.4",
+    "description": "UTERINE ADNEXA"
+  },
+  {
+    "code": "C57.7",
+    "description": "OTHER PARTS OF UTERINE ADNEXA"
+  },
+  {
+    "code": "C57.8",
+    "description": "OVERLAP LESION, FEMALE GENITAL"
+  },
+  {
+    "code": "C57.9",
+    "description": "FEMALE GENITAL, NOS"
+  },
+  {
+    "code": "C58.9",
+    "description": "PLACENTA"
+  },
+  {
+    "code": "C60.0",
+    "description": "PREPUCE"
+  },
+  {
+    "code": "C60.1",
+    "description": "GLANS PENIS"
+  },
+  {
+    "code": "C60.2",
+    "description": "BODY OF PENIS"
+  },
+  {
+    "code": "C60.8",
+    "description": "OVERLAPPING LESION OF PENIS"
+  },
+  {
+    "code": "C60.9",
+    "description": "PENIS, NOS"
+  },
+  {
+    "code": "C61.9",
+    "description": "PROSTATE GLAND"
+  },
+  {
+    "code": "C62.0",
+    "description": "UNDESCENDED TESTIS"
+  },
+  {
+    "code": "C62.1",
+    "description": "DESCENDED TESTIS"
+  },
+  {
+    "code": "C62.9",
+    "description": "TESTIS, NOS"
+  },
+  {
+    "code": "C63.0",
+    "description": "EPIDIDYMIS"
+  },
+  {
+    "code": "C63.1",
+    "description": "SPERMATIC CORD"
+  },
+  {
+    "code": "C63.2",
+    "description": "SCROTUM, NOS"
+  },
+  {
+    "code": "C63.7",
+    "description": "OTHER SPEC SITES, MALE GENITAL"
+  },
+  {
+    "code": "C63.8",
+    "description": "OVERLAP LESIONS, MALE GENITAL"
+  },
+  {
+    "code": "C63.9",
+    "description": "MALE GENITAL ORGANS, NOS"
+  },
+  {
+    "code": "C64.9",
+    "description": "KIDNEY, NOS"
+  },
+  {
+    "code": "C65.9",
+    "description": "RENAL PELVIS"
+  },
+  {
+    "code": "C66.9",
+    "description": "URETER"
+  },
+  {
+    "code": "C67.0",
+    "description": "TRIGONE OF URINARY BLADDER"
+  },
+  {
+    "code": "C67.1",
+    "description": "DOME OF URINARY BLADDER"
+  },
+  {
+    "code": "C67.2",
+    "description": "LATERAL WALL, URINARY BLADDER"
+  },
+  {
+    "code": "C67.3",
+    "description": "ANTERIOR WALL, URINARY BLADDER"
+  },
+  {
+    "code": "C67.4",
+    "description": "POSTERIOR WALL,URINARY BLADDER"
+  },
+  {
+    "code": "C67.5",
+    "description": "BLADDER NECK"
+  },
+  {
+    "code": "C67.6",
+    "description": "URETERIC ORIFICE"
+  },
+  {
+    "code": "C67.7",
+    "description": "URACHUS"
+  },
+  {
+    "code": "C67.8",
+    "description": "OVERLAP. SITES OF BLADDER"
+  },
+  {
+    "code": "C67.9",
+    "description": "URINARY BLADDER, NOS"
+  },
+  {
+    "code": "C68.0",
+    "description": "URETHRA"
+  },
+  {
+    "code": "C68.1",
+    "description": "PARAURETHRAL GLANDS"
+  },
+  {
+    "code": "C68.8",
+    "description": "OVERLAP. SITES/URINARY ORGANS"
+  },
+  {
+    "code": "C68.9",
+    "description": "URINARY SYSTEM, NOS"
+  },
+  {
+    "code": "C69.0",
+    "description": "CONJUNCTIVA"
+  },
+  {
+    "code": "C69.1",
+    "description": "CORNEA, NOS"
+  },
+  {
+    "code": "C69.2",
+    "description": "RETINA"
+  },
+  {
+    "code": "C69.3",
+    "description": "CHOROID"
+  },
+  {
+    "code": "C69.4",
+    "description": "CILIARY BODY"
+  },
+  {
+    "code": "C69.5",
+    "description": "LACRIMAL GLAND"
+  },
+  {
+    "code": "C69.6",
+    "description": "ORBIT, NOS"
+  },
+  {
+    "code": "C69.8",
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": "C69.9",
+    "description": "EYE, NOS"
+  },
+  {
+    "code": "C70.0",
+    "description": "CEREBRAL MENINGES"
+  },
+  {
+    "code": "C70.1",
+    "description": "SPINAL MENINGES"
+  },
+  {
+    "code": "C70.9",
+    "description": "MENINGES, NOS"
+  },
+  {
+    "code": "C71.0",
+    "description": "CEREBRUM"
+  },
+  {
+    "code": "C71.1",
+    "description": "FRONTAL LOBE"
+  },
+  {
+    "code": "C71.2",
+    "description": "TEMPORAL LOBE"
+  },
+  {
+    "code": "C71.3",
+    "description": "PARIETAL LOBE"
+  },
+  {
+    "code": "C71.4",
+    "description": "OCCIPITAL LOBE"
+  },
+  {
+    "code": "C71.5",
+    "description": "VENTRICLE, NOS"
+  },
+  {
+    "code": "C71.6",
+    "description": "CEREBELLUM NOS"
+  },
+  {
+    "code": "C71.7",
+    "description": "BRAIN STEM"
+  },
+  {
+    "code": "C71.8",
+    "description": "OVERLAPPING LESION OF BRAIN"
+  },
+  {
+    "code": "C71.9",
+    "description": "BRAIN, NOS"
+  },
+  {
+    "code": "C72.0",
+    "description": "SPINAL CORD"
+  },
+  {
+    "code": "C72.1",
+    "description": "CAUDA EQUINA"
+  },
+  {
+    "code": "C72.2",
+    "description": "OLFACTORY NERVE"
+  },
+  {
+    "code": "C72.3",
+    "description": "OPTIC NERVE"
+  },
+  {
+    "code": "C72.4",
+    "description": "ACOUSTIC NERVE"
+  },
+  {
+    "code": "C72.5",
+    "description": "CRANIAL NERVES"
+  },
+  {
+    "code": "C72.8",
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": "C72.9",
+    "description": "NERVOUS SYSTEM, NOS"
+  },
+  {
+    "code": "C73.9",
+    "description": "THYROID GLAND"
+  },
+  {
+    "code": "C74.0",
+    "description": "CORTEX OF ADRENAL GLAND"
+  },
+  {
+    "code": "C74.1",
+    "description": "MEDULLA OF ADRENAL GLAND"
+  },
+  {
+    "code": "C74.9",
+    "description": "ADRENAL GLAND, NOS"
+  },
+  {
+    "code": "C75.0",
+    "description": "PARATHYROID GLAND"
+  },
+  {
+    "code": "C75.1",
+    "description": "PITUITARY GLAND"
+  },
+  {
+    "code": "C75.2",
+    "description": "CRANIOPHARYNGEAL DUCT"
+  },
+  {
+    "code": "C75.3",
+    "description": "PINEAL GLAND"
+  },
+  {
+    "code": "C75.4",
+    "description": "CAROTID BODY"
+  },
+  {
+    "code": "C75.5",
+    "description": "AORTIC BODY, OTHER PARAGANGLIA"
+  },
+  {
+    "code": "C75.8",
+    "description": "MULTIPLE ENDOCRINE GLANDS"
+  },
+  {
+    "code": "C75.9",
+    "description": "ENDOCRINE GLANDS, NOS"
+  },
+  {
+    "code": "C76.0",
+    "description": "HEAD, FACE, NECK NOS"
+  },
+  {
+    "code": "C76.1",
+    "description": "THORAX, NOS"
+  },
+  {
+    "code": "C76.2",
+    "description": "ABDOMEN, NOS"
+  },
+  {
+    "code": "C76.3",
+    "description": "PELVIS, NOS"
+  },
+  {
+    "code": "C76.4",
+    "description": "UPPER LIMB, NOS"
+  },
+  {
+    "code": "C76.5",
+    "description": "LOWER LIMB, NOS"
+  },
+  {
+    "code": "C76.7",
+    "description": "OTHER ILL-DEFINED SITES"
+  },
+  {
+    "code": "C76.8",
+    "description": "OVERLAP LESION,ILL-DEF SITES"
+  },
+  {
+    "code": "C77.0",
+    "description": "LYMPH NODES OF HEAD,NECK, FACE"
+  },
+  {
+    "code": "C77.1",
+    "description": "INTRATHORACIC LYMPH NODES"
+  },
+  {
+    "code": "C77.2",
+    "description": "INTRA-ABDOMINAL LYMPH NODES"
+  },
+  {
+    "code": "C77.3",
+    "description": "LYMPH NODES OF AXILLA OR ARM"
+  },
+  {
+    "code": "C77.4",
+    "description": "LYMPH NODES OF INGUINAL REGION"
+  },
+  {
+    "code": "C77.5",
+    "description": "LYMPH NODES, PELVIC"
+  },
+  {
+    "code": "C77.8",
+    "description": "LYMPH NODES, MULTIPLE REGIONS"
+  },
+  {
+    "code": "C77.9",
+    "description": "LYMPH NODE, NOS"
+  },
+  {
+    "code": "C80.9",
+    "description": "UNKNOWN PRIMARY SITE"
+  },
+  {
+    "code": "C00.0",
+    "description": "EXTERNAL UPPER LIP, NOS"
+  },
+  {
+    "code": "C00.1",
+    "description": "EXTERNAL LOWER LIP, NOS"
+  },
+  {
+    "code": "C00.2",
+    "description": "EXTERNAL LIP, NOS"
+  },
+  {
+    "code": "C00.3",
+    "description": "MUCOSA OF UPPER LIP"
+  },
+  {
+    "code": "C00.4",
+    "description": "MUCOSA OF LOWER LIP"
+  },
+  {
+    "code": "C00.5",
+    "description": "MUCOSA OF LIP, NOS"
+  },
+  {
+    "code": "C00.6",
+    "description": "COMMISSURE OF LIP"
+  },
+  {
+    "code": "C00.8",
+    "description": "OVERLAPPING LESION OF LIP"
+  },
+  {
+    "code": "C00.9",
+    "description": "LIP, NOS"
+  },
+  {
+    "code": "C01.9",
+    "description": "BASE OF TONGUE, NOS"
+  },
+  {
+    "code": "C02.0",
+    "description": "DORSAL SURFACE OF TONGUE, NOS"
+  },
+  {
+    "code": "C02.1",
+    "description": "BORDER OF TONGUE"
+  },
+  {
+    "code": "C02.2",
+    "description": "VENTRAL SURFACE OF TONGUE, NOS"
+  },
+  {
+    "code": "C02.3",
+    "description": "ANTERIOR 2/3 OF TONGUE, NOS"
+  },
+  {
+    "code": "C02.4",
+    "description": "LINGUAL TONSIL"
+  },
+  {
+    "code": "C02.8",
+    "description": "OVERLAP. LESION OF TONGUE"
+  },
+  {
+    "code": "C02.9",
+    "description": "TONGUE, NOS"
+  },
+  {
+    "code": "C03.0",
+    "description": "UPPER GUM"
+  },
+  {
+    "code": "C03.1",
+    "description": "LOWER GUM"
+  },
+  {
+    "code": "C03.9",
+    "description": "GUM, NOS"
+  },
+  {
+    "code": "C04.0",
+    "description": "ANTERIOR FLOOR OF MOUTH"
+  },
+  {
+    "code": "C04.1",
+    "description": "LATERAL FLOOR OF MOUTH"
+  },
+  {
+    "code": "C04.8",
+    "description": "OVERLAP. LESION/FLOOR OF MOUTH"
+  },
+  {
+    "code": "C04.9",
+    "description": "FLOOR OF MOUTH, NOS"
+  },
+  {
+    "code": "C05.0",
+    "description": "HARD PALATE"
+  },
+  {
+    "code": "C05.1",
+    "description": "SOFT PALATE, NOS"
+  },
+  {
+    "code": "C05.2",
+    "description": "UVULA"
+  },
+  {
+    "code": "C05.8",
+    "description": "OVERLAPPING LESION OF PALATE"
+  },
+  {
+    "code": "C05.9",
+    "description": "PALATE, NOS"
+  },
+  {
+    "code": "C06.0",
+    "description": "CHEEK MUCOSA"
+  },
+  {
+    "code": "C06.1",
+    "description": "VESTIBULE OF MOUTH"
+  },
+  {
+    "code": "C06.2",
+    "description": "RETROMOLAR AREA"
+  },
+  {
+    "code": "C06.8",
+    "description": "OVERLAP. LESION OF MOUTH"
+  },
+  {
+    "code": "C06.9",
+    "description": "MOUTH, NOS"
+  },
+  {
+    "code": "C07.9",
+    "description": "PAROTID GLAND"
+  },
+  {
+    "code": "C08.0",
+    "description": "SUBMANDIBULAR GLAND"
+  },
+  {
+    "code": "C08.1",
+    "description": "SUBLINGUAL GLAND"
+  },
+  {
+    "code": "C08.8",
+    "description": "OVERLAP.LESION/SALIVARY GLANDS"
+  },
+  {
+    "code": "C08.9",
+    "description": "MAJOR SALIVARY GLAND, NOS"
+  },
+  {
+    "code": "C09.0",
+    "description": "TONSILLAR FOSSA"
+  },
+  {
+    "code": "C09.1",
+    "description": "TONSILLAR PILLAR"
+  },
+  {
+    "code": "C09.8",
+    "description": "OVERLAPPING LESION OF TONSIL"
+  },
+  {
+    "code": "C09.9",
+    "description": "TONSIL, NOS"
+  },
+  {
+    "code": "C10.0",
+    "description": "VALLECULA"
+  },
+  {
+    "code": "C10.1",
+    "description": "ANTERIOR SURFACE OF EPIGLOTTIS"
+  },
+  {
+    "code": "C10.2",
+    "description": "LATERAL WALL OF OROPHARYNX"
+  },
+  {
+    "code": "C10.3",
+    "description": "POSTERIOR WALL OF OROPHARYNX"
+  },
+  {
+    "code": "C10.4",
+    "description": "BRANCHIAL CLEFT"
+  },
+  {
+    "code": "C10.8",
+    "description": "OVERLAP. LESION OF OROPHARYNX"
+  },
+  {
+    "code": "C10.9",
+    "description": "OROPHARYNX, NOS"
+  },
+  {
+    "code": "C11.0",
+    "description": "SUPERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": "C11.1",
+    "description": "POSTERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": "C11.2",
+    "description": "LATERAL WALL OF NASOPHARYNX"
+  },
+  {
+    "code": "C11.3",
+    "description": "ANTERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": "C11.8",
+    "description": "OVERLAP. LESION/ NASOPHARYNX"
+  },
+  {
+    "code": "C11.9",
+    "description": "NASOPHARYNX, NOS"
+  },
+  {
+    "code": "C12.9",
+    "description": "PYRIFORM SINUS"
+  },
+  {
+    "code": "C13.0",
+    "description": "POSTCRICOID REGION"
+  },
+  {
+    "code": "C13.1",
+    "description": "ARYEPIGLOTTIC FOLD"
+  },
+  {
+    "code": "C13.2",
+    "description": "POSTERIOR WALL OF HYPOPHARYNX"
+  },
+  {
+    "code": "C13.8",
+    "description": "OVERLAP. LESION/ HYPOPHARYNX"
+  },
+  {
+    "code": "C13.9",
+    "description": "HYPOPHARYNX, NOS"
+  },
+  {
+    "code": "C14.0",
+    "description": "PHARYNX, NOS"
+  },
+  {
+    "code": "C14.2",
+    "description": "WALDEYER RING, NOS"
+  },
+  {
+    "code": "C14.8",
+    "description": "OVERLAP. LESION/ORAL CAVITY"
+  },
+  {
+    "code": "C15.0",
+    "description": "CERVICAL ESOPHAGUS"
+  },
+  {
+    "code": "C15.1",
+    "description": "THORACIC ESOPHAGUS"
+  },
+  {
+    "code": "C15.2",
+    "description": "ABDOMINAL ESOPHAGUS"
+  },
+  {
+    "code": "C15.3",
+    "description": "UPPER THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": "C15.4",
+    "description": "MIDDLE THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": "C15.5",
+    "description": "LOWER THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": "C15.8",
+    "description": "OVERLAP. LESION/ ESOPHAGUS"
+  },
+  {
+    "code": "C15.9",
+    "description": "ESOPHAGUS, NOS"
+  },
+  {
+    "code": "C16.0",
+    "description": "CARDIA, NOS"
+  },
+  {
+    "code": "C16.1",
+    "description": "FUNDUS OF STOMACH"
+  },
+  {
+    "code": "C16.2",
+    "description": "BODY OF STOMACH"
+  },
+  {
+    "code": "C16.3",
+    "description": "GASTRIC ANTRUM"
+  },
+  {
+    "code": "C16.4",
+    "description": "PYLORUS"
+  },
+  {
+    "code": "C16.5",
+    "description": "LESSER CURV. OF STOMACH"
+  },
+  {
+    "code": "C16.6",
+    "description": "GREATER CURV. OF STOMACH"
+  },
+  {
+    "code": "C16.8",
+    "description": "OVERLAPPING LESION/ STOMACH"
+  },
+  {
+    "code": "C16.9",
+    "description": "STOMACH, NOS"
+  },
+  {
+    "code": "C17.0",
+    "description": "DUODENUM"
+  },
+  {
+    "code": "C17.1",
+    "description": "JEJUNUM"
+  },
+  {
+    "code": "C17.2",
+    "description": "ILEUM"
+  },
+  {
+    "code": "C17.3",
+    "description": "MECKEL DIVERTCULUM"
+  },
+  {
+    "code": "C17.8",
+    "description": "OVERLAP.LESION/SMALL INTESTINE"
+  },
+  {
+    "code": "C17.9",
+    "description": "SMALL INTESTINE, NOS"
+  },
+  {
+    "code": "C18.0",
+    "description": "CECUM"
+  },
+  {
+    "code": "C18.1",
+    "description": "APPENDIX"
+  },
+  {
+    "code": "C18.2",
+    "description": "ASCENDING COLON"
+  },
+  {
+    "code": "C18.3",
+    "description": "HEPATIC FLEXURE OF COLON"
+  },
+  {
+    "code": "C18.4",
+    "description": "TRANSVERSE COLON"
+  },
+  {
+    "code": "C18.5",
+    "description": "SPLENIC FLEXURE OF COLON"
+  },
+  {
+    "code": "C18.6",
+    "description": "DESCENDING COLON"
+  },
+  {
+    "code": "C18.7",
+    "description": "SIGMOID COLON"
+  },
+  {
+    "code": "C18.8",
+    "description": "OVERLAP. LESION OF COLON"
+  },
+  {
+    "code": "C18.9",
+    "description": "COLON, NOS"
+  },
+  {
+    "code": "C19.9",
+    "description": "RECTOSIGMOID JUNCTION"
+  },
+  {
+    "code": "C20.9",
+    "description": "RECTUM, NOS"
+  },
+  {
+    "code": "C21.0",
+    "description": "ANUS, NOS"
+  },
+  {
+    "code": "C21.1",
+    "description": "ANAL CANAL"
+  },
+  {
+    "code": "C21.2",
+    "description": "CLOACOGENIC ZONE"
+  },
+  {
+    "code": "C21.8",
+    "description": "OVERLAP LESION RECTUM, ANUS"
+  },
+  {
+    "code": "C22.0",
+    "description": "LIVER, PRIMARY"
+  },
+  {
+    "code": "C22.1",
+    "description": "INTRAHEPATIC BILE DUCT"
+  },
+  {
+    "code": "C23.9",
+    "description": "GALLBLADDER"
+  },
+  {
+    "code": "C24.0",
+    "description": "EXTRAHEPATIC BILE DUCT"
+  },
+  {
+    "code": "C24.1",
+    "description": "AMPULLA OF VATER"
+  },
+  {
+    "code": "C24.8",
+    "description": "OVERLAP. LESION/BILIARY TRACT"
+  },
+  {
+    "code": "C24.9",
+    "description": "BILIARY TRACT, NOS"
+  },
+  {
+    "code": "C25.0",
+    "description": "HEAD OF PANCREAS"
+  },
+  {
+    "code": "C25.1",
+    "description": "BODY OF PANCREAS"
+  },
+  {
+    "code": "C25.2",
+    "description": "TAIL OF PANCREAS"
+  },
+  {
+    "code": "C25.3",
+    "description": "PANCREATIC DUCT"
+  },
+  {
+    "code": "C25.4",
+    "description": "ISLETS OF LANGERHANS"
+  },
+  {
+    "code": "C25.7",
+    "description": "OTHER SPECIFIED PARTS,PANCREAS"
+  },
+  {
+    "code": "C25.8",
+    "description": "OVERLAPPING LESION OF PANCREAS"
+  },
+  {
+    "code": "C25.9",
+    "description": "PANCREAS, NOS"
+  },
+  {
+    "code": "C26.0",
+    "description": "INTESTINAL TRACT, NOS"
+  },
+  {
+    "code": "C26.8",
+    "description": "OVERLAP. LESION/DIGESTIVE SYS"
+  },
+  {
+    "code": "C26.9",
+    "description": "GASTROINTESTINAL TRACT, NOS"
+  },
+  {
+    "code": "C30.0",
+    "description": "NASAL CAVITY"
+  },
+  {
+    "code": "C30.1",
+    "description": "MIDDLE EAR"
+  },
+  {
+    "code": "C31.0",
+    "description": "MAXILLARY SINUS"
+  },
+  {
+    "code": "C31.1",
+    "description": "ETHMOID SINUS"
+  },
+  {
+    "code": "C31.2",
+    "description": "FRONTAL SINUS"
+  },
+  {
+    "code": "C31.3",
+    "description": "SPHENOID SINUS"
+  },
+  {
+    "code": "C31.8",
+    "description": "OVERLAP. LESION OF SINUSES"
+  },
+  {
+    "code": "C31.9",
+    "description": "ACCESSARY SINUS, NOS"
+  },
+  {
+    "code": "C32.0",
+    "description": "GLOTTIS"
+  },
+  {
+    "code": "C32.1",
+    "description": "SUPRAGLOTTIS"
+  },
+  {
+    "code": "C32.2",
+    "description": "SUBGLOTTIS"
+  },
+  {
+    "code": "C32.3",
+    "description": "LARYNGEAL CARTILAGE"
+  },
+  {
+    "code": "C32.8",
+    "description": "OVERLAP. LESION OF LARYNX"
+  },
+  {
+    "code": "C32.9",
+    "description": "LARYNX, NOS"
+  },
+  {
+    "code": "C33.9",
+    "description": "TRACHEA"
+  },
+  {
+    "code": "C34.0",
+    "description": "MAIN BRONCHUS"
+  },
+  {
+    "code": "C34.1",
+    "description": "UPPER LOBE, LUNG"
+  },
+  {
+    "code": "C34.2",
+    "description": "MIDDLE LOBE, LUNG"
+  },
+  {
+    "code": "C34.3",
+    "description": "LOWER LOBE, LUNG"
+  },
+  {
+    "code": "C34.8",
+    "description": "OVERLAPPING LESION OF LUNG"
+  },
+  {
+    "code": "C34.9",
+    "description": "LUNG, NOS"
+  },
+  {
+    "code": "C37.9",
+    "description": "THYMUS"
+  },
+  {
+    "code": "C38.0",
+    "description": "HEART"
+  },
+  {
+    "code": "C38.1",
+    "description": "ANTERIOR MEDIASTINUM"
+  },
+  {
+    "code": "C38.2",
+    "description": "POSTERIOR MEDIASTINUM"
+  },
+  {
+    "code": "C38.3",
+    "description": "MEDIASTINUM, NOS"
+  },
+  {
+    "code": "C38.4",
+    "description": "PLEURA, NOS"
+  },
+  {
+    "code": "C38.8",
+    "description": "OVERLAP. LESION OF PLEURA"
+  },
+  {
+    "code": "C39.0",
+    "description": "UPPER RESPIRATORY TRACT, NOS"
+  },
+  {
+    "code": "C39.8",
+    "description": "OVERLAP.LESION/RESPIR. SYSTEM"
+  },
+  {
+    "code": "C39.9",
+    "description": "ILL-DEFINED SITES, RESPIRATORY"
+  },
+  {
+    "code": "C40.0",
+    "description": "LONG BONES UPPER LIMBS,SCAPULA"
+  },
+  {
+    "code": "C40.1",
+    "description": "SHORT BONES UPPER LIMBS,JOINTS"
+  },
+  {
+    "code": "C40.2",
+    "description": "LONG BONES LOWER LIMBS, JOINTS"
+  },
+  {
+    "code": "C40.3",
+    "description": "SHORT BONES LOWER LIMBS,JOINTS"
+  },
+  {
+    "code": "C40.8",
+    "description": "OVERLAP BONES,JOINTS OF LIMBS"
+  },
+  {
+    "code": "C40.9",
+    "description": "BONE OF LIMB, NOS"
+  },
+  {
+    "code": "C41.0",
+    "description": "BONES OF SKULL/FACE"
+  },
+  {
+    "code": "C41.1",
+    "description": "MANDIBLE"
+  },
+  {
+    "code": "C41.2",
+    "description": "VERTEBRAL COLUMN"
+  },
+  {
+    "code": "C41.3",
+    "description": "RIBS, STERNUM, CLAVICLE"
+  },
+  {
+    "code": "C41.4",
+    "description": "PELVIC, SACRUM, COCCYX, JOINTS"
+  },
+  {
+    "code": "C41.8",
+    "description": "OVERLAP LESION BONES, JOINTS"
+  },
+  {
+    "code": "C41.9",
+    "description": "BONE, NOS"
+  },
+  {
+    "code": "C42.0",
+    "description": "BLOOD"
+  },
+  {
+    "code": "C42.1",
+    "description": "BONE MARROW"
+  },
+  {
+    "code": "C42.2",
+    "description": "SPLEEN"
+  },
+  {
+    "code": "C42.3",
+    "description": "RETICULOENDOTHELIAL, NOS"
+  },
+  {
+    "code": "C42.4",
+    "description": "HEMATOPOIETIC SYSTEM, NOS"
+  },
+  {
+    "code": "C44.0",
+    "description": "SKIN OF LIP, NOS"
+  },
+  {
+    "code": "C44.1",
+    "description": "EYELID"
+  },
+  {
+    "code": "C44.2",
+    "description": "EXTERNAL EAR"
+  },
+  {
+    "code": "C44.3",
+    "description": "SKIN OF FACE, UNSPECIFIED"
+  },
+  {
+    "code": "C44.4",
+    "description": "SKIN OF SCALP AND NECK"
+  },
+  {
+    "code": "C44.5",
+    "description": "SKIN OF TRUNK"
+  },
+  {
+    "code": "C44.6",
+    "description": "SKIN OF UPPER LIMB & SHOULDER"
+  },
+  {
+    "code": "C44.7",
+    "description": "SKIN OF LOWER LIMB AND HIP"
+  },
+  {
+    "code": "C44.8",
+    "description": "OVERLAP. LESION OF SKIN"
+  },
+  {
+    "code": "C44.9",
+    "description": "SKIN, NOS"
+  },
+  {
+    "code": "C47.0",
+    "description": "PERIPH. NERVES/ANS OF HEAD"
+  },
+  {
+    "code": "C47.1",
+    "description": "PERIPH. NERVES/ANS, UPPER LIMB"
+  },
+  {
+    "code": "C47.2",
+    "description": "PERIPH. NERVES/ANS, LOWER LIMB"
+  },
+  {
+    "code": "C47.3",
+    "description": "PERIPH. NERVES/ANS, THORAX"
+  },
+  {
+    "code": "C47.4",
+    "description": "PERIPH. NERVES/ANS, ABDOMEN"
+  },
+  {
+    "code": "C47.5",
+    "description": "PERIPH. NERVES/ANS, PELVIS"
+  },
+  {
+    "code": "C47.6",
+    "description": "PERIPH. NERVES/ANS, TRUNK NOS"
+  },
+  {
+    "code": "C47.8",
+    "description": "PERIPH. NERVES/ANS, OVERLAP."
+  },
+  {
+    "code": "C47.9",
+    "description": "AUTONOMIC NERVOUS SYSTEM, NOS"
+  },
+  {
+    "code": "C48.0",
+    "description": "RETROPERITONEUM"
+  },
+  {
+    "code": "C48.1",
+    "description": "SPECIFIED PARTS OF PERITONEUM"
+  },
+  {
+    "code": "C48.2",
+    "description": "PERITONEUM, NOS"
+  },
+  {
+    "code": "C48.8",
+    "description": "OVERLAP LESION,RETROPERITONEUM"
+  },
+  {
+    "code": "C49.0",
+    "description": "SOFT TISSUES, HEAD/FACE/NECK"
+  },
+  {
+    "code": "C49.1",
+    "description": "SOFT TIS. UPPER LIMB, SHOULDER"
+  },
+  {
+    "code": "C49.2",
+    "description": "SOFT TIS. LOWER LIMB AND HIP"
+  },
+  {
+    "code": "C49.3",
+    "description": "SOFT TISSUE, THORAX"
+  },
+  {
+    "code": "C49.4",
+    "description": "SOFT TISSUE, ABDOMEN"
+  },
+  {
+    "code": "C49.5",
+    "description": "SOFT TISSUE, PELVIS"
+  },
+  {
+    "code": "C49.6",
+    "description": "SOFT TISSUE, TRUNK"
+  },
+  {
+    "code": "C49.8",
+    "description": "OVERLAP. LESION /SOFT TISSUE"
+  },
+  {
+    "code": "C49.9",
+    "description": "CONNECTIVE & SOFT TISSUE, NOS"
+  },
+  {
+    "code": "C50.0",
+    "description": "NIPPLE, AREOLA"
+  },
+  {
+    "code": "C50.1",
+    "description": "CENTRAL PORTION OF BREAST"
+  },
+  {
+    "code": "C50.2",
+    "description": "UPPER-INNER QUAD. OF BREAST"
+  },
+  {
+    "code": "C50.3",
+    "description": "LOWER-INNER QUAD. OF BREAST"
+  },
+  {
+    "code": "C50.4",
+    "description": "UPPER-OUTER QUAD. OF BREAST"
+  },
+  {
+    "code": "C50.5",
+    "description": "LOWER-OUTER QUAD. OF BREAST"
+  },
+  {
+    "code": "C50.6",
+    "description": "AXILLARY TAIL OF BREAST"
+  },
+  {
+    "code": "C50.8",
+    "description": "OVERLAPPING LESION OF BREAST"
+  },
+  {
+    "code": "C50.9",
+    "description": "BREAST, NOS"
+  },
+  {
+    "code": "C51.0",
+    "description": "LABIUM MAJUS"
+  },
+  {
+    "code": "C51.1",
+    "description": "LABIUM MINUS"
+  },
+  {
+    "code": "C51.2",
+    "description": "CLITORIS"
+  },
+  {
+    "code": "C51.8",
+    "description": "OVERLAP. LESION OF VULVA"
+  },
+  {
+    "code": "C51.9",
+    "description": "VULVA, NOS"
+  },
+  {
+    "code": "C52.9",
+    "description": "VAGINA, NOS"
+  },
+  {
+    "code": "C53.0",
+    "description": "ENDOCERVIX"
+  },
+  {
+    "code": "C53.1",
+    "description": "EXOCERVIX"
+  },
+  {
+    "code": "C53.8",
+    "description": "OVERLAP LESION OF CERVIX UTERI"
+  },
+  {
+    "code": "C53.9",
+    "description": "CERVIX UTERI"
+  },
+  {
+    "code": "C54.0",
+    "description": "ISTHMUS UTERI"
+  },
+  {
+    "code": "C54.1",
+    "description": "ENDOMETRIUM"
+  },
+  {
+    "code": "C54.2",
+    "description": "MYOMETRIUM"
+  },
+  {
+    "code": "C54.3",
+    "description": "FUNDUS UTERI"
+  },
+  {
+    "code": "C54.8",
+    "description": "OVERLAP. LESION/CORPUS UTERI"
+  },
+  {
+    "code": "C54.9",
+    "description": "CORPUS UTERI"
+  },
+  {
+    "code": "C55.9",
+    "description": "UTERUS, NOS"
+  },
+  {
+    "code": "C56.9",
+    "description": "OVARY"
+  },
+  {
+    "code": "C57.0",
+    "description": "FALLOPIAN TUBE"
+  },
+  {
+    "code": "C57.1",
+    "description": "BROAD LIGAMENT"
+  },
+  {
+    "code": "C57.2",
+    "description": "ROUND LIGAMENT"
+  },
+  {
+    "code": "C57.3",
+    "description": "PARAMETRIUM"
+  },
+  {
+    "code": "C57.4",
+    "description": "UTERINE ADNEXA"
+  },
+  {
+    "code": "C57.7",
+    "description": "OTHER PARTS OF FEMALE GENITAL"
+  },
+  {
+    "code": "C57.8",
+    "description": "OVERLAP LESION, FEMALE GENITAL"
+  },
+  {
+    "code": "C57.9",
+    "description": "FEMALE GENITAL TRACT, NOS"
+  },
+  {
+    "code": "C58.9",
+    "description": "PLACENTA"
+  },
+  {
+    "code": "C60.0",
+    "description": "PREPUCE"
+  },
+  {
+    "code": "C60.1",
+    "description": "GLANS PENIS"
+  },
+  {
+    "code": "C60.2",
+    "description": "BODY OF PENIS"
+  },
+  {
+    "code": "C60.8",
+    "description": "OVERLAPPING LESION OF PENIS"
+  },
+  {
+    "code": "C60.9",
+    "description": "PENIS, NOS"
+  },
+  {
+    "code": "C61.9",
+    "description": "PROSTATE GLAND"
+  },
+  {
+    "code": "C62.0",
+    "description": "UNDESCENDED TESTIS"
+  },
+  {
+    "code": "C62.1",
+    "description": "DESCENDED TESTIS"
+  },
+  {
+    "code": "C62.9",
+    "description": "TESTIS, NOS"
+  },
+  {
+    "code": "C63.0",
+    "description": "EPIDIDYMIS"
+  },
+  {
+    "code": "C63.1",
+    "description": "SPERMATIC CORD"
+  },
+  {
+    "code": "C63.2",
+    "description": "SCROTUM, NOS"
+  },
+  {
+    "code": "C63.7",
+    "description": "OTHER SPEC PARTS, MALE GENITAL"
+  },
+  {
+    "code": "C63.8",
+    "description": "OVERLAP LESIONS, MALE GENITAL"
+  },
+  {
+    "code": "C63.9",
+    "description": "MALE GENITAL ORGANS, NOS"
+  },
+  {
+    "code": "C64.9",
+    "description": "KIDNEY, NOS"
+  },
+  {
+    "code": "C65.9",
+    "description": "RENAL PELVIS"
+  },
+  {
+    "code": "C66.9",
+    "description": "URETER"
+  },
+  {
+    "code": "C67.0",
+    "description": "TRIGONE OF BLADDER"
+  },
+  {
+    "code": "C67.1",
+    "description": "DOME OF BLADDER"
+  },
+  {
+    "code": "C67.2",
+    "description": "LATERAL WALL, BLADDER"
+  },
+  {
+    "code": "C67.3",
+    "description": "ANTERIOR WALL, BLADDER"
+  },
+  {
+    "code": "C67.4",
+    "description": "POSTERIOR WALL, BLADDER"
+  },
+  {
+    "code": "C67.5",
+    "description": "BLADDER NECK"
+  },
+  {
+    "code": "C67.6",
+    "description": "URETERIC ORIFICE"
+  },
+  {
+    "code": "C67.7",
+    "description": "URACHUS"
+  },
+  {
+    "code": "C67.8",
+    "description": "OVERLAP. SITES OF BLADDER"
+  },
+  {
+    "code": "C67.9",
+    "description": "URINARY BLADDER, NOS"
+  },
+  {
+    "code": "C68.0",
+    "description": "URETHRA"
+  },
+  {
+    "code": "C68.1",
+    "description": "PARAURETHRAL GLANDS"
+  },
+  {
+    "code": "C68.8",
+    "description": "OVERLAP.LESION/URINARY ORGANS"
+  },
+  {
+    "code": "C68.9",
+    "description": "URINARY SYSTEM, NOS"
+  },
+  {
+    "code": "C69.0",
+    "description": "CONJUNCTIVA"
+  },
+  {
+    "code": "C69.1",
+    "description": "CORNEA, NOS"
+  },
+  {
+    "code": "C69.2",
+    "description": "RETINA"
+  },
+  {
+    "code": "C69.3",
+    "description": "CHOROID"
+  },
+  {
+    "code": "C69.4",
+    "description": "CILIARY BODY"
+  },
+  {
+    "code": "C69.5",
+    "description": "LACRIMAL GLAND"
+  },
+  {
+    "code": "C69.6",
+    "description": "ORBIT, NOS"
+  },
+  {
+    "code": "C69.8",
+    "description": "OVERLAP. LESION/ EYE & ADNEXA"
+  },
+  {
+    "code": "C69.9",
+    "description": "EYE, NOS"
+  },
+  {
+    "code": "C70.0",
+    "description": "CEREBRAL MENINGES"
+  },
+  {
+    "code": "C70.1",
+    "description": "SPINAL MENINGES"
+  },
+  {
+    "code": "C70.9",
+    "description": "MENINGES, NOS"
+  },
+  {
+    "code": "C71.0",
+    "description": "CEREBRUM"
+  },
+  {
+    "code": "C71.1",
+    "description": "FRONTAL LOBE"
+  },
+  {
+    "code": "C71.2",
+    "description": "TEMPORAL LOBE"
+  },
+  {
+    "code": "C71.3",
+    "description": "PARIETAL LOBE"
+  },
+  {
+    "code": "C71.4",
+    "description": "OCCIPITAL LOBE"
+  },
+  {
+    "code": "C71.5",
+    "description": "VENTRICLE, NOS"
+  },
+  {
+    "code": "C71.6",
+    "description": "CEREBELLUM NOS"
+  },
+  {
+    "code": "C71.7",
+    "description": "BRAIN STEM"
+  },
+  {
+    "code": "C71.8",
+    "description": "OVERLAPPING LESION OF BRAIN"
+  },
+  {
+    "code": "C71.9",
+    "description": "BRAIN, NOS"
+  },
+  {
+    "code": "C72.0",
+    "description": "SPINAL CORD"
+  },
+  {
+    "code": "C72.1",
+    "description": "CAUDA EQUINA"
+  },
+  {
+    "code": "C72.2",
+    "description": "OLFACTORY NERVE"
+  },
+  {
+    "code": "C72.3",
+    "description": "OPTIC NERVE"
+  },
+  {
+    "code": "C72.4",
+    "description": "ACOUSTIC NERVE"
+  },
+  {
+    "code": "C72.5",
+    "description": "CRANIAL NERVE, NOS"
+  },
+  {
+    "code": "C72.8",
+    "description": "OVERLAP. LESION OF BRAIN & CNS"
+  },
+  {
+    "code": "C72.9",
+    "description": "NERVOUS SYSTEM, NOS"
+  },
+  {
+    "code": "C73.9",
+    "description": "THYROID GLAND"
+  },
+  {
+    "code": "C74.0",
+    "description": "CORTEX OF ADRENAL GLAND"
+  },
+  {
+    "code": "C74.1",
+    "description": "MEDULLA OF ADRENAL GLAND"
+  },
+  {
+    "code": "C74.9",
+    "description": "ADRENAL GLAND"
+  },
+  {
+    "code": "C75.0",
+    "description": "PARATHYROID GLAND"
+  },
+  {
+    "code": "C75.1",
+    "description": "PITUITARY GLAND"
+  },
+  {
+    "code": "C75.2",
+    "description": "CRANIOPHARYNGEAL DUCT"
+  },
+  {
+    "code": "C75.3",
+    "description": "PINEAL GLAND"
+  },
+  {
+    "code": "C75.4",
+    "description": "CAROTID BODY"
+  },
+  {
+    "code": "C75.5",
+    "description": "AORTIC BODY, OTHER PARAGANGLIA"
+  },
+  {
+    "code": "C75.8",
+    "description": "OVERLAP.LESION ENDOCRINE GLAND"
+  },
+  {
+    "code": "C75.9",
+    "description": "ENDOCRINE GLAND, NOS"
+  },
+  {
+    "code": "C76.0",
+    "description": "HEAD, FACE, NECK, NOS"
+  },
+  {
+    "code": "C76.1",
+    "description": "THORAX, NOS"
+  },
+  {
+    "code": "C76.2",
+    "description": "ABDOMEN, NOS"
+  },
+  {
+    "code": "C76.3",
+    "description": "PELVIS, NOS"
+  },
+  {
+    "code": "C76.4",
+    "description": "UPPER LIMB, NOS"
+  },
+  {
+    "code": "C76.5",
+    "description": "LOWER LIMB, NOS"
+  },
+  {
+    "code": "C76.7",
+    "description": "OTHER ILL-DEFINED SITES"
+  },
+  {
+    "code": "C76.8",
+    "description": "OVERLAP LESION,ILL-DEF SITES"
+  },
+  {
+    "code": "C77.0",
+    "description": "LYMPH NODES OF HEAD,NECK, FACE"
+  },
+  {
+    "code": "C77.1",
+    "description": "INTRATHORACIC LYMPH NODES"
+  },
+  {
+    "code": "C77.2",
+    "description": "INTRA-ABDOMINAL LYMPH NODES"
+  },
+  {
+    "code": "C77.3",
+    "description": "LYMPH NODES OF AXILLA OR ARM"
+  },
+  {
+    "code": "C77.4",
+    "description": "LYMPH NODES OF INGUINAL REGION"
+  },
+  {
+    "code": "C77.5",
+    "description": "LYMPH NODES, PELVIC"
+  },
+  {
+    "code": "C77.8",
+    "description": "LYMPH NODES, MULTIPLE REGIONS"
+  },
+  {
+    "code": "C77.9",
+    "description": "LYMPH NODE, NOS"
+  },
+  {
+    "code": "C80.9",
+    "description": "UNKNOWN PRIMARY SITE"
+  },
+  {
+    "code": 140,
+    "description": "UPPER LIP, NOS"
+  },
+  {
+    "code": 140.1,
+    "description": "LOWER LIP, NOS"
+  },
+  {
+    "code": 140.3,
+    "description": "MUCOSA OF UPPER LIP"
+  },
+  {
+    "code": 140.4,
+    "description": "MUCOSA OF LOWER LIP"
+  },
+  {
+    "code": 140.5,
+    "description": "MUCOSA OF LIP, UNSPECIFIED"
+  },
+  {
+    "code": 140.6,
+    "description": "COMMISSURE OF LIP"
+  },
+  {
+    "code": 140.8,
+    "description": "OVERLAPING SITES OF LIP"
+  },
+  {
+    "code": 140.9,
+    "description": "LIP, NOS"
+  },
+  {
+    "code": 141,
+    "description": "BASE OF TONGUE, NOS"
+  },
+  {
+    "code": 141.1,
+    "description": "DORSAL SURFACE OF TONGUE, NOS"
+  },
+  {
+    "code": 141.2,
+    "description": "TIP / BORDER OF TONGUE"
+  },
+  {
+    "code": 141.3,
+    "description": "VENTRAL SURFACE OF TONGUE, NOS"
+  },
+  {
+    "code": 141.4,
+    "description": "ANTERIOR 2/3 OF TONGUE, NOS"
+  },
+  {
+    "code": 141.5,
+    "description": "JUNCTIONAL TONGUE"
+  },
+  {
+    "code": 141.6,
+    "description": "LINGUAL TONSIL"
+  },
+  {
+    "code": 141.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 141.9,
+    "description": "TONGUE, NOS"
+  },
+  {
+    "code": 142,
+    "description": "PAROTID GLAND"
+  },
+  {
+    "code": 142.1,
+    "description": "SUBMANDIBULAR GLAND"
+  },
+  {
+    "code": 142.2,
+    "description": "SUBLINGUAL GLAND"
+  },
+  {
+    "code": 142.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 142.9,
+    "description": "MAJOR SALIVARY GLAND, NOS"
+  },
+  {
+    "code": 143,
+    "description": "UPPER GUM"
+  },
+  {
+    "code": 143.1,
+    "description": "LOWER GUM"
+  },
+  {
+    "code": 143.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 143.9,
+    "description": "GUM, NOS"
+  },
+  {
+    "code": 144,
+    "description": "ANTERIOR FLOOR OF MOUTH"
+  },
+  {
+    "code": 144.1,
+    "description": "LATERAL FLOOR OF MOUTH"
+  },
+  {
+    "code": 144.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 144.9,
+    "description": "FLOOR OF MOUTH, NOS"
+  },
+  {
+    "code": 145,
+    "description": "CHEEK MUCOSA"
+  },
+  {
+    "code": 145.1,
+    "description": "VESTIBULE OF MOUTH"
+  },
+  {
+    "code": 145.2,
+    "description": "HARD PALATE"
+  },
+  {
+    "code": 145.3,
+    "description": "SOFT PALATE, NOS"
+  },
+  {
+    "code": 145.4,
+    "description": "UVULA"
+  },
+  {
+    "code": 145.5,
+    "description": "PALATE, NOS"
+  },
+  {
+    "code": 145.6,
+    "description": "RETROMOLAR AREA"
+  },
+  {
+    "code": 145.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 145.9,
+    "description": "ORAL CAVITY,NOS"
+  },
+  {
+    "code": 146,
+    "description": "TONSIL, NOS"
+  },
+  {
+    "code": 146.1,
+    "description": "TONSILLAR FOSSA"
+  },
+  {
+    "code": 146.2,
+    "description": "TONSILLAR PILLAR"
+  },
+  {
+    "code": 146.3,
+    "description": "VALLECULA EPIGLOTTICA"
+  },
+  {
+    "code": 146.4,
+    "description": "ANTERIOR SURFACE OF EPIGLOTTIS"
+  },
+  {
+    "code": 146.5,
+    "description": "JUNCT. REGION OF OROPHARYNX"
+  },
+  {
+    "code": 146.6,
+    "description": "LATERAL WALL OF OROPHARYNX"
+  },
+  {
+    "code": 146.7,
+    "description": "POSTERIOR WALL OF OROPHARYNX"
+  },
+  {
+    "code": 146.8,
+    "description": "OTHER PARTS OF OROPHARYNX"
+  },
+  {
+    "code": 146.9,
+    "description": "OROPHARYNX, NOS"
+  },
+  {
+    "code": 147,
+    "description": "SUPERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": 147.1,
+    "description": "POSTERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": 147.2,
+    "description": "LATERAL WALL OF NASOPHARYNX"
+  },
+  {
+    "code": 147.3,
+    "description": "ANTERIOR WALL OF NASOPHARYNX"
+  },
+  {
+    "code": 147.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 147.9,
+    "description": "NASOPHARYNX, NOS"
+  },
+  {
+    "code": 148,
+    "description": "POSTCRICOID REGION"
+  },
+  {
+    "code": 148.1,
+    "description": "PYRIFORM SINUS"
+  },
+  {
+    "code": 148.2,
+    "description": "ARYEPIGLOTTIC FOLD"
+  },
+  {
+    "code": 148.3,
+    "description": "POSTERIOR WALL OF HYPOPHARYNX"
+  },
+  {
+    "code": 148.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 148.9,
+    "description": "HYPOPHARYNX, NOS"
+  },
+  {
+    "code": 149,
+    "description": "PHARYNX, NOS"
+  },
+  {
+    "code": 149.1,
+    "description": "WALDEYER S RING, NOS"
+  },
+  {
+    "code": 149.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 149.9,
+    "description": "ORAL ILL-DEFINED SITES"
+  },
+  {
+    "code": 150,
+    "description": "CERVICAL ESOPHAGUS"
+  },
+  {
+    "code": 150.1,
+    "description": "THORACIC ESOPHAGUS"
+  },
+  {
+    "code": 150.2,
+    "description": "ABDOMINAL ESOPHAGUS"
+  },
+  {
+    "code": 150.3,
+    "description": "UPPER THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": 150.4,
+    "description": "MIDDLE THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": 150.5,
+    "description": "LOWER THIRD OF ESOPHAGUS"
+  },
+  {
+    "code": 150.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 150.9,
+    "description": "ESOPHAGUS, NOS"
+  },
+  {
+    "code": 151,
+    "description": "CARDIA, NOS"
+  },
+  {
+    "code": 151.1,
+    "description": "PYLORUS"
+  },
+  {
+    "code": 151.2,
+    "description": "PYLORIC ANTRUM"
+  },
+  {
+    "code": 151.3,
+    "description": "FUNDUS OF STOMACH"
+  },
+  {
+    "code": 151.4,
+    "description": "BODY OF STOMACH"
+  },
+  {
+    "code": 151.5,
+    "description": "LESSER CURV. OF STOMACH"
+  },
+  {
+    "code": 151.6,
+    "description": "GREATER CURV. OF STOMACH"
+  },
+  {
+    "code": 151.8,
+    "description": "OTHER SPEC PARTS OF STOMACH"
+  },
+  {
+    "code": 151.9,
+    "description": "STOMACH, NOS"
+  },
+  {
+    "code": 152,
+    "description": "DUODENUM"
+  },
+  {
+    "code": 152.1,
+    "description": "JEJUNUM"
+  },
+  {
+    "code": 152.2,
+    "description": "ILEUM"
+  },
+  {
+    "code": 152.3,
+    "description": "MECKEL S DIVERTCULUM"
+  },
+  {
+    "code": 152.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 152.9,
+    "description": "SMALL INTESTINE"
+  },
+  {
+    "code": 153,
+    "description": "HEPATIC FLEXURE OF COLON"
+  },
+  {
+    "code": 153.1,
+    "description": "TRANSVERSE COLON"
+  },
+  {
+    "code": 153.2,
+    "description": "DESCENDING COLON"
+  },
+  {
+    "code": 153.3,
+    "description": "SIGMOID COLON"
+  },
+  {
+    "code": 153.4,
+    "description": "CECUM"
+  },
+  {
+    "code": 153.5,
+    "description": "APPENDIX"
+  },
+  {
+    "code": 153.6,
+    "description": "ASCENDING COLON"
+  },
+  {
+    "code": 153.7,
+    "description": "SPLENIC FLEXURE OF COLON"
+  },
+  {
+    "code": 153.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 153.9,
+    "description": "COLON, NOS"
+  },
+  {
+    "code": 154,
+    "description": "RECTOSISMOID JUNCTION"
+  },
+  {
+    "code": 154.1,
+    "description": "RECTUM, NOS"
+  },
+  {
+    "code": 154.2,
+    "description": "ANAL CANAL"
+  },
+  {
+    "code": 154.3,
+    "description": "ANUS, NOS"
+  },
+  {
+    "code": 154.8,
+    "description": "OTHER PARTS OF RECTUM"
+  },
+  {
+    "code": 155,
+    "description": "LIVER, PRIMARY"
+  },
+  {
+    "code": 155.1,
+    "description": "INTRAHEPATIC BILE DUCT"
+  },
+  {
+    "code": 156,
+    "description": "GALLBLADDER"
+  },
+  {
+    "code": 156.1,
+    "description": "EXTRAHEPATIC BILE DUCT"
+  },
+  {
+    "code": 156.2,
+    "description": "AMPULLA OF VATER"
+  },
+  {
+    "code": 156.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 156.9,
+    "description": "BILIARY TRACT, NOS"
+  },
+  {
+    "code": 157,
+    "description": "PANCREAS, HEAD"
+  },
+  {
+    "code": 157.1,
+    "description": "PANCREAS, BODY"
+  },
+  {
+    "code": 157.2,
+    "description": "PANCREAS, TAIL"
+  },
+  {
+    "code": 157.3,
+    "description": "PANCREATIC DUC"
+  },
+  {
+    "code": 157.4,
+    "description": "ISLETS OF LANGERHANS"
+  },
+  {
+    "code": 157.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 157.9,
+    "description": "PANCREAS, NOS"
+  },
+  {
+    "code": 158,
+    "description": "RETROPERITONEUM"
+  },
+  {
+    "code": 158.8,
+    "description": "SPECIFIED PARTS OF PERITONEUM"
+  },
+  {
+    "code": 158.9,
+    "description": "PERITONEUM, NOS"
+  },
+  {
+    "code": 159,
+    "description": "INTESTINAL TRACT, NOS"
+  },
+  {
+    "code": 159.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 159.9,
+    "description": "GASTROINTESTINAL TRACT, NOS"
+  },
+  {
+    "code": 160,
+    "description": "NASAL CAVITIES"
+  },
+  {
+    "code": 160.1,
+    "description": "MIDDLE EAR"
+  },
+  {
+    "code": 160.2,
+    "description": "MAXILLARY SINUS"
+  },
+  {
+    "code": 160.3,
+    "description": "ETHMOID SINUS"
+  },
+  {
+    "code": 160.4,
+    "description": "FRONTAL SINUS"
+  },
+  {
+    "code": 160.5,
+    "description": "SPHENOID SINUS"
+  },
+  {
+    "code": 160.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 160.9,
+    "description": "ACCESSARY SINUS, NOS"
+  },
+  {
+    "code": 161,
+    "description": "GLOTTIS"
+  },
+  {
+    "code": 161.1,
+    "description": "SUPRAGLOTTIS"
+  },
+  {
+    "code": 161.2,
+    "description": "SUBGLOTTIS"
+  },
+  {
+    "code": 161.3,
+    "description": "LARYNGEAL CARTILAGE"
+  },
+  {
+    "code": 161.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 161.9,
+    "description": "LARYNX, NOS"
+  },
+  {
+    "code": 162,
+    "description": "TRACHEA"
+  },
+  {
+    "code": 162.2,
+    "description": "MAIN BRONCHUS"
+  },
+  {
+    "code": 162.3,
+    "description": "UPPER LOBE, LUNG"
+  },
+  {
+    "code": 162.4,
+    "description": "MIDDLE LOBE, LUNG"
+  },
+  {
+    "code": 162.5,
+    "description": "LOWER LOBE, LUNG"
+  },
+  {
+    "code": 162.8,
+    "description": "OTHER PARTS, LUNG OR BRONCHUS"
+  },
+  {
+    "code": 162.9,
+    "description": "LUNG, NOS"
+  },
+  {
+    "code": 163,
+    "description": "PARIETAL PLEURA"
+  },
+  {
+    "code": 163.1,
+    "description": "VISCERAL PLEURA"
+  },
+  {
+    "code": 163.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 163.9,
+    "description": "PLEURA, NOS"
+  },
+  {
+    "code": 164,
+    "description": "THYMUS"
+  },
+  {
+    "code": 164.1,
+    "description": "HEART"
+  },
+  {
+    "code": 164.2,
+    "description": "ANTERIOR MEDIASTINUM"
+  },
+  {
+    "code": 164.3,
+    "description": "POSTERIOR MEDIASTINUM"
+  },
+  {
+    "code": 164.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 164.9,
+    "description": "MEDIASTINUM, NOS"
+  },
+  {
+    "code": 165,
+    "description": "UPPER RESPIRATORY TRACT"
+  },
+  {
+    "code": 165.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 165.9,
+    "description": "ILL-DEFINED SITES, RESPIRATORY"
+  },
+  {
+    "code": 169,
+    "description": "BLOOD"
+  },
+  {
+    "code": 169.1,
+    "description": "BONE MARROW"
+  },
+  {
+    "code": 169.2,
+    "description": "SPLEEN"
+  },
+  {
+    "code": 169.3,
+    "description": "RETICULOENDOTHELIAL, NOS"
+  },
+  {
+    "code": 169.9,
+    "description": "HEMATOPOIETIC SYSTEM, NOS"
+  },
+  {
+    "code": 170,
+    "description": "BONES OF SKULL/FACE"
+  },
+  {
+    "code": 170.1,
+    "description": "MANDIBLE"
+  },
+  {
+    "code": 170.2,
+    "description": "VERTEBRAL COLUMN"
+  },
+  {
+    "code": 170.3,
+    "description": "RIBS, STERNUM, CLAVICLE"
+  },
+  {
+    "code": 170.4,
+    "description": "LONG BONES UPPER LIMBS,SCAPULA"
+  },
+  {
+    "code": 170.5,
+    "description": "SHORT BONES UPPER LIMBS,JOINTS"
+  },
+  {
+    "code": 170.6,
+    "description": "PELVIC, SACRUM, COCCYX, JOINTS"
+  },
+  {
+    "code": 170.7,
+    "description": "LONG BONES LOWER LIMBS, JOINTS"
+  },
+  {
+    "code": 170.8,
+    "description": "SHORT BONES LOWER LIMBS,JOINTS"
+  },
+  {
+    "code": 170.9,
+    "description": "BONE, NOS"
+  },
+  {
+    "code": 171,
+    "description": "SOFT TISSUES, HEAD"
+  },
+  {
+    "code": 171.2,
+    "description": "SOFT TIS. UPPER LIMB, SHOULDER"
+  },
+  {
+    "code": 171.3,
+    "description": "SOFT TIS. LOWER LIMB, HIP"
+  },
+  {
+    "code": 171.4,
+    "description": "SOFT TISSUE, THORAX"
+  },
+  {
+    "code": 171.5,
+    "description": "SOFT TISSUE, ABDOM"
+  },
+  {
+    "code": 171.6,
+    "description": "SOFT TISSUE, PELVIS"
+  },
+  {
+    "code": 171.7,
+    "description": "SOFT TISSUE, TRUNK"
+  },
+  {
+    "code": 171.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 171.9,
+    "description": "SOFT TISSUE, NOS"
+  },
+  {
+    "code": 173,
+    "description": "SKIN OF LIP, NOS"
+  },
+  {
+    "code": 173.1,
+    "description": "EYELID"
+  },
+  {
+    "code": 173.2,
+    "description": "EXTERNAL EAR"
+  },
+  {
+    "code": 173.3,
+    "description": "FACE, UNSPEC."
+  },
+  {
+    "code": 173.4,
+    "description": "SKIN OF SCALP AND NECK"
+  },
+  {
+    "code": 173.5,
+    "description": "SKIN OF TRUNK"
+  },
+  {
+    "code": 173.6,
+    "description": "SKIN OF ARM AND SHOULDER"
+  },
+  {
+    "code": 173.7,
+    "description": "SKIN OF LEG AND HIP"
+  },
+  {
+    "code": 173.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 173.9,
+    "description": "SKIN, NOS"
+  },
+  {
+    "code": 174,
+    "description": "NIPPLE, AREOLA"
+  },
+  {
+    "code": 174.1,
+    "description": "CENTRAL PORTION OF BREAST"
+  },
+  {
+    "code": 174.2,
+    "description": "UPPER-INNER QUAD. OF BREAST"
+  },
+  {
+    "code": 174.3,
+    "description": "LOWER-INNER QUAD. OF BREAST"
+  },
+  {
+    "code": 174.4,
+    "description": "UPPER-OUTER QUAD. OF BREAST"
+  },
+  {
+    "code": 174.5,
+    "description": "LOWER-OUTER QUAD. OF BREAST"
+  },
+  {
+    "code": 174.6,
+    "description": "AXILLARY TAIL OF BREAST"
+  },
+  {
+    "code": 174.8,
+    "description": "INNER BREAST"
+  },
+  {
+    "code": 174.9,
+    "description": "FEMALE BREAST, NOS"
+  },
+  {
+    "code": 175.9,
+    "description": "MALE BREAST, NOS"
+  },
+  {
+    "code": 179.9,
+    "description": "UTERUS, NOS"
+  },
+  {
+    "code": 180,
+    "description": "ENDOCERVIX"
+  },
+  {
+    "code": 180.1,
+    "description": "EXOCERVIX"
+  },
+  {
+    "code": 180.8,
+    "description": "OTHER PARTS OF CERVIX"
+  },
+  {
+    "code": 180.9,
+    "description": "CERVIX UTERI"
+  },
+  {
+    "code": 181.9,
+    "description": "PLACENTA"
+  },
+  {
+    "code": 182,
+    "description": "CORPUS UTERI"
+  },
+  {
+    "code": 182.1,
+    "description": "ISTHMUS UTERI"
+  },
+  {
+    "code": 182.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 183,
+    "description": "OVARY"
+  },
+  {
+    "code": 183.2,
+    "description": "FALLOPIAN TUBE"
+  },
+  {
+    "code": 183.3,
+    "description": "BROAD LIGAMENT"
+  },
+  {
+    "code": 183.4,
+    "description": "PARAMETRIUM"
+  },
+  {
+    "code": 183.5,
+    "description": "ROUND LIGAMENT"
+  },
+  {
+    "code": 183.8,
+    "description": "OTHER PARTS OF UTERINE ADNEXA"
+  },
+  {
+    "code": 183.9,
+    "description": "UTERINE ADNEXA"
+  },
+  {
+    "code": 184,
+    "description": "VAGINA"
+  },
+  {
+    "code": 184.1,
+    "description": "LABIUM MAJUS"
+  },
+  {
+    "code": 184.2,
+    "description": "LABIUM MINUS"
+  },
+  {
+    "code": 184.3,
+    "description": "CLITORIS"
+  },
+  {
+    "code": 184.4,
+    "description": "VULVA, NOS"
+  },
+  {
+    "code": 184.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 184.9,
+    "description": "FEMALE GENITAL, NOS"
+  },
+  {
+    "code": 185.9,
+    "description": "PROSTATE GLAND"
+  },
+  {
+    "code": 186,
+    "description": "UNDESCENDED TESTIS"
+  },
+  {
+    "code": 186.9,
+    "description": "TESTIS, NOS"
+  },
+  {
+    "code": 187.1,
+    "description": "PREPUCE"
+  },
+  {
+    "code": 187.2,
+    "description": "GLANS PENIS"
+  },
+  {
+    "code": 187.3,
+    "description": "BODY OF PENIS"
+  },
+  {
+    "code": 187.4,
+    "description": "PENIS, NOS"
+  },
+  {
+    "code": 187.5,
+    "description": "EPIDIDYMIS"
+  },
+  {
+    "code": 187.6,
+    "description": "SPERMATIC CORD"
+  },
+  {
+    "code": 187.7,
+    "description": "SCROTUM, NOS"
+  },
+  {
+    "code": 187.8,
+    "description": "OTHER SPEC SITES, MALE GENITAL"
+  },
+  {
+    "code": 187.9,
+    "description": "MALE GENITAL ORGANS, NOS"
+  },
+  {
+    "code": 188,
+    "description": "TRIGONE OF URINARY BLADDER"
+  },
+  {
+    "code": 188.1,
+    "description": "DOME OF URINARY BLADDER"
+  },
+  {
+    "code": 188.2,
+    "description": "LATERAL WALL, URINARY BLADDER"
+  },
+  {
+    "code": 188.3,
+    "description": "ANTERIOR WALL, URINARY BLADDER"
+  },
+  {
+    "code": 188.4,
+    "description": "POSTERIOR WALL,URINARY BLADDER"
+  },
+  {
+    "code": 188.5,
+    "description": "BLADDER NECK"
+  },
+  {
+    "code": 188.6,
+    "description": "URETERIC ORIFICE"
+  },
+  {
+    "code": 188.7,
+    "description": "URACHUS"
+  },
+  {
+    "code": 188.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 188.9,
+    "description": "URINARY BLADDER, NOS"
+  },
+  {
+    "code": 189,
+    "description": "KIDNEY, NOS"
+  },
+  {
+    "code": 189.1,
+    "description": "RENAL PELVIS"
+  },
+  {
+    "code": 189.2,
+    "description": "URETER"
+  },
+  {
+    "code": 189.3,
+    "description": "URETHRA"
+  },
+  {
+    "code": 189.4,
+    "description": "PARAURETHRAL GLANDS"
+  },
+  {
+    "code": 189.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 189.9,
+    "description": "URINARY SYSTEM, NOS"
+  },
+  {
+    "code": 190,
+    "description": "EYEBALL"
+  },
+  {
+    "code": 190.1,
+    "description": "ORBIT, NOS"
+  },
+  {
+    "code": 190.2,
+    "description": "LACRIMAL GLAND"
+  },
+  {
+    "code": 190.3,
+    "description": "CONJUNCTIVA"
+  },
+  {
+    "code": 190.4,
+    "description": "CORNEA, NOS"
+  },
+  {
+    "code": 190.5,
+    "description": "RETINA"
+  },
+  {
+    "code": 190.6,
+    "description": "CHOROID"
+  },
+  {
+    "code": 190.7,
+    "description": "LACRIMAL DUCT, NOS"
+  },
+  {
+    "code": 190.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 190.9,
+    "description": "EYE, NOS"
+  },
+  {
+    "code": 191,
+    "description": "CEREBRUM"
+  },
+  {
+    "code": 191.1,
+    "description": "FRONTAL LOBE"
+  },
+  {
+    "code": 191.2,
+    "description": "TEMPORAL LOBE"
+  },
+  {
+    "code": 191.3,
+    "description": "PARIETAL LOBE"
+  },
+  {
+    "code": 191.4,
+    "description": "OCCIPITAL LOBE"
+  },
+  {
+    "code": 191.5,
+    "description": "VENTRICLE, NOS"
+  },
+  {
+    "code": 191.6,
+    "description": "CEREBELLUM NOS"
+  },
+  {
+    "code": 191.7,
+    "description": "BRAIN STEM"
+  },
+  {
+    "code": 191.8,
+    "description": "OTHER PARTS OF BRAIN"
+  },
+  {
+    "code": 191.9,
+    "description": "BRAIN, NOS"
+  },
+  {
+    "code": 192,
+    "description": "CRANIAL NERVES"
+  },
+  {
+    "code": 192.1,
+    "description": "CEREBRAL MENINGES"
+  },
+  {
+    "code": 192.2,
+    "description": "SPINAL CORD"
+  },
+  {
+    "code": 192.3,
+    "description": "SPINAL MENINGES"
+  },
+  {
+    "code": 192.8,
+    "description": "OVERLAP. SITES"
+  },
+  {
+    "code": 192.9,
+    "description": "NERVOUS SYSTEM, NOS"
+  },
+  {
+    "code": 193.9,
+    "description": "THYROID GLAND"
+  },
+  {
+    "code": 194,
+    "description": "SUPRARENAL GLAND"
+  },
+  {
+    "code": 194.1,
+    "description": "PARATHYROID GLAND"
+  },
+  {
+    "code": 194.3,
+    "description": "PITUITARY GLAND"
+  },
+  {
+    "code": 194.4,
+    "description": "PINEAL GLAND"
+  },
+  {
+    "code": 194.5,
+    "description": "CAROTID BODY"
+  },
+  {
+    "code": 194.6,
+    "description": "AORTIC BODY, OTHER PARAGANGLIA"
+  },
+  {
+    "code": 194.8,
+    "description": "MULTIPLE ENDOCRINE GLANDS"
+  },
+  {
+    "code": 194.9,
+    "description": "ENDOCRINE GLANDS, NOS"
+  },
+  {
+    "code": 195,
+    "description": "HEAD, FACE, NECK NOS"
+  },
+  {
+    "code": 195.1,
+    "description": "THORAX, NOS"
+  },
+  {
+    "code": 195.2,
+    "description": "ABDOMEN, NOS"
+  },
+  {
+    "code": 195.3,
+    "description": "PELVIS, NOS"
+  },
+  {
+    "code": 195.4,
+    "description": "UPPER LIMB, NOS"
+  },
+  {
+    "code": 195.5,
+    "description": "LOWER LIMB, NOS"
+  },
+  {
+    "code": 195.8,
+    "description": "OTHER ILL-DEFINED SITES"
+  },
+  {
+    "code": 196,
+    "description": "LYMPH NODES OF HEAD,NECK, FACE"
+  },
+  {
+    "code": 196.1,
+    "description": "INTRATHORACIC LYMPH NODES"
+  },
+  {
+    "code": 196.2,
+    "description": "INTRA-ABDOMINAL LYMPH NODES"
+  },
+  {
+    "code": 196.3,
+    "description": "LYMPH NODES OF AXILLA OR ARM"
+  },
+  {
+    "code": 196.5,
+    "description": "LYMPH NODES OF INGUINAL REGION"
+  },
+  {
+    "code": 196.6,
+    "description": "LYMPH NODES, PELVIC"
+  },
+  {
+    "code": 196.8,
+    "description": "LYMPH NODES, MULTIPLE REGIONS"
+  },
+  {
+    "code": 196.9,
+    "description": "LYMPH NODE, NOS"
+  },
+  {
+    "code": 199.9,
+    "description": "UNKNOWN PRIMARY SITE"
+  }
+]
