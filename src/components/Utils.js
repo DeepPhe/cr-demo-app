@@ -46,12 +46,6 @@ export function getExtractedInfo(dataObj, reportText) {
     infoObj.morphology.value = infoObj.histology.value + '/' + infoObj.behavior.value;
     infoObj.morphology.mentions = [...infoObj.histology.mentions, ...infoObj.behavior.mentions];
 
-    // Delete the unwanted properties
-    // delete infoObj.topography_major;
-    // delete infoObj.topography_minor;
-    // delete infoObj.histology;
-    // delete infoObj.behavior;
-
     console.log("======Output: infoObj======");
     console.log(infoObj);
     

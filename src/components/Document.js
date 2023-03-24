@@ -9,6 +9,10 @@ import {trackPromise} from 'react-promise-tracker';
 import config from '../config/config.json';
 import Spinner from './Spinner.js';
 import {variablesObj} from './Variables.js';
+import topography from './data/topography.json';
+import morphology from './data/morphology.json';
+import laterality from './data/laterality.json';
+import grade from './data/grade.json';
 import {getExtractedInfo, highlightTextMentions, capitalize} from './Utils.js';
 
 
@@ -31,7 +35,7 @@ function Document(props) {
     // Variables and their checkboxes
     const variableNamesArr = [];
     for (const key of Object.keys(variablesObj)) {
-        if (variablesObj[key].final === true) {
+        if (variablesObj[key].visible === true) {
             variableNamesArr.push(key);
         }
     }
@@ -233,6 +237,19 @@ function Document(props) {
             return (<div className="alert alert-danger">{error.message}</div>);
         } else if (Object.keys(nlpResult).length > 0) {
             let info = getExtractedInfo(nlpResult, docText);
+
+            // Add additional properties for dropdown menu rendering
+            info.topography.dropdownOptions = topography.map(item => (item.code + ' - ' + item.description));
+            info.topography.dropdownDefaultValue = info.topography.dropdownOptions.find(option => option.startsWith(info.topography.value));
+            
+            info.morphology.dropdownOptions = morphology.map(item => (item.histology_code + '/' + item.behavior_code + ' - ' + item.description));
+            info.morphology.dropdownDefaultValue = info.morphology.dropdownOptions.find(option => option.startsWith(info.morphology.value));
+            
+            info.laterality.dropdownOptions = laterality.map(item => (item.code + ' - ' + item.description));
+            info.laterality.dropdownDefaultValue = info.laterality.dropdownOptions.find(option => option.startsWith(info.laterality.value));
+            
+            info.grade.dropdownOptions = grade.map(item => (item.code + ' - ' + item.description));
+            info.grade.dropdownDefaultValue = info.grade.dropdownOptions.find(option => option.startsWith(info.grade.value));
             
             // JSX expression
             return (
@@ -245,55 +262,34 @@ function Document(props) {
                 <ul className="list-group rounded-0">
 
                 {variableNamesArr.map((name, index) => {
-                    if (info[name]['value'] !== '') {
+                    if (info[name].value !== '') {
+                        const styles = {
+                            background: info[name].bgcolor
+                        };
+
                         // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
-                        if (name === 'grade' && info[name]['value'] === '9') {
-                            return (
-                                <li className="list-group-item" key={index}>
-                                <input type="checkbox" className="form-check-input" disabled />
-                                <label className="form-check-label">{name}: <span>{info.grade.value}</span><span className="term-count">(not determined or not stated)</span></label>
-                                </li>
-                            );
-                        } else {
-                            const styles = {
-                                background: info[name].bgcolor
-                            };
+                        return (
+                            <li key={index} className="list-group-item" key={index}>
+                            
+                            <input type="checkbox" name={name} value={name} className="form-check-input" checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} /> 
 
-                            // Remove duplicates
-                            const textMentionsSet = new Set(info[name].mentions.map((obj) => { 
-                                return obj.text 
-                            }));
+                            <label className="form-check-label">{capitalize(name)}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
+                            
+                            <div className="dropdown">
+                            <select className="form-select form-select-sm" aria-label=".form-select-sm example" defaultValue={info[name].dropdownDefaultValue}>
 
-                            // Convert set into array and sort
-                            const sortedTextsArr = Array.from(textMentionsSet).sort();
+                            {info[name].dropdownOptions.map((text, index) => {
+                                return (
+                                    <option value={text} key={index}>{text}</option>
+                                );
+                            })}
 
-                            return (
-                                <li key={index} className="list-group-item" key={index}>
-                                <input type="checkbox" name={name} value={name} className="form-check-input" checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} />
-                                <label className="form-check-label">{capitalize(name)}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
-                                
-                                <div className="dropdown">
-                                <select className="form-select form-select-sm" aria-label=".form-select-sm example">
-                                <option>Selet...</option>
+                            </select>
+                            </div>
 
-                                {sortedTextsArr.map((text, index) => {
-                                    if (name === 'histology') {
-                                        return (
-                                            <option value={text} key={index}>{info[name].value}/{info.behavior.value} - INVASIVE CARC OF NO SPECIAL TYPE</option>
-                                        );
-                                    } else {
-                                        return (
-                                            <option value={text} key={index}>{text}</option>
-                                        );
-                                    }
-                                })}
+                            </li>
+                        );
 
-                                </select>
-                                </div>
-
-                                </li>
-                            );
-                        }
                     }
                 })}
 

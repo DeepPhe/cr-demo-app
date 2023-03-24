@@ -1,50 +1,50 @@
 export const variablesObj = {
     'topography_major': {
-        'final': false,
+        'visible': false,
         'value': '',
         'bgcolor': '#cfe2ff',
         'mentions': []
     },
     'topography_minor': {
-        'final': false,
+        'visible': false,
         'value': '',
         'bgcolor': '#cfe2ff',
         'mentions': []
     },
     'topography': {
-        'final': true,
+        'visible': true,
         'value': '',
         'bgcolor': '#cfe2ff',
         'mentions': []
     },
     'histology': {
-        'final': false,
+        'visible': false,
         'value': '',
         'bgcolor': '#f8d7da',
         'mentions': []
     },
     'behavior': {
-        'final': false,
+        'visible': false,
         'value': '',
         'bgcolor': '#f8d7da',
         'mentions': []
     },
     'morphology': {
-        'final': true,
+        'visible': true,
         'value': '',
         'bgcolor': '#f8d7da',
         'mentions': []
     },
     'laterality': {
-        'final': true,
+        'visible': true,
         'value': '',
         'bgcolor': '#ffe69c',
         'mentions': []
     },
     'grade': {
-        'final': true,
+        'visible': true,
         'value': '',
-        'bgcolor': '#ffb7b7',
+        'bgcolor': '#a3cfbb',
         'mentions': []
     }
 };
