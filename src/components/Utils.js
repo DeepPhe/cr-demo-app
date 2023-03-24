@@ -9,8 +9,13 @@ export function getExtractedInfo(dataObj, reportText) {
 
     dataObj.neoplasms[0].attributes.forEach(item => {
         if (item.name === 'topography_major') {
-            infoObj.topography.value = item.value;
-            infoObj.topography.mentions = getTextMentions(item.directEvidence, infoObj.topography.bgcolor, reportText);
+            infoObj.topography_major.value = item.value;
+            infoObj.topography_major.mentions = getTextMentions(item.directEvidence, infoObj.topography_major.bgcolor, reportText);
+        }
+
+        if (item.name === 'topography_minor') {
+            infoObj.topography_minor.value = item.value;
+            infoObj.topography_minor.mentions = getTextMentions(item.directEvidence, infoObj.topography_minor.bgcolor, reportText);
         }
 
         if (item.name === 'histology') {
@@ -23,7 +28,7 @@ export function getExtractedInfo(dataObj, reportText) {
             infoObj.behavior.mentions = getTextMentions(item.directEvidence, infoObj.behavior.bgcolor, reportText);
         }
 
-        if (item.name === 'laterality') {
+        if (item.name === 'laterality_code') {
             infoObj.laterality.value = item.value;
             infoObj.laterality.mentions = getTextMentions(item.directEvidence, infoObj.laterality.bgcolor, reportText);
         }
@@ -34,9 +39,22 @@ export function getExtractedInfo(dataObj, reportText) {
         }
     });
 
+    // Merge
+    infoObj.topography.value = infoObj.topography_major.value.substring(0, 3) + '.' + infoObj.topography_minor.value;
+    infoObj.topography.mentions = [...infoObj.topography_major.mentions, ...infoObj.topography_minor.mentions];
+
+    infoObj.morphology.value = infoObj.histology.value + '/' + infoObj.behavior.value;
+    infoObj.morphology.mentions = [...infoObj.histology.mentions, ...infoObj.behavior.mentions];
+
+    // Delete the unwanted properties
+    // delete infoObj.topography_major;
+    // delete infoObj.topography_minor;
+    // delete infoObj.histology;
+    // delete infoObj.behavior;
+
     console.log("======Output: infoObj======");
     console.log(infoObj);
-
+    
     return infoObj;
 }
 

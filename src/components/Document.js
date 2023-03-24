@@ -29,7 +29,13 @@ function Document(props) {
     const [error, setError] = useState({}); // Empty object as initial state
     
     // Variables and their checkboxes
-    const variableNamesArr = Object.keys(variablesObj);
+    const variableNamesArr = [];
+    for (const key of Object.keys(variablesObj)) {
+        if (variablesObj[key].final === true) {
+            variableNamesArr.push(key);
+        }
+    }
+    
     const [checkedVariables, setCheckedVariables] = useState(new Array(variableNamesArr.length).fill(false));
 
     // Reset the state variables on each new file selection
