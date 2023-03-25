@@ -267,13 +267,21 @@ function Document(props) {
                             background: info[name].bgcolor
                         };
 
+                        const renderCheckbox = () => {
+                            if (info[name].mentions.length === 0) {
+                                return (<input type="checkbox" name={name} value={name} checked={checkedVariables[index]} disabled />);
+                            } else {
+                                return (<input type="checkbox" name={name} value={name} checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} />);
+                            } 
+                        };
+
                         // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
                         return (
                             <li key={index} className="list-group-item" key={index}>
                             
-                            <input type="checkbox" name={name} value={name} className="form-check-input" checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} /> 
+                            {renderCheckbox()}
 
-                            <label className="form-check-label">{capitalize(name)}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
+                            <label className="checkbox-label">{capitalize(name)}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
                             
                             <div className="dropdown">
                             <select className="form-select form-select-sm" aria-label=".form-select-sm example" defaultValue={info[name].dropdownDefaultValue}>

@@ -81,9 +81,8 @@ margin-left: 2px;
 font-size: .8em;
 }
 
-.form-check-label {
+.checkbox-label {
 margin-left: 5px;
-line-height: 23px;
 }
 
 .dropdown {
