@@ -39,12 +39,16 @@ export function getExtractedInfo(dataObj, reportText) {
         }
     });
 
-    // Merge
+    // Merge and remove duplicates
+    // new Set(objArr.map(JSON.stringify)) creates a Set object using the stringified objArr elements
+    // Set object will ensure that every element is unique
+    // Then create an array based on the elements of the created set using Array.from()
+    // Finally, use JSON.parse to convert stringified element back to an object
     infoObj.topography.value = infoObj.topography_major.value.substring(0, 3) + '.' + infoObj.topography_minor.value;
-    infoObj.topography.mentions = [...infoObj.topography_major.mentions, ...infoObj.topography_minor.mentions];
+    infoObj.topography.mentions = Array.from(new Set([...infoObj.topography_major.mentions, ...infoObj.topography_minor.mentions].map(JSON.stringify))).sort().map(JSON.parse);
 
     infoObj.morphology.value = infoObj.histology.value + '/' + infoObj.behavior.value;
-    infoObj.morphology.mentions = [...infoObj.histology.mentions, ...infoObj.behavior.mentions];
+    infoObj.morphology.mentions = Array.from(new Set([...infoObj.histology.mentions, ...infoObj.behavior.mentions].map(JSON.stringify))).sort().map(JSON.parse);
 
     console.log("======Output: infoObj======");
     console.log(infoObj);
