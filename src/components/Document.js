@@ -259,11 +259,10 @@ function Document(props) {
                 </header>
                 
                 <div className="extracted-info">
-                <ul className="list-group rounded-0">
-
+                
                 {variableNamesArr.map((name, index) => {
                     if (info[name].value !== '') {
-                        const styles = {
+                        const bgStyles = {
                             background: info[name].bgcolor
                         };
 
@@ -277,12 +276,9 @@ function Document(props) {
 
                         // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
                         return (
-                            <li key={index} className="list-group-item" key={index}>
-                            
-                            {renderCheckbox()}
-
-                            <label className="checkbox-label">{capitalize(name)}: <span style={styles}>{info[name].value}</span><span className="term-count">({info[name].mentions.length})</span></label>
-                            
+                            <div className="card border-success mb-3">
+                            <div className="card-header">{capitalize(name)}</div>
+                            <div className="card-body text-success">
                             <div className="dropdown">
                             <select className="form-select form-select-sm" aria-label=".form-select-sm example" defaultValue={info[name].dropdownDefaultValue}>
 
@@ -295,13 +291,19 @@ function Document(props) {
                             </select>
                             </div>
 
-                            </li>
+                            {renderCheckbox()}
+
+                            <label className="checkbox-label"><span style={bgStyles}>Highlight text</span><span className="term-count">({info[name].mentions.length})</span></label>
+                            
+                            </div>
+                            </div>
+
+                            
                         );
 
                     }
                 })}
 
-                </ul>
                 </div>
                 </div>
             );
