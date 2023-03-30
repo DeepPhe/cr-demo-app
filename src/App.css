@@ -28,11 +28,15 @@ padding: 20px;
 width: 10px;
 /* Height of horizontal scroll bar */
 height: 10px;
-
 }
+
 ::-webkit-scrollbar-thumb {
+background: #888; 
 border-radius: 8px;
-background: #c2c9d2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
 }
 
 .doc-preview, .doc-summary {

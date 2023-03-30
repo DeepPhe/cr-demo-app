@@ -296,7 +296,7 @@ function Document(props) {
                             </select>
                             </div>
                             {renderCheckbox()}
-                            <label className="checkbox-label"><span className="checkbox-label-text" style={bgStyles}>Highlight text</span><span className="term-count">({info[name].mentions.length})</span></label>
+                            <label className="checkbox-label"><span style={bgStyles}>Highlight text</span><span className="term-count">({info[name].mentions.length})</span></label>
                             </div>
                             </div>
                         );
