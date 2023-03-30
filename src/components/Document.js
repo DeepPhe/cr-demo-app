@@ -268,39 +268,37 @@ function Document(props) {
                 </header>
                 <div className="extracted-info">
                 {variableNamesArr.map((name, index) => {
-                    if (info[name].value !== '') {
-                        const bgStyles = {
-                            background: info[name].bgcolor
-                        };
+                    const bgStyles = {
+                        background: info[name].bgcolor
+                    };
 
-                        const renderCheckbox = () => {
-                            if (info[name].mentions.length === 0) {
-                                return (<input type="checkbox" name={name} value={name} checked={checkedVariables[index]} disabled />);
-                            } else {
-                                return (<input type="checkbox" name={name} value={name} checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} />);
-                            } 
-                        };
+                    const renderCheckbox = () => {
+                        if (info[name].mentions.length === 0) {
+                            return (<input type="checkbox" name={name} value={name} checked={checkedVariables[index]} disabled />);
+                        } else {
+                            return (<input type="checkbox" name={name} value={name} checked={checkedVariables[index]} onChange={() => handleCheckbox(index)} />);
+                        } 
+                    };
 
-                        // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
-                        return (
-                            <div className="card border-secondary mb-3">
-                            <div className="card-header">{capitalize(name)}</div>
-                            <div className="card-body text-success">
-                            <div className="dropdown">
-                            <select className="form-select form-select-sm" aria-label=".form-select-sm example" defaultValue={info[name].dropdownDefaultValue}>
-                            {info[name].dropdownOptions.map((text, index) => {
-                                return (
-                                    <option value={text} key={index}>{text}</option>
-                                );
-                            })}
-                            </select>
-                            </div>
-                            {renderCheckbox()}
-                            <label className="checkbox-label"><span style={bgStyles}>Highlight text</span><span className="text-primary term-count">({info[name].mentions.length})</span></label>
-                            </div>
-                            </div>
-                        );
-                    }
+                    // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
+                    return (
+                        <div className="card border-secondary mb-3">
+                        <div className="card-header">{capitalize(name)}</div>
+                        <div className="card-body text-success">
+                        <div className="dropdown">
+                        <select className="form-select form-select-sm" aria-label=".form-select-sm example" defaultValue={info[name].dropdownDefaultValue}>
+                        {info[name].dropdownOptions.map((text, index) => {
+                            return (
+                                <option value={text} key={index}>{text}</option>
+                            );
+                        })}
+                        </select>
+                        </div>
+                        {renderCheckbox()}
+                        <label className="checkbox-label"><span style={bgStyles}>Highlight text</span><span className="text-primary term-count">({info[name].mentions.length})</span></label>
+                        </div>
+                        </div>
+                    );
                 })}
                 </div>
                 </div>

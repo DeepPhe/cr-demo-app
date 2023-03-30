@@ -188,34 +188,6 @@ function buildColorDistribution(textMention) {
     return colorDistribution;
 }
 
-function buildHighlightedTextStyle(textMention, reportText) {
-    let str = '';
-
-    if (textMention.count === 1) {
-        // JSX expression
-        const styles = {
-            "background": textMention.bgcolor[0]
-        };
-        str = <span style={styles}>{reportText.substring(textMention.begin, textMention.end)}</span>;
-    }else if (textMention.count >= 2 && textMention.count <= Object.keys(variablesObj).length) {
-        // 2 color example: background: linear-gradient(to bottom, #f8d7da 0%, #f8d7da 50%, #a3cfbb 50%, #a3cfbb 100%);
-        // 3 color example: style="background: linear-gradient(to bottom, #f8d7da 0%, #f8d7da 33.33%, #a3cfbb 33.33%, #a3cfbb 66.66%, #cfe2ff 66.66%, #cfe2ff 99.99%);"
-        let colorDistribution = buildColorDistribution(textMention);
-        const styles = {
-            "background": "linear-gradient(to bottom, " + colorDistribution.join(", ") + ")"
-        };
-        str = <span style={styles}>{reportText.substring(textMention.begin, textMention.end)}</span>;
-    } else {
-        console.log("Incorrect data, should not have more than " + Object.keys(variablesObj).length + " variables/colors");
-    }
-
-    const styles = {
-        "background": textMention.bgcolor[0]
-    };
-
-    return str;
-}
-
 // Based on https://stackoverflow.com/questions/40117156/creating-overlapping-text-spans-in-javascript
 function flattenRanges(ranges) {
     console.log("======input ranges======");
