@@ -9,10 +9,10 @@ import {trackPromise} from 'react-promise-tracker';
 import config from '../config/config.json';
 import Spinner from './Spinner.js';
 import {variablesObj} from './Variables.js';
-import topography from './data/topography.json';
-import morphology from './data/morphology.json';
-import laterality from './data/laterality.json';
-import grade from './data/grade.json';
+import topography from '../data/topography.json';
+import morphology from '../data/morphology.json';
+import laterality from '../data/laterality.json';
+import grade from '../data/grade.json';
 import {getExtractedInfo, highlightTextMentions, capitalize} from './Utils.js';
 
 
