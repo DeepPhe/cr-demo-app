@@ -43,12 +43,22 @@ function Document(props) {
     const [checkedVariables, setCheckedVariables] = useState(new Array(variableNamesArr.length).fill(false));
 
     // Reset the state variables on each new file selection
-    function resetStates() {
-        console.log("Executing resetStates()...");
+    function resetAllStates() {
+        console.log("Executing resetAllStates()...");
 
         setDoc({});
         setDocText('');
         setDocPreview('');
+        setNlpResult({});
+        setError('');
+        setCheckedVariables(new Array(variableNamesArr.length).fill(false));
+    }
+
+    // Reset the state variables on each click of the Summarize button
+    function resetSummaryStates() {
+        console.log("Executing resetSummaryStates()...");
+
+        setDocPreview(docText);
         setNlpResult({});
         setError('');
         setCheckedVariables(new Array(variableNamesArr.length).fill(false));
@@ -65,7 +75,7 @@ function Document(props) {
             'text/plain': ['.txt']
         },
         onDrop: acceptedFiles => {
-            resetStates();
+            resetAllStates();
 
             // `acceptedFiles` is an array and stores the details of each accepted file
             console.log("======acceptedFiles======");
@@ -103,6 +113,8 @@ function Document(props) {
     // Fetch data from backend API and store the text to react state variable
     function summarizeDocument() {
         console.log("Executing summarizeDocument()...");
+
+        resetSummaryStates();
 
         const requestHeaders = {
             'Content-Type': 'text/plain',
@@ -150,15 +162,12 @@ function Document(props) {
         if (Object.keys(doc).length > 0) {
             return (
                 <div key={doc.name} className="doc-preview">
-
                 <header className="doc-header">
                 <span className="doc-info">{doc.name}</span>
                 <button type="submit" className="btn btn-primary btn-sm" onClick={summarizeDocument}>Summarize =></button> 
                 <Spinner />
                 </header>
-                
                 <div className="doc-content">{docPreview}</div>
-
                 </div>
             )
         }
@@ -257,9 +266,7 @@ function Document(props) {
                 <header className="doc-header">
                 <span className="doc-info">Review Document Summary</span>
                 </header>
-                
                 <div className="extracted-info">
-                
                 {variableNamesArr.map((name, index) => {
                     if (info[name].value !== '') {
                         const bgStyles = {
@@ -276,34 +283,25 @@ function Document(props) {
 
                         // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
                         return (
-                            <div className="card border-success mb-3">
+                            <div className="card border-secondary mb-3">
                             <div className="card-header">{capitalize(name)}</div>
                             <div className="card-body text-success">
                             <div className="dropdown">
                             <select className="form-select form-select-sm" aria-label=".form-select-sm example" defaultValue={info[name].dropdownDefaultValue}>
-
                             {info[name].dropdownOptions.map((text, index) => {
                                 return (
                                     <option value={text} key={index}>{text}</option>
                                 );
                             })}
-
                             </select>
                             </div>
-
                             {renderCheckbox()}
-
-                            <label className="checkbox-label"><span style={bgStyles}>Highlight text</span><span className="term-count">({info[name].mentions.length})</span></label>
-                            
+                            <label className="checkbox-label"><span className="checkbox-label-text" style={bgStyles}>Highlight text</span><span className="term-count">({info[name].mentions.length})</span></label>
                             </div>
                             </div>
-
-                            
                         );
-
                     }
                 })}
-
                 </div>
                 </div>
             );
@@ -322,7 +320,6 @@ function Document(props) {
         <input {...getInputProps()} />
         <p className="btn btn-primary">Click to select patient note</p>
         </div>
-
         <div className="container">
         <div className="row">
         <div className="col-8">
@@ -334,7 +331,6 @@ function Document(props) {
         </div>
         </div>
         </div>
-
         </div>
     )
 }

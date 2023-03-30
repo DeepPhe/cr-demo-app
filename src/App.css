@@ -23,15 +23,29 @@ font-size: 1.5em;
 padding: 20px;
 }
 
+::-webkit-scrollbar {
+/* Width of vertical scroll bar */
+width: 10px;
+/* Height of horizontal scroll bar */
+height: 10px;
+
+}
+::-webkit-scrollbar-thumb {
+border-radius: 8px;
+background: #c2c9d2;
+}
+
 .doc-preview, .doc-summary {
 background-color: #fff;
 border: 1px solid #282c34;
+border-radius: 8px;
 }
 
 .doc-header {
 background-color: #d1e7dd;
-font-weight:  bold;
+font-weight: bold;
 border-bottom: 1px solid #666;
+border-radius: 8px 8px 0 0;
 padding: 5px 20px;
 line-height: 30px;
 }
@@ -81,6 +95,7 @@ font-size: .8em;
 
 .checkbox-label {
 margin-left: 5px;
+font-size: .85em;
 }
 
 .dropdown {
