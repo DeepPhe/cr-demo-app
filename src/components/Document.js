@@ -184,6 +184,8 @@ function Document(props) {
         if (Object.keys(nlpResult).length > 0) {
             multiHighlighting();
         }
+    // Add the below comment line to disable the ESLint rule, otherwise will see error: React Hook useEffect has missing dependencies: 'multiHighlighting' and 'nlpResult'.
+    // eslint-disable-next-line
     }, [checkedVariables]);
 
     // Highlight the target text mentions in report text
