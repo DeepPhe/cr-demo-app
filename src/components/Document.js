@@ -164,7 +164,7 @@ function Document(props) {
                 <div key={doc.name} className="doc-preview">
                 <header className="doc-header">
                 <span className="doc-info">{doc.name}</span>
-                <button type="submit" className="btn btn-primary btn-sm" onClick={summarizeDocument}>Summarize =></button> 
+                <button type="submit" className="btn btn-success btn-sm" onClick={summarizeDocument}>Summarize =></button> 
                 <Spinner />
                 </header>
                 <div className="doc-content">{docPreview}</div>
@@ -296,7 +296,7 @@ function Document(props) {
                             </select>
                             </div>
                             {renderCheckbox()}
-                            <label className="checkbox-label"><span style={bgStyles}>Highlight text</span><span className="term-count">({info[name].mentions.length})</span></label>
+                            <label className="checkbox-label"><span style={bgStyles}>Highlight text</span><span className="text-primary term-count">({info[name].mentions.length})</span></label>
                             </div>
                             </div>
                         );
@@ -318,7 +318,7 @@ function Document(props) {
         {/* The spread syntax is denoted by three dots */}
         <div {...getRootProps()} className="drop-zone">
         <input {...getInputProps()} />
-        <p className="btn btn-primary">Click to select patient note</p>
+        <p className="btn btn-primary">CLICK TO SELECT A PATIENT NOTE</p>
         </div>
         <div className="container">
         <div className="row">
