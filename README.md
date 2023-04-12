@@ -4,29 +4,13 @@ A simple React web application designed to demonstrate the capabilities of the D
 
 ## Install
 
-Install [Node Version Manager](https://github.com/nvm-sh/nvm) first then insall Nodejs v18 includes npm).
+If you don't have Nodejs installed, first install the Nodejs v18 (includes npm). If you'll work with multiple Nodejs version, install [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) first then install Nodejs v18 via nvm.
 
-Then under the root directory of this project, run `npm install` to install all the dependencies.
+Then in the root directory of this project, run `npm install` to install all the application dependencies.
 
-## Available Scripts
+## Start up the demo app
 
-In the project directory, you can run:
+First make sure the backend [DeepPhe Stream Multi-Container Stack](https://github.com/DeepPhe/dphe-stream-dock) is up running. This demo app will be making API calls against the containers which runs the NLP pipeline to extract all the information.
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Back in the demo project directory, run `npm start` then open [http://localhost:3000](http://localhost:3000) to view it in your web browser.
 
