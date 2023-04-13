@@ -10,6 +10,10 @@ If you don't have Nodejs installed, first install the Nodejs v18 (includes npm).
 
 Then in the root directory of this project, run `npm install` to install all the application dependencies.
 
+## Configuration
+
+Using the default configuration from [src/config/config.json](src/config/config.json) should work fine if the backend [DeepPhe Stream Multi-Container Stack](https://github.com/DeepPhe/dphe-stream-dock) also uses the default configuration.
+
 ## Start up the demo app
 
 First make sure the backend [DeepPhe Stream Multi-Container Stack](https://github.com/DeepPhe/dphe-stream-dock) is up running. This demo app will be making API calls against the containers which runs the NLP pipeline to extract all the information.
