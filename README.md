@@ -12,5 +12,9 @@ Then in the root directory of this project, run `npm install` to install all the
 
 First make sure the backend [DeepPhe Stream Multi-Container Stack](https://github.com/DeepPhe/dphe-stream-dock) is up running. This demo app will be making API calls against the containers which runs the NLP pipeline to extract all the information.
 
-Back in the demo project directory, run `npm start` then open [http://localhost:3000](http://localhost:3000) to view it in your web browser.
+Back in the demo project directory, run `npm start` and it'll open the app at [http://localhost:3000](http://localhost:3000) in your web browser.
+
+## Sample patient reports
+
+This demo app comes with [sample reports](reports) from several fake patients for the demonstration purposes.
 
