@@ -2,6 +2,8 @@
 
 A simple React web application designed to demonstrate the capabilities of the DeepPhe-CR tools. This app will be based on the integration of DeepPhe-CR into CPDMS, as developed by KCR. The backend REST API service is provided through the [DeepPhe Stream Multi-Container Stack](https://github.com/DeepPhe/dphe-stream-dock) project.
 
+![screenshot of the demo app](demo.png)
+
 ## Install
 
 If you don't have Nodejs installed, first install the Nodejs v18 (includes npm). If you'll work with multiple Nodejs version, install [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) first then install Nodejs v18 via nvm.
