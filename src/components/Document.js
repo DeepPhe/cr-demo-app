@@ -40,7 +40,8 @@ function Document(props) {
         }
     }
     
-    const [checkedVariables, setCheckedVariables] = useState(new Array(variableNamesArr.length).fill(false));
+    // By default, all the variable checkboxes are selected to highlight the text mentions
+    const [checkedVariables, setCheckedVariables] = useState(new Array(variableNamesArr.length).fill(true));
 
     // Reset the state variables on each new file selection
     function resetAllStates() {
@@ -51,7 +52,7 @@ function Document(props) {
         setDocPreview('');
         setNlpResult({});
         setError('');
-        setCheckedVariables(new Array(variableNamesArr.length).fill(false));
+        setCheckedVariables(new Array(variableNamesArr.length).fill(true));
     }
 
     // Reset the state variables on each click of the Summarize button
@@ -61,7 +62,7 @@ function Document(props) {
         setDocPreview(docText);
         setNlpResult({});
         setError('');
-        setCheckedVariables(new Array(variableNamesArr.length).fill(false));
+        setCheckedVariables(new Array(variableNamesArr.length).fill(true));
     }
 
     // const with curly brackets is object destructuring assignment from ES6 specifications
@@ -139,6 +140,11 @@ function Document(props) {
 
                     // `data` is an object here
                     setNlpResult(res.data);
+
+                    // Trigger multihighlighting
+                    // Without this line, the text preview won't highlight any text mentions
+                    // even though resetSummaryStates() was called earlier
+                    setCheckedVariables(new Array(variableNamesArr.length).fill(true));
 
                     // console.log("======Pretty print======");
                     // console.log(JSON.stringify(res.data, null, 2));
