@@ -20,7 +20,7 @@ font-size: 1.5em;
 }
 
 .app-content {
-padding: 20px;
+padding: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -43,6 +43,7 @@ background: #555;
 background-color: #fff;
 border: 1px solid #282c34;
 border-radius: 8px;
+font-size: .85em;
 }
 
 .doc-header {
@@ -57,16 +58,16 @@ line-height: 30px;
 .extracted-info {
 /* Use a monospace font like <pre> does by default */
 font-family: monospace;
-padding: 20px;
-height: 650px;
+padding: 10px;
+height: 600px;
 }
 
 .doc-content {
 /* Use a monospace font like <pre> does by default */
 font-family: monospace;
 white-space: pre-wrap;
-padding: 20px;
-height: 650px;
+padding: 10px;
+height: 600px;
 overflow-y: scroll;
 margin-bottom: 0; /* There's a default margin  */
 }
@@ -89,7 +90,7 @@ float: right;
 }
 
 .list-group-item{
-padding: 15px;
+padding: 10px;
 }
 
 .term-count {

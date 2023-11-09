@@ -290,11 +290,11 @@ function Document(props) {
 
                     // Add `key` property to avoid: Warning: Each child in a list should have a unique "key" prop
                     return (
-                        <div className="card border-secondary mb-3">
+                        <div className="card border-secondary mb-3" key={index}>
                         <div className="card-header">{capitalize(name)}</div>
                         <div className="card-body text-success">
                         <div className="dropdown">
-                        <select className="form-select form-select-sm" aria-label=".form-select-sm example" defaultValue={info[name].dropdownDefaultValue}>
+                        <select className="form-select form-select-sm" defaultValue={info[name].dropdownDefaultValue}>
                         {info[name].dropdownOptions.map((text, index) => {
                             return (
                                 <option value={text} key={index}>{text}</option>
