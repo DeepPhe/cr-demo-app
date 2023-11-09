@@ -6,7 +6,7 @@ A simple React web application designed to demonstrate the capabilities of the D
 
 ## Install app dependencies
 
-If you don't have Nodejs installed, first install the Nodejs v18 (includes npm). If you'll work with multiple Nodejs version, install [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) first then install Nodejs v18 via nvm.
+If you don't have Nodejs installed, first install the Nodejs v20 (includes npm). If you'll work with multiple Nodejs version, install [Node Version Manager](https://github.com/nvm-sh/nvm) (nvm) first then install Nodejs v18 via nvm.
 
 Then in the root directory of this project, run `npm install` to install all the application dependencies.
 
